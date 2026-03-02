@@ -7,22 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function openSidebar() {
     mobileSidebar.classList.remove("translate-x-full");
     mobileOverlay.classList.remove("hidden");
-    // Prevent scrolling on the main page while sidebar is open
     document.body.classList.add("overflow-hidden");
   }
 
   function closeSidebar() {
     mobileSidebar.classList.add("translate-x-full");
     mobileOverlay.classList.add("hidden");
-    // Restore scrolling
     document.body.classList.remove("overflow-hidden");
   }
 
-  // Attach event listeners
   if (mobileMenuBtn && closeSidebarBtn && mobileSidebar && mobileOverlay) {
     mobileMenuBtn.addEventListener("click", openSidebar);
     closeSidebarBtn.addEventListener("click", closeSidebar);
-    // Clicking the dark overlay also closes the menu
     mobileOverlay.addEventListener("click", closeSidebar);
   }
 });
