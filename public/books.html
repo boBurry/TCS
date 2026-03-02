@@ -14,15 +14,15 @@
   <body class="bg-white text-black font-mono">
     <header class="border-b-4 border-black sticky top-0 bg-white z-50">
       <div
-        class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center gap-4"
       >
         <a
           href="index.html"
-          class="border-4 border-black p-2 font-black text-xl uppercase hover:bg-black hover:text-white transition"
+          class="border-4 border-black p-2 font-black text-xl uppercase hover:bg-black hover:text-white transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
           >TCS</a
         >
 
-        <nav class="flex-grow flex items-center justify-center">
+        <nav class="hidden md:flex flex-grow justify-center">
           <div
             class="flex space-x-8 text-lg font-bold uppercase tracking-tighter items-center"
           >
@@ -34,7 +34,7 @@
 
             <div class="relative group">
               <button
-                class="hover:text-gray-600 flex items-center uppercase py-2"
+                class="hover:text-gray-600 flex items-center py-2 uppercase"
               >
                 Category
                 <svg
@@ -56,12 +56,12 @@
               >
                 <a
                   href="books.html"
-                  class="block px-4 py-2 border-b-4 border-black hover:bg-gray-100 font-black"
+                  class="block px-4 py-2 border-b-4 border-black hover:bg-gray-100 font-black uppercase"
                   >Books</a
                 >
                 <a
                   href="supplies.html"
-                  class="block px-4 py-2 hover:bg-gray-100 font-black"
+                  class="block px-4 py-2 hover:bg-gray-100 font-black uppercase"
                   >Supplies</a
                 >
               </div>
@@ -72,9 +72,9 @@
           </div>
         </nav>
 
-        <div class="flex items-center space-x-6">
+        <div class="hidden md:flex items-center space-x-6">
           <div
-            class="relative flex items-center border-2 border-black px-3 py-1 bg-gray-50 hidden md:flex"
+            class="relative flex items-center border-2 border-black px-3 py-1 bg-gray-50"
           >
             <input
               type="text"
@@ -96,27 +96,9 @@
               />
             </svg>
           </div>
-          <button
-            class="border-2 border-black p-1 hover:bg-black hover:text-white transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
-          </button>
           <a
             href="cart.html"
-            class="border-2 border-black p-1 hover:bg-black hover:text-white transition"
+            class="border-2 border-black p-1 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -134,9 +116,137 @@
             </svg>
           </a>
         </div>
+
+        <div class="flex md:hidden items-center space-x-4">
+          <a
+            href="cart.html"
+            class="border-2 border-black p-1 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+          </a>
+          <button
+            id="mobile-menu-btn"
+            aria-label="Open Menu"
+            class="border-2 border-black p-1 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
+    <div
+      id="mobile-overlay"
+      class="fixed inset-0 bg-black bg-opacity-60 z-[60] hidden transition-opacity md:hidden"
+    ></div>
+
+    <div
+      id="mobile-sidebar"
+      class="fixed inset-y-0 right-0 z-[70] w-72 sm:w-80 bg-white border-l-4 border-black transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden"
+    >
+      <div
+        class="p-4 border-b-4 border-black flex justify-between items-center bg-gray-50"
+      >
+        <span class="font-black text-2xl uppercase italic">Menu</span>
+        <button
+          id="close-sidebar-btn"
+          aria-label="Close Menu"
+          class="border-2 border-black p-1 hover:bg-red-500 hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <nav
+        class="flex-grow overflow-y-auto p-6 space-y-8 flex flex-col text-xl font-black uppercase tracking-tighter"
+      >
+        <div
+          class="relative flex items-center border-4 border-black px-3 py-3 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus-within:-translate-y-1 transition-transform"
+        >
+          <input
+            type="text"
+            placeholder="SEARCH..."
+            class="bg-transparent outline-none w-full text-base font-bold uppercase"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 ml-2 text-black"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </div>
+
+        <a href="index.html" class="hover:text-orange-500 w-fit">Home</a>
+
+        <div class="flex flex-col space-y-4">
+          <span class="text-gray-400 border-b-2 border-gray-200 pb-2"
+            >Categories</span
+          >
+          <a
+            href="books.html"
+            class="hover:text-orange-500 pl-4 border-l-4 border-black"
+            >Books</a
+          >
+          <a
+            href="supplies.html"
+            class="hover:text-orange-500 pl-4 border-l-4 border-black"
+            >Supplies</a
+          >
+        </div>
+
+        <a href="secondhand.html" class="hover:text-orange-500 w-fit"
+          >Secondhand</a
+        >
+        <a href="about.html" class="hover:text-orange-500 w-fit">About</a>
+      </nav>
+    </div>
     <main class="max-w-7xl mx-auto py-10 px-6">
       <div class="flex justify-end mb-8">
         <div class="relative group">
@@ -364,5 +474,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/sidebar.js"></script>
   </body>
 </html>

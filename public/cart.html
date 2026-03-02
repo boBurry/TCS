@@ -13,127 +13,143 @@
   </head>
   <body class="bg-white text-black font-mono flex flex-col min-h-screen">
     <header class="border-b-4 border-black sticky top-0 bg-white z-50">
-      <div
-        class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4"
-      >
-        <a
-          href="index.html"
-          class="border-4 border-black p-2 font-black text-xl uppercase hover:bg-black hover:text-white transition"
-          >TCS</a
-        >
-
-        <nav class="flex-grow flex items-center justify-center">
-          <div
-            class="flex space-x-8 text-lg font-bold uppercase tracking-tighter items-center"
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        <div class="flex justify-between items-center mb-4 md:mb-0 gap-4">
+          <a
+            href="index.html"
+            class="border-4 border-black p-2 font-black text-xl uppercase hover:bg-black hover:text-white transition"
+            >TCS</a
           >
-            <a
-              href="index.html"
-              class="hover:text-gray-600 border-b-4 border-orange-500"
-              >Home</a
+
+          <nav class="hidden md:flex flex-grow justify-center">
+            <div
+              class="flex space-x-8 text-lg font-bold uppercase tracking-tighter items-center"
             >
+              <a
+                href="index.html"
+                class="hover:text-gray-600 border-b-4 border-orange-500"
+                >Home</a
+              >
 
-            <div class="relative group">
-              <button
-                class="hover:text-gray-600 flex items-center uppercase py-2"
-              >
-                Category
-                <svg
-                  class="w-4 h-4 ml-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              <div class="relative group">
+                <button
+                  class="hover:text-gray-600 flex items-center py-2 uppercase"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
-              </button>
-              <div
-                class="absolute left-0 top-full hidden group-hover:block w-48 bg-white border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50"
-              >
-                <a
-                  href="books.html"
-                  class="block px-4 py-2 border-b-4 border-black hover:bg-gray-100 font-black"
-                  >Books</a
+                  Category
+                  <svg
+                    class="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="absolute left-0 top-full hidden group-hover:block w-48 bg-white border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50"
                 >
-                <a
-                  href="supplies.html"
-                  class="block px-4 py-2 hover:bg-gray-100 font-black"
-                  >Supplies</a
-                >
+                  <a
+                    href="books.html"
+                    class="block px-4 py-2 border-b-4 border-black hover:bg-gray-100 font-black uppercase"
+                    >Books</a
+                  >
+                  <a
+                    href="supplies.html"
+                    class="block px-4 py-2 hover:bg-gray-100 font-black uppercase"
+                    >Supplies</a
+                  >
+                </div>
               </div>
-            </div>
 
+              <a href="secondhand.html" class="hover:text-gray-600"
+                >Secondhand</a
+              >
+              <a href="about.html" class="hover:text-gray-600">About</a>
+            </div>
+          </nav>
+
+          <div class="flex items-center space-x-3 sm:space-x-6">
+            <div
+              class="relative items-center border-2 border-black px-3 py-1 bg-gray-50 hidden lg:flex"
+            >
+              <input
+                type="text"
+                placeholder="SEARCH..."
+                class="bg-transparent outline-none w-48 uppercase text-sm font-bold"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+            <button
+              class="border-2 border-black p-1 hover:bg-black hover:text-white transition lg:hidden"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+            <a
+              href="cart.html"
+              class="border-2 border-black p-1 hover:bg-black hover:text-white transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <nav
+          class="md:hidden overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide"
+        >
+          <div
+            class="flex space-x-6 text-sm font-bold uppercase tracking-tighter whitespace-nowrap min-w-max"
+          >
+            <a href="index.html" class="border-b-4 border-orange-500">Home</a>
+            <a href="books.html" class="hover:text-gray-600">Books</a>
+            <a href="supplies.html" class="hover:text-gray-600">Supplies</a>
             <a href="secondhand.html" class="hover:text-gray-600">Secondhand</a>
             <a href="about.html" class="hover:text-gray-600">About</a>
           </div>
         </nav>
-
-        <div class="flex items-center space-x-6">
-          <div
-            class="relative flex items-center border-2 border-black px-3 py-1 bg-gray-50 hidden md:flex"
-          >
-            <input
-              type="text"
-              placeholder="SEARCH..."
-              class="bg-transparent outline-none w-48 lg:w-64 uppercase text-sm font-bold"
-            />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="3"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </div>
-          <button
-            class="border-2 border-black p-1 hover:bg-black hover:text-white transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
-          </button>
-          <a
-            href="cart.html"
-            class="border-2 border-black p-1 hover:bg-black hover:text-white transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-              />
-            </svg>
-          </a>
-        </div>
       </div>
     </header>
     <main class="max-w-5xl mx-auto px-6 py-12 flex-grow w-full">
