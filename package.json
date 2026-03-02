@@ -1,4 +1,11 @@
 {
+  "name": "tcs-store",
+  "version": "1.0.0",
+  "description": "Techno Campus Store front-end prototype",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css --watch"
+  },
   "dependencies": {
     "@tailwindcss/cli": "^4.2.1",
     "tailwindcss": "^4.2.1"
