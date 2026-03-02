@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techno Campus Store (TCS) | Home</title>
+    <link href="./output.css" rel="stylesheet"> 
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans pb-12">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            
+            <a href="index.html" class="text-2xl font-extrabold text-blue-900 tracking-tight">
+                TCS<span class="text-sm font-medium text-gray-500 ml-2">Campus Store</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="index.html" class="text-blue-700 font-semibold border-b-2 border-blue-700 pb-1">Home</a>
+                <a href="#" class="text-gray-600 hover:text-blue-700 transition">Books</a>
+                <a href="#" class="text-gray-600 hover:text-blue-700 transition">Stationery</a>
+                <a href="#" class="text-green-600 hover:text-green-700 font-bold transition">Secondhand</a>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <div class="hidden sm:block relative">
+                    <input type="text" placeholder="Search TCS..." class="bg-gray-100 border-none rounded-full py-2 px-4 pl-10 focus:ring-2 focus:ring-blue-500 outline-none text-sm w-48 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 absolute left-4 top-2.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+
+                <a href="cart.html" class="text-gray-700 hover:text-blue-700 relative transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">2</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="max-w-6xl mx-auto px-4 mt-8 mb-12">
+        <div class="bg-blue-900 rounded-2xl p-8 md:p-12 text-white shadow-lg flex flex-col md:flex-row items-center justify-between">
+            <div class="max-w-lg">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Click, Collect, Excel.</h1>
+                <p class="text-blue-100 mb-6 text-lg">Reserve your textbooks and stationery online. Pick them up instantly on campus.</p>
+                <div class="flex space-x-4">
+                    <button class="bg-white text-blue-900 px-6 py-2 rounded-lg font-bold hover:bg-gray-100 transition shadow">Shop New</button>
+                    <button class="bg-green-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-600 transition shadow">Shop Secondhand</button>
+                </div>
+            </div>
+            <div class="hidden md:block w-48 h-48 bg-blue-800 rounded-full opacity-50 flex items-center justify-center">
+                <span class="text-blue-300 text-sm">Hero Image</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto px-4 space-y-12">
+
+        <section>
+            <div class="flex justify-between items-end mb-4">
+                <h2 class="text-2xl font-bold text-gray-800">Most Popular</h2>
+                <a href="#" class="text-sm font-semibold text-blue-600 hover:text-blue-800">View All</a>
+            </div>
+            <div class="flex space-x-6 overflow-x-auto pb-4 snap-x">
+                
+                <div class="min-w-[200px] bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition snap-start">
+                    <div class="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-gray-400">Image</div>
+                    <span class="text-xs font-bold text-blue-600 uppercase tracking-wide">Book</span>
+                    <h3 class="font-bold text-gray-900 mt-1 truncate">Intro to C++</h3>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="font-bold text-lg">$14.00</span>
+                        <button class="bg-blue-50 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-blue-100 transition">
+                            <span class="font-bold text-xl leading-none mb-1">+</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="min-w-[200px] bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition snap-start">
+                    <div class="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-gray-400">Image</div>
+                    <span class="text-xs font-bold text-green-600 uppercase tracking-wide">Secondhand</span>
+                    <h3 class="font-bold text-gray-900 mt-1 truncate">Casio Calculator</h3>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="font-bold text-lg">$9.50</span>
+                        <button class="bg-blue-50 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-blue-100 transition">
+                            <span class="font-bold text-xl leading-none mb-1">+</span>
+                        </button>
+                    </div>
+                </div>
+
+                </div>
+        </section>
+
+        <section>
+            <div class="flex justify-between items-end mb-4">
+                <h2 class="text-2xl font-bold text-gray-800">Top Rating</h2>
+                <a href="#" class="text-sm font-semibold text-blue-600 hover:text-blue-800">View All</a>
+            </div>
+            <div class="flex space-x-6 overflow-x-auto pb-4 snap-x">
+                <div class="min-w-[200px] bg-white border border-gray-100 rounded-xl p-4 shadow-sm snap-start">
+                    <div class="h-40 bg-gray-100 rounded-lg mb-4"></div>
+                    <div class="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
+                    <div class="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
