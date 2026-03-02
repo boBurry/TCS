@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCS | Secondhand Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .group:hover .group-hover\:block {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-black font-mono">
+    <header class="border-b-4 border-black sticky top-0 bg-white z-50">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
+        <div
+          class="border-4 border-black p-2 font-black text-xl mr-12 uppercase"
+        >
+          TCS
+        </div>
+        <nav class="flex-grow flex items-center">
+          <div
+            class="flex space-x-8 text-lg font-bold uppercase tracking-tighter items-center"
+          >
+            <a href="index.html" class="hover:text-gray-600">Home</a>
+            <div class="relative group">
+              <button
+                class="hover:text-gray-600 flex items-center uppercase py-2"
+              >
+                Category
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute left-0 top-full hidden group-hover:block w-48 bg-white border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50"
+              >
+                <a
+                  href="books.html"
+                  class="block px-4 py-2 border-b-2 border-black hover:bg-gray-100 font-black"
+                  >Books Page</a
+                >
+                <a
+                  href="supplies.html"
+                  class="block px-4 py-2 hover:bg-gray-100 font-black"
+                  >Supplies Page</a
+                >
+              </div>
+            </div>
+            <a
+              href="secondhand.html"
+              class="border-b-4 border-green-500 text-green-700"
+              >Secondhand</a
+            >
+            <a href="about.html" class="hover:text-gray-600">About</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="max-w-7xl mx-auto py-10 px-6">
+      <div class="flex justify-end mb-8">
+        <div class="relative group">
+          <button
+            class="border-4 border-black px-6 py-2 flex items-center space-x-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-black uppercase hover:bg-gray-50 transition"
+          >
+            <span class="text-sm">Sort By: Default</span>
+            <svg
+              class="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <div
+            class="absolute right-0 top-full hidden group-hover:block w-56 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-40"
+          >
+            <a
+              href="#"
+              class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm"
+              >Name (A - Z)</a
+            >
+            <a
+              href="#"
+              class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm"
+              >Name (Z - A)</a
+            >
+            <a
+              href="#"
+              class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm"
+              >Price (Low - High)</a
+            >
+            <a
+              href="#"
+              class="block px-4 py-3 hover:bg-gray-100 font-black uppercase text-sm"
+              >Price (High - Low)</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <section class="mb-16">
+        <div class="flex items-center mb-8 border-b-4 border-black pb-2">
+          <span class="text-3xl mr-4">📓</span>
+          <h2 class="text-3xl font-black uppercase italic">Notebooks</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="border-4 border-black p-5 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+          >
+            <div
+              class="aspect-video border-2 border-black mb-4 flex items-center justify-center bg-gray-50"
+            >
+              <span
+                class="font-bold border-2 border-black px-3 py-1 bg-white uppercase"
+                >Item</span
+              >
+            </div>
+            <h3 class="font-black text-xl uppercase mb-2">A4 Grid Notebook</h3>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-black">$2.50</span>
+              <button
+                class="border-2 border-black px-4 py-1 font-black hover:bg-black hover:text-white transition"
+              >
+                Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex items-center mb-8 border-b-4 border-black pb-2">
+          <span class="text-3xl mr-4">📟</span>
+          <h2 class="text-3xl font-black uppercase italic">Calculators</h2>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

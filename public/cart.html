@@ -1,174 +1,274 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Cart | Techno Campus Store</title>
-    <link href="./output.css" rel="stylesheet">
-</head>
-<body class="bg-white text-gray-900 font-sans pb-12">
-
-    <nav class="border-b-2 border-gray-800 py-4 px-6 sticky top-0 bg-white z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            
-            <a href="index.html" class="flex-shrink-0">
-                <div class="w-12 h-12 border-2 border-gray-800 flex items-center justify-center relative bg-gray-50">
-                    <span class="text-xs font-bold z-10 bg-white px-1">logo</span>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-full h-[2px] bg-gray-300 rotate-45 absolute"></div>
-                        <div class="w-full h-[2px] bg-gray-300 -rotate-45 absolute"></div>
-                    </div>
-                </div>
-            </a>
-
-            <div class="hidden md:flex space-x-8 items-center font-bold text-gray-800">
-                <a href="index.html" class="hover:text-blue-600">Home</a>
-                <span class="hover:text-blue-600 cursor-pointer">Category</span>
-                <a href="#" class="hover:text-blue-600">Secondhand</a>
-                <a href="#" class="hover:text-blue-600">About us</a>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-gray-900 font-sans pb-12">
+    <nav
+      class="border-b-2 border-gray-800 py-4 px-6 sticky top-0 bg-white z-50"
+    >
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="flex-shrink-0">
+          <div
+            class="w-12 h-12 border-2 border-gray-800 flex items-center justify-center relative bg-gray-50"
+          >
+            <span class="text-xs font-bold z-10 bg-white px-1">logo</span>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-full h-[2px] bg-gray-300 rotate-45 absolute"></div>
+              <div class="w-full h-[2px] bg-gray-300 -rotate-45 absolute"></div>
             </div>
+          </div>
+        </a>
 
-            <div class="flex items-center space-x-6">
-                <div class="relative border-2 border-gray-800 rounded px-3 py-1 flex items-center w-64 bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                    <input type="text" placeholder="search" class="w-full outline-none bg-transparent text-sm font-medium">
-                </div>
-                <a href="cart.html" class="text-blue-600 border-b-2 border-blue-600 relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                </a>
-            </div>
+        <div
+          class="hidden md:flex space-x-8 items-center font-bold text-gray-800"
+        >
+          <a href="index.html" class="hover:text-blue-600">Home</a>
+          <span class="hover:text-blue-600 cursor-pointer">Category</span>
+          <a href="#" class="hover:text-blue-600">Secondhand</a>
+          <a href="#" class="hover:text-blue-600">About us</a>
         </div>
+
+        <div class="flex items-center space-x-6">
+          <div
+            class="relative border-2 border-gray-800 rounded px-3 py-1 flex items-center w-64 bg-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 text-gray-500 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <input
+              type="text"
+              placeholder="search"
+              class="w-full outline-none bg-transparent text-sm font-medium"
+            />
+          </div>
+          <a
+            href="cart.html"
+            class="text-blue-600 border-b-2 border-blue-600 relative"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-7 w-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 mt-12">
-        <h1 class="text-3xl font-bold border-b-2 border-gray-800 pb-2 mb-8 inline-block">My Cart</h1>
+      <h1
+        class="text-3xl font-bold border-b-2 border-gray-800 pb-2 mb-8 inline-block"
+      >
+        My Cart
+      </h1>
 
-        <div class="bg-white border-2 border-gray-800 p-8 shadow-[6px_6px_0px_0px_rgba(31,41,55,1)] mb-10">
-            
-            <div id="cart-items" class="space-y-6">
-                
-                <div class="flex flex-col md:flex-row items-center justify-between border-b-2 border-gray-200 pb-6 gap-6">
-                    <div class="flex items-center gap-6 w-full md:w-auto">
-                        <div class="w-24 h-24 border-2 border-gray-800 relative flex items-center justify-center bg-gray-50 flex-shrink-0">
-                            <span class="text-[10px] font-bold text-gray-500 z-10 bg-white px-1">Item</span>
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="w-full h-[2px] bg-gray-300 rotate-45 absolute"></div>
-                                <div class="w-full h-[2px] bg-gray-300 -rotate-45 absolute"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg text-gray-900">Intro to C++</h3>
-                            <p class="text-sm font-medium text-gray-600 mb-2">Secondhand Book</p>
-                            <p class="font-bold text-gray-900">$12.50</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
-                        <div class="flex items-center border-2 border-gray-800 bg-white">
-                            <button class="px-3 py-1 hover:bg-gray-200 font-bold text-lg decrease-btn" data-price="12.50">-</button>
-                            <span class="px-4 py-1 border-x-2 border-gray-800 font-bold qty-display">1</span>
-                            <button class="px-3 py-1 hover:bg-gray-200 font-bold text-lg increase-btn" data-price="12.50">+</button>
-                        </div>
-                        
-                        <button class="text-red-500 hover:text-red-700 transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                        
-                        <p class="font-bold text-xl w-20 text-right item-total">$12.50</p>
-                    </div>
+      <div
+        class="bg-white border-2 border-gray-800 p-8 shadow-[6px_6px_0px_0px_rgba(31,41,55,1)] mb-10"
+      >
+        <div id="cart-items" class="space-y-6">
+          <div
+            class="flex flex-col md:flex-row items-center justify-between border-b-2 border-gray-200 pb-6 gap-6"
+          >
+            <div class="flex items-center gap-6 w-full md:w-auto">
+              <div
+                class="w-24 h-24 border-2 border-gray-800 relative flex items-center justify-center bg-gray-50 flex-shrink-0"
+              >
+                <span
+                  class="text-[10px] font-bold text-gray-500 z-10 bg-white px-1"
+                  >Item</span
+                >
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="w-full h-[2px] bg-gray-300 rotate-45 absolute"
+                  ></div>
+                  <div
+                    class="w-full h-[2px] bg-gray-300 -rotate-45 absolute"
+                  ></div>
                 </div>
-
-                <div class="flex flex-col md:flex-row items-center justify-between pb-2 gap-6">
-                    <div class="flex items-center gap-6 w-full md:w-auto">
-                        <div class="w-24 h-24 border-2 border-gray-800 relative flex items-center justify-center bg-gray-50 flex-shrink-0">
-                            <span class="text-[10px] font-bold text-gray-500 z-10 bg-white px-1">Item</span>
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="w-full h-[2px] bg-gray-300 rotate-45 absolute"></div>
-                                <div class="w-full h-[2px] bg-gray-300 -rotate-45 absolute"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg text-gray-900">Blue Pens (Pack of 5)</h3>
-                            <p class="text-sm font-medium text-gray-600 mb-2">Stationery</p>
-                            <p class="font-bold text-gray-900">$3.00</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
-                        <div class="flex items-center border-2 border-gray-800 bg-white">
-                            <button class="px-3 py-1 hover:bg-gray-200 font-bold text-lg decrease-btn" data-price="3.00">-</button>
-                            <span class="px-4 py-1 border-x-2 border-gray-800 font-bold qty-display">1</span>
-                            <button class="px-3 py-1 hover:bg-gray-200 font-bold text-lg increase-btn" data-price="3.00">+</button>
-                        </div>
-                        
-                        <button class="text-red-500 hover:text-red-700 transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                        
-                        <p class="font-bold text-xl w-20 text-right item-total">$3.00</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-12">
-            
-            <a href="index.html" class="px-6 py-3 border-2 border-gray-800 bg-white text-gray-900 font-bold hover:bg-gray-100 shadow-[4px_4px_0px_0px_rgba(31,41,55,1)] transition-transform active:translate-y-1 active:shadow-none">
-                Continue Shopping
-            </a>
-            
-            <div class="w-full md:w-80 border-2 border-gray-800 p-6 bg-white shadow-[4px_4px_0px_0px_rgba(31,41,55,1)]">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-lg font-bold text-gray-700">Subtotal</span>
-                    <span id="subtotal" class="text-xl font-bold text-gray-900">$15.50</span>
-                </div>
-                <div class="flex justify-between items-center border-t-2 border-gray-800 pt-4 mb-6">
-                    <span class="text-2xl font-bold text-gray-900">Total</span>
-                    <span id="grand-total" class="text-3xl font-bold text-blue-700">$15.50</span>
-                </div>
-                
-                <a href="checkout.html" class="block w-full text-center bg-blue-600 text-white border-2 border-gray-800 px-6 py-4 font-bold text-lg hover:bg-blue-700 transition-colors">
-                    Proceed to Checkout
-                </a>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-900">Intro to C++</h3>
+                <p class="text-sm font-medium text-gray-600 mb-2">
+                  Secondhand Book
+                </p>
+                <p class="font-bold text-gray-900">$12.50</p>
+              </div>
             </div>
 
+            <div
+              class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end"
+            >
+              <div class="flex items-center border-2 border-gray-800 bg-white">
+                <button
+                  class="px-3 py-1 hover:bg-gray-200 font-bold text-lg decrease-btn"
+                  data-price="12.50"
+                >
+                  -
+                </button>
+                <span
+                  class="px-4 py-1 border-x-2 border-gray-800 font-bold qty-display"
+                  >1</span
+                >
+                <button
+                  class="px-3 py-1 hover:bg-gray-200 font-bold text-lg increase-btn"
+                  data-price="12.50"
+                >
+                  +
+                </button>
+              </div>
+
+              <button class="text-red-500 hover:text-red-700 transition">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              <p class="font-bold text-xl w-20 text-right item-total">$12.50</p>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row items-center justify-between pb-2 gap-6"
+          >
+            <div class="flex items-center gap-6 w-full md:w-auto">
+              <div
+                class="w-24 h-24 border-2 border-gray-800 relative flex items-center justify-center bg-gray-50 flex-shrink-0"
+              >
+                <span
+                  class="text-[10px] font-bold text-gray-500 z-10 bg-white px-1"
+                  >Item</span
+                >
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="w-full h-[2px] bg-gray-300 rotate-45 absolute"
+                  ></div>
+                  <div
+                    class="w-full h-[2px] bg-gray-300 -rotate-45 absolute"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-900">
+                  Blue Pens (Pack of 5)
+                </h3>
+                <p class="text-sm font-medium text-gray-600 mb-2">Stationery</p>
+                <p class="font-bold text-gray-900">$3.00</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end"
+            >
+              <div class="flex items-center border-2 border-gray-800 bg-white">
+                <button
+                  class="px-3 py-1 hover:bg-gray-200 font-bold text-lg decrease-btn"
+                  data-price="3.00"
+                >
+                  -
+                </button>
+                <span
+                  class="px-4 py-1 border-x-2 border-gray-800 font-bold qty-display"
+                  >1</span
+                >
+                <button
+                  class="px-3 py-1 hover:bg-gray-200 font-bold text-lg increase-btn"
+                  data-price="3.00"
+                >
+                  +
+                </button>
+              </div>
+
+              <button class="text-red-500 hover:text-red-700 transition">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              <p class="font-bold text-xl w-20 text-right item-total">$3.00</p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div
+        class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-12"
+      >
+        <a
+          href="index.html"
+          class="px-6 py-3 border-2 border-gray-800 bg-white text-gray-900 font-bold hover:bg-gray-100 shadow-[4px_4px_0px_0px_rgba(31,41,55,1)] transition-transform active:translate-y-1 active:shadow-none"
+        >
+          Continue Shopping
+        </a>
+
+        <div
+          class="w-full md:w-80 border-2 border-gray-800 p-6 bg-white shadow-[4px_4px_0px_0px_rgba(31,41,55,1)]"
+        >
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-lg font-bold text-gray-700">Subtotal</span>
+            <span id="subtotal" class="text-xl font-bold text-gray-900"
+              >$15.50</span
+            >
+          </div>
+          <div
+            class="flex justify-between items-center border-t-2 border-gray-800 pt-4 mb-6"
+          >
+            <span class="text-2xl font-bold text-gray-900">Total</span>
+            <span id="grand-total" class="text-3xl font-bold text-blue-700"
+              >$15.50</span
+            >
+          </div>
+
+          <a
+            href="checkout.html"
+            class="block w-full text-center bg-blue-600 text-white border-2 border-gray-800 px-6 py-4 font-bold text-lg hover:bg-blue-700 transition-colors"
+          >
+            Proceed to Checkout
+          </a>
+        </div>
+      </div>
     </main>
-
-    <script>
-        document.querySelectorAll('.increase-btn').forEach(btn => {
-            btn.addEventListener('click', function() { updateQuantity(this, 1); });
-        });
-
-        document.querySelectorAll('.decrease-btn').forEach(btn => {
-            btn.addEventListener('click', function() { updateQuantity(this, -1); });
-        });
-
-        function updateQuantity(btn, change) {
-            const container = btn.parentElement;
-            const qtyDisplay = container.querySelector('.qty-display');
-            let currentQty = parseInt(qtyDisplay.textContent);
-            
-            if (currentQty + change >= 1) {
-                currentQty += change;
-                qtyDisplay.textContent = currentQty;
-                
-                const price = parseFloat(btn.getAttribute('data-price'));
-                const itemTotalDisplay = container.parentElement.querySelector('.item-total');
-                itemTotalDisplay.textContent = '$' + (price * currentQty).toFixed(2);
-                
-                // In a real app, you would sum all .item-total elements here to update Subtotal/Total
-            }
-        }
-    </script>
-</body>
+    <script src="./js/cart.js"></script>
+  </body>
 </html>
