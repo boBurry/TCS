@@ -6,196 +6,557 @@
     <title>TCS | Campus Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      .group:hover .group-hover\:block { display: block; }
+      .group:hover .group-hover\:block {
+        display: block;
+      }
     </style>
   </head>
   <body class="bg-white text-black font-mono flex flex-col min-h-screen">
-
     <!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
     <header class="border-b-4 border-black sticky top-0 bg-white z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
-
         <!-- Logo -->
-        <a href="index.html"
-           class="border-4 border-black p-2 font-black text-xl uppercase hover:bg-black hover:text-white transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none shrink-0">
+        <a
+          href="index.html"
+          class="rounded- border-4 border-black p-2 font-black text-xl uppercase hover:bg-black hover:text-white transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none shrink-0"
+          >
           TCS
+          <img src="" class=""  alt="">
         </a>
 
         <!-- Desktop Nav -->
         <nav class="hidden md:flex flex-grow justify-center">
-          <div class="flex space-x-8 text-base font-bold uppercase tracking-tighter items-center">
+          <div
+            class="flex space-x-8 text-base font-bold uppercase tracking-tighter items-center"
+          >
             <a href="index.html" class="border-b-4 border-orange-500">Home</a>
 
             <div class="relative group">
-              <button class="hover:text-gray-500 flex items-center gap-1 py-2 uppercase">
+              <button
+                class="hover:text-gray-500 flex items-center gap-1 py-2 uppercase"
+              >
                 Category
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
-              <div class="absolute left-0 top-full hidden group-hover:block w-44 bg-white border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50">
-                <a href="books.html"    class="block px-4 py-2 border-b-4 border-black hover:bg-gray-100 font-black uppercase">Books</a>
-                <a href="supplies.html" class="block px-4 py-2 hover:bg-gray-100 font-black uppercase">Supplies</a>
+              <div
+                class="absolute left-0 top-full hidden group-hover:block w-44 bg-white border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50"
+              >
+                <a
+                  href="books.html"
+                  class="block px-4 py-2 border-b-4 border-black hover:bg-gray-100 font-black uppercase"
+                  >Books</a
+                >
+                <a
+                  href="supplies.html"
+                  class="block px-4 py-2 hover:bg-gray-100 font-black uppercase"
+                  >Supplies</a
+                >
               </div>
             </div>
 
             <a href="secondhand.html" class="hover:text-gray-500">Secondhand</a>
-            <a href="about.html"      class="hover:text-gray-500">About</a>
+            <a href="about.html" class="hover:text-gray-500">About</a>
           </div>
         </nav>
 
         <!-- Desktop Search + Cart -->
         <div class="hidden md:flex items-center gap-4 ml-auto">
-          <div class="flex items-center border-2 border-black px-3 py-1 bg-gray-50">
-            <input type="text" placeholder="SEARCH..." class="bg-transparent outline-none w-40 lg:w-56 uppercase text-sm font-bold"/>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          <div
+            class="flex items-center border-2 border-black px-3 py-1 bg-gray-50"
+          >
+            <input
+              type="text"
+              placeholder="SEARCH..."
+              class="bg-transparent outline-none w-40 lg:w-56 text-sm font-bold"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
             </svg>
           </div>
-          <a href="profile.html" class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none" aria-label="Profile">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          <a
+            href="profile.html"
+            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            aria-label="Profile"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
             </svg>
           </a>
-          <a href="cart.html" class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+          <a
+            href="cart.html"
+            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
             </svg>
           </a>
         </div>
 
         <!-- Mobile: Cart + Hamburger -->
         <div class="flex md:hidden items-center gap-3 ml-auto">
-          <a href="profile.html" class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none" aria-label="Profile">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          <a
+            href="profile.html"
+            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            aria-label="Profile"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
             </svg>
           </a>
-          <a href="cart.html" class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+          <a
+            href="cart.html"
+            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
             </svg>
           </a>
-          <button id="mobile-menu-btn" aria-label="Open Menu"
-                  class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"/>
+          <button
+            id="mobile-menu-btn"
+            aria-label="Open Menu"
+            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
-
       </div>
     </header>
 
     <!-- Mobile Overlay -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-[60] hidden md:hidden"></div>
+    <div
+      id="mobile-overlay"
+      class="fixed inset-0 bg-black bg-opacity-60 z-[60] hidden md:hidden"
+    ></div>
 
     <!-- Mobile Sidebar -->
-    <div id="mobile-sidebar" class="fixed inset-y-0 right-0 z-[70] w-72 sm:w-80 bg-white border-l-4 border-black transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden">
-      <div class="p-4 border-b-4 border-black flex justify-between items-center bg-gray-50">
+    <div
+      id="mobile-sidebar"
+      class="fixed inset-y-0 right-0 z-[70] w-72 sm:w-80 bg-white border-l-4 border-black transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden"
+    >
+      <div
+        class="p-4 border-b-4 border-black flex justify-between items-center bg-gray-50"
+      >
         <span class="font-black text-2xl uppercase italic">Menu</span>
-        <button id="close-sidebar-btn" aria-label="Close Menu"
-                class="border-2 border-black p-1.5 hover:bg-red-500 hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        <button
+          id="close-sidebar-btn"
+          aria-label="Close Menu"
+          class="border-2 border-black p-1.5 hover:bg-red-500 hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </div>
-      <nav class="flex-grow overflow-y-auto p-6 flex flex-col gap-8 text-xl font-black uppercase tracking-tighter">
-        <div class="flex items-center border-4 border-black px-3 py-3 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-          <input type="text" placeholder="SEARCH..." class="bg-transparent outline-none w-full text-base font-bold uppercase"/>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      <nav
+        class="flex-grow overflow-y-auto p-6 flex flex-col gap-8 text-xl font-black uppercase tracking-tighter"
+      >
+        <div
+          class="flex items-center border-4 border-black px-3 py-3 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <input
+            type="text"
+            placeholder="SEARCH..."
+            class="bg-transparent outline-none w-full text-base font-bold uppercase"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 shrink-0 ml-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
           </svg>
         </div>
-        <a href="index.html"       class="hover:text-orange-500">Home</a>
+        <a href="index.html" class="hover:text-orange-500">Home</a>
         <div class="flex flex-col gap-3">
-          <span class="text-sm text-gray-400 border-b-2 border-gray-200 pb-2">Categories</span>
-          <a href="books.html"    class="hover:text-orange-500 pl-4 border-l-4 border-black">Books</a>
-          <a href="supplies.html" class="hover:text-orange-500 pl-4 border-l-4 border-black">Supplies</a>
+          <span class="text-sm text-gray-400 border-b-2 border-gray-200 pb-2"
+            >Categories</span
+          >
+          <a
+            href="books.html"
+            class="hover:text-orange-500 pl-4 border-l-4 border-black"
+            >Books</a
+          >
+          <a
+            href="supplies.html"
+            class="hover:text-orange-500 pl-4 border-l-4 border-black"
+            >Supplies</a
+          >
         </div>
         <a href="secondhand.html" class="hover:text-orange-500">Secondhand</a>
-        <a href="about.html"      class="hover:text-orange-500">About</a>
+        <a href="about.html" class="hover:text-orange-500">About</a>
       </nav>
     </div>
-    <!-- ════════════════════════════ END HEADER ════════════════════════════ -->
 
-
-    <!-- Hero -->
     <section class="flex flex-col md:flex-row border-b-4 border-black">
-      <div class="p-8 md:p-12 border-b-4 md:border-b-0 md:border-r-4 border-black flex flex-col justify-center w-full md:w-1/2">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-black uppercase leading-none mb-6">
-          Techno<br>Campus<br>Store
+      <div
+        class="p-8 md:p-12 border-b-4 md:border-b-0 md:border-r-4 border-black flex flex-col justify-center w-full md:w-1/2"
+      >
+        <h1
+          class="text-5xl sm:text-6xl md:text-7xl font-black uppercase leading-none mb-6"
+        >
+          Techno<br />Campus<br />Store
         </h1>
-        <p class="text-base md:text-lg font-bold italic mb-8 border-l-4 border-black pl-4 uppercase">
+        <p
+          class="text-base md:text-lg font-bold italic mb-8 border-l-4 border-black pl-4 uppercase"
+        >
           "Click, Collect, Excel. Reserve online, pick up on campus."
         </p>
       </div>
-      <div class="bg-gray-100 flex items-center justify-center p-8 md:p-12 w-full md:w-1/2">
-        <div class="relative w-full max-w-xs aspect-video border-4 border-black bg-white flex items-center justify-center rotate-3 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] md:shadow-[15px_15px_0px_0px_rgba(0,0,0,1)]">
+      <div
+        class="bg-gray-100 flex items-center justify-center p-8 md:p-12 w-full md:w-1/2"
+      >
+        <div
+          class="relative w-full max-w-xs aspect-video border-4 border-black bg-white flex items-center justify-center rotate-3 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] md:shadow-[15px_15px_0px_0px_rgba(0,0,0,1)]"
+        >
           <span class="font-black text-xl uppercase">Hero Image</span>
-          <div class="absolute -top-4 -left-4 w-full h-full border-2 border-black -rotate-6 -z-10 bg-gray-200"></div>
+          <div
+            class="absolute -top-4 -left-4 w-full h-full border-2 border-black -rotate-6 -z-10 bg-gray-200"
+          ></div>
         </div>
       </div>
     </section>
 
-    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 space-y-16 flex-grow w-full">
+    <main
+      class="max-w-7xl mx-auto py-12 px-4 sm:px-6 space-y-16 flex-grow w-full"
+    >
       <section>
         <div class="flex items-center gap-3 mb-8">
           <div class="bg-black text-white p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-7 w-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+              />
             </svg>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-black uppercase italic tracking-tighter">Most Popular</h2>
+          <h2
+            class="text-3xl sm:text-4xl font-black uppercase italic tracking-tighter"
+          >
+            Most Popular
+          </h2>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+        >
           <!-- Product Card -->
-          <div class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white">
-            <div class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50">
-              <div class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"></div>
-              <div class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"></div>
-              <span class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm">Item</span>
+          <div
+            class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          >
+            <div
+              class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50"
+            >
+              <div
+                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
+              ></div>
+              <div
+                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
+              ></div>
+              <span
+                class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm"
+                >Item</span
+              >
             </div>
-            <p class="font-black uppercase text-sm mb-1 leading-tight">Calculus I</p>
+            <p class="font-black uppercase text-sm mb-1 leading-tight">
+              Calculus I
+            </p>
             <div class="flex justify-between items-center mt-3">
               <span class="text-xl font-black">$14.00</span>
-              <button class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition">Details</button>
+              <button
+                class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition"
+              >
+                Details
+              </button>
             </div>
           </div>
-          <!-- Repeat cards as needed -->
+
+          <!-- Product Card -->
+          <div
+            class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          >
+            <div
+              class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50"
+            >
+              <div
+                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
+              ></div>
+              <div
+                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
+              ></div>
+              <span
+                class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm"
+                >Item</span
+              >
+            </div>
+            <p class="font-black uppercase text-sm mb-1 leading-tight">
+              Calculus I
+            </p>
+            <div class="flex justify-between items-center mt-3">
+              <span class="text-xl font-black">$14.00</span>
+              <button
+                class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition"
+              >
+                Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Card -->
+          <div
+            class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          >
+            <div
+              class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50"
+            >
+              <div
+                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
+              ></div>
+              <div
+                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
+              ></div>
+              <span
+                class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm"
+                >Item</span
+              >
+            </div>
+            <p class="font-black uppercase text-sm mb-1 leading-tight">
+              Calculus I
+            </p>
+            <div class="flex justify-between items-center mt-3">
+              <span class="text-xl font-black">$14.00</span>
+              <button
+                class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition"
+              >
+                Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Card -->
+          <div
+            class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          >
+            <div
+              class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50"
+            >
+              <div
+                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
+              ></div>
+              <div
+                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
+              ></div>
+              <span
+                class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm"
+                >Item</span
+              >
+            </div>
+            <p class="font-black uppercase text-sm mb-1 leading-tight">
+              Calculus I
+            </p>
+            <div class="flex justify-between items-center mt-3">
+              <span class="text-xl font-black">$14.00</span>
+              <button
+                class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition"
+              >
+                Details
+              </button>
+            </div>
+          </div>
+
         </div>
       </section>
     </main>
 
-
     <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
     <footer class="border-t-4 border-black bg-white mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-        <div class="flex flex-wrap items-center gap-6 justify-center sm:justify-start">
-          <span class="text-lg font-black uppercase border-b-4 border-black">About Us</span>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-6"
+      >
+        <div
+          class="flex flex-wrap items-center gap-6 justify-center sm:justify-start"
+        >
+          <span class="text-lg font-black uppercase border-b-4 border-black"
+            >About Us</span
+          >
           <div class="flex gap-5 items-center">
-            <a href="#" aria-label="Facebook" class="hover:text-orange-500 hover:-translate-y-1 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            <a
+              href="#"
+              aria-label="Facebook"
+              class="hover:text-orange-500 hover:-translate-y-1 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </button>
+            </a>
+            <a
+              href="#"
+              aria-label="Telegram"
+              class="hover:text-orange-500 hover:-translate-y-1 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
             </a>
-            <a href="#" aria-label="Telegram" class="hover:text-orange-500 hover:-translate-y-1 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-              </svg>
-            </a>
-            <a href="#" aria-label="Phone" class="hover:text-orange-500 hover:-translate-y-1 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            <a
+              href="#"
+              aria-label="Phone"
+              class="hover:text-orange-500 hover:-translate-y-1 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
               </svg>
             </a>
           </div>
         </div>
-        <div class="flex items-center bg-black text-white px-6 py-4 gap-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] w-full sm:w-auto justify-center">
-          <span class="font-bold uppercase text-sm">Can't find what you want?</span>
-          <button class="bg-white text-black px-5 py-2 font-black uppercase text-sm hover:bg-orange-500 transition shrink-0">Request</button>
+        <div
+          class="flex items-center bg-black text-white px-6 py-4 gap-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] w-full sm:w-auto justify-center"
+        >
+          <span class="font-bold uppercase text-sm"
+            >Can't find what you want?</span
+          >
+          <button
+            class="bg-white text-black px-5 py-2 font-black uppercase text-sm hover:bg-orange-500 transition shrink-0"
+          >
+            Request
+          </button>
         </div>
       </div>
     </footer>
