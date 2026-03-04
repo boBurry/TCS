@@ -11,17 +11,17 @@
       }
     </style>
   </head>
-  <body class="bg-white text-black font-mono flex flex-col min-h-screen">
+  <body class="bg-white text-black font-sans flex flex-col min-h-screen">
     <!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
-    <header class="border-b-4 border-black sticky top-0 bg-white z-50">
+    <header class="border-b-4 sticky top-0 bg-white z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
         <!-- Logo -->
         <a
           href="index.html"
-          class="rounded- border-4 border-black p-2 font-black text-xl uppercase hover:bg-black hover:text-white transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none shrink-0"
-          >
+          class="rounded- border border-gray-200 rounded-xl p-2 font-black text-xl uppercase hover:text-gray-500 transition shadow-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none shrink-0"
+        >
           TCS
-          <img src="" class=""  alt="">
+          <img src="" class="" alt="" />
         </a>
 
         <!-- Desktop Nav -->
@@ -51,11 +51,11 @@
                 </svg>
               </button>
               <div
-                class="absolute left-0 top-full hidden group-hover:block w-44 bg-white border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50"
+                class="absolute left-0 top-full hidden group-hover:block w-44 bg-white border border-gray-200 rounded-xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50"
               >
                 <a
                   href="books.html"
-                  class="block px-4 py-2 border-b-4 border-black hover:bg-gray-100 font-black uppercase"
+                  class="block px-4 py-2 hover:bg-gray-100 font-black uppercase"
                   >Books</a
                 >
                 <a
@@ -74,7 +74,7 @@
         <!-- Desktop Search + Cart -->
         <div class="hidden md:flex items-center gap-4 ml-auto">
           <div
-            class="flex items-center border-2 border-black px-3 py-1 bg-gray-50"
+            class="flex items-center border border-gray-200 rounded-lg px-3 py-1 bg-gray-50"
           >
             <input
               type="text"
@@ -98,7 +98,7 @@
           </div>
           <a
             href="profile.html"
-            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             aria-label="Profile"
           >
             <svg
@@ -118,7 +118,7 @@
           </a>
           <a
             href="cart.html"
-            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +141,7 @@
         <div class="flex md:hidden items-center gap-3 ml-auto">
           <a
             href="profile.html"
-            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             aria-label="Profile"
           >
             <svg
@@ -161,7 +161,7 @@
           </a>
           <a
             href="cart.html"
-            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +181,7 @@
           <button
             id="mobile-menu-btn"
             aria-label="Open Menu"
-            class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -213,14 +213,12 @@
       id="mobile-sidebar"
       class="fixed inset-y-0 right-0 z-[70] w-72 sm:w-80 bg-white border-l-4 border-black transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden"
     >
-      <div
-        class="p-4 border-b-4 border-black flex justify-between items-center bg-gray-50"
-      >
+      <div class="p-4 flex justify-between items-center bg-gray-50">
         <span class="font-black text-2xl uppercase italic">Menu</span>
         <button
           id="close-sidebar-btn"
           aria-label="Close Menu"
-          class="border-2 border-black p-1.5 hover:bg-red-500 hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          class="border border-gray-200 rounded-lg p-1.5 hover:bg-red-500 hover:text-white transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -242,7 +240,7 @@
         class="flex-grow overflow-y-auto p-6 flex flex-col gap-8 text-xl font-black uppercase tracking-tighter"
       >
         <div
-          class="flex items-center border-4 border-black px-3 py-3 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+          class="flex items-center border border-gray-200 rounded-xl px-3 py-3 bg-white shadow-sm"
         >
           <input
             type="text"
@@ -285,7 +283,7 @@
       </nav>
     </div>
 
-    <section class="flex flex-col md:flex-row border-b-4 border-black">
+    <section class="flex flex-col md:flex-row">
       <div
         class="p-8 md:p-12 border-b-4 md:border-b-0 md:border-r-4 border-black flex flex-col justify-center w-full md:w-1/2"
       >
@@ -301,14 +299,14 @@
         </p>
       </div>
       <div
-        class="bg-gray-100 flex items-center justify-center p-8 md:p-12 w-full md:w-1/2"
+        class="bg-white flex items-center justify-center p-8 md:p-12 w-full md:w-1/2"
       >
         <div
-          class="relative w-full max-w-xs aspect-video border-4 border-black bg-white flex items-center justify-center rotate-3 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] md:shadow-[15px_15px_0px_0px_rgba(0,0,0,1)]"
+          class="relative w-full max-w-xs aspect-video border border-gray-200 rounded-xl bg-white flex items-center justify-center rotate-3 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] md:shadow-[15px_15px_0px_0px_rgba(0,0,0,1)]"
         >
           <span class="font-black text-xl uppercase">Hero Image</span>
           <div
-            class="absolute -top-4 -left-4 w-full h-full border-2 border-black -rotate-6 -z-10 bg-gray-200"
+            class="absolute -top-4 -left-4 w-full h-full border border-gray-200 rounded-lg -rotate-6 -z-10 bg-white"
           ></div>
         </div>
       </div>
@@ -319,7 +317,7 @@
     >
       <section>
         <div class="flex items-center gap-3 mb-8">
-          <div class="bg-black text-white p-2">
+          <div class="bg-gray-900 text-white rounded-lg hover:bg-gray-800 p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-7 w-7"
@@ -345,145 +343,106 @@
         <div
           class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
         >
-          <!-- Product Card -->
           <div
-            class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            class="group flex flex-col bg-white rounded-2xl p-4 border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all duration-300"
           >
             <div
-              class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50"
-            >
-              <div
-                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
-              ></div>
-              <div
-                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
-              ></div>
-              <span
-                class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm"
-                >Item</span
-              >
-            </div>
-            <p class="font-black uppercase text-sm mb-1 leading-tight">
-              Calculus I
-            </p>
-            <div class="flex justify-between items-center mt-3">
-              <span class="text-xl font-black">$14.00</span>
-              <button
-                class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition"
-              >
-                Details
-              </button>
+              class="aspect-[4/5] bg-gray-50 rounded-xl mb-4 overflow-hidden relative"
+            ></div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-sm font-medium text-gray-900 mb-1">
+                Calculus I: Early Transcendentals
+              </h3>
+              <p class="text-sm text-gray-500 mb-3">Math Department</p>
+              <div class="mt-auto flex items-center justify-between">
+                <span class="text-lg font-semibold text-gray-900">$14.00</span>
+                <button
+                  class="bg-gray-900 text-white text-xs font-medium px-4 py-2 rounded-lg hover:bg-orange-500 transition-colors"
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- Product Card -->
           <div
-            class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            class="group flex flex-col bg-white rounded-2xl p-4 border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all duration-300"
           >
             <div
-              class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50"
-            >
-              <div
-                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
-              ></div>
-              <div
-                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
-              ></div>
-              <span
-                class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm"
-                >Item</span
-              >
-            </div>
-            <p class="font-black uppercase text-sm mb-1 leading-tight">
-              Calculus I
-            </p>
-            <div class="flex justify-between items-center mt-3">
-              <span class="text-xl font-black">$14.00</span>
-              <button
-                class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition"
-              >
-                Details
-              </button>
+              class="aspect-[4/5] bg-gray-50 rounded-xl mb-4 overflow-hidden relative"
+            ></div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-sm font-medium text-gray-900 mb-1">
+                Calculus I: Early Transcendentals
+              </h3>
+              <p class="text-sm text-gray-500 mb-3">Math Department</p>
+              <div class="mt-auto flex items-center justify-between">
+                <span class="text-lg font-semibold text-gray-900">$14.00</span>
+                <button
+                  class="bg-gray-900 text-white text-xs font-medium px-4 py-2 rounded-lg hover:bg-orange-500 transition-colors"
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- Product Card -->
           <div
-            class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            class="group flex flex-col bg-white rounded-2xl p-4 border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all duration-300"
           >
             <div
-              class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50"
-            >
-              <div
-                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
-              ></div>
-              <div
-                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
-              ></div>
-              <span
-                class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm"
-                >Item</span
-              >
-            </div>
-            <p class="font-black uppercase text-sm mb-1 leading-tight">
-              Calculus I
-            </p>
-            <div class="flex justify-between items-center mt-3">
-              <span class="text-xl font-black">$14.00</span>
-              <button
-                class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition"
-              >
-                Details
-              </button>
+              class="aspect-[4/5] bg-gray-50 rounded-xl mb-4 overflow-hidden relative"
+            ></div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-sm font-medium text-gray-900 mb-1">
+                Calculus I: Early Transcendentals
+              </h3>
+              <p class="text-sm text-gray-500 mb-3">Math Department</p>
+              <div class="mt-auto flex items-center justify-between">
+                <span class="text-lg font-semibold text-gray-900">$14.00</span>
+                <button
+                  class="bg-gray-900 text-white text-xs font-medium px-4 py-2 rounded-lg hover:bg-orange-500 transition-colors"
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- Product Card -->
           <div
-            class="border-4 border-black p-4 hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            class="group flex flex-col bg-white rounded-2xl p-4 border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all duration-300"
           >
             <div
-              class="aspect-square border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden bg-gray-50"
-            >
-              <div
-                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
-              ></div>
-              <div
-                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
-              ></div>
-              <span
-                class="font-bold border-2 border-black px-3 py-1 bg-white z-10 uppercase text-sm"
-                >Item</span
-              >
-            </div>
-            <p class="font-black uppercase text-sm mb-1 leading-tight">
-              Calculus I
-            </p>
-            <div class="flex justify-between items-center mt-3">
-              <span class="text-xl font-black">$14.00</span>
-              <button
-                class="border-2 border-black px-3 py-1 font-black uppercase text-xs hover:bg-black hover:text-white transition"
-              >
-                Details
-              </button>
+              class="aspect-[4/5] bg-gray-50 rounded-xl mb-4 overflow-hidden relative"
+            ></div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-sm font-medium text-gray-900 mb-1">
+                Calculus I: Early Transcendentals
+              </h3>
+              <p class="text-sm text-gray-500 mb-3">Math Department</p>
+              <div class="mt-auto flex items-center justify-between">
+                <span class="text-lg font-semibold text-gray-900">$14.00</span>
+                <button
+                  class="bg-gray-900 text-white text-xs font-medium px-4 py-2 rounded-lg hover:bg-orange-500 transition-colors"
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
           </div>
-
         </div>
       </section>
     </main>
 
     <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
-    <footer class="border-t-4 border-black bg-white mt-auto">
+    <footer class="bg-white mt-auto">
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-6"
       >
         <div
           class="flex flex-wrap items-center gap-6 justify-center sm:justify-start"
         >
-          <span class="text-lg font-black uppercase border-b-4 border-black"
-            >About Us</span
-          >
+          <span class="text-lg font-black uppercase">About Us</span>
           <div class="flex gap-5 items-center">
             <a
               href="#"
@@ -503,7 +462,7 @@
                 <path
                   d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
                 />
-              </button>
+              </svg>
             </a>
             <a
               href="#"
@@ -547,7 +506,7 @@
           </div>
         </div>
         <div
-          class="flex items-center bg-black text-white px-6 py-4 gap-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] w-full sm:w-auto justify-center"
+          class="flex items-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 px-6 py-4 gap-4 shadow-sm w-full sm:w-auto justify-center"
         >
           <span class="font-bold uppercase text-sm"
             >Can't find what you want?</span

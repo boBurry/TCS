@@ -6,184 +6,459 @@
     <title>TCS | Secondhand Market</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      .group:hover .group-hover\:block { display: block; }
+      .group:hover .group-hover\:block {
+        display: block;
+      }
     </style>
   </head>
-  <body class="bg-white text-black font-mono flex flex-col min-h-screen">
-
+  <body class="bg-white text-black font-sans flex flex-col min-h-screen">
     <!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
-    <header class="border-b-4 border-black sticky top-0 bg-white z-50">
+    <header class="border-b-4 sticky top-0 bg-white z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
-        <a href="index.html"
-           class="border-4 border-black p-2 font-black text-xl uppercase hover:bg-black hover:text-white transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none shrink-0">
+        <a
+          href="index.html"
+          class="border border-gray-200 rounded-xl p-2 font-black text-xl uppercase hover:text-gray-500 transition shadow-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none shrink-0"
+        >
           TCS
         </a>
         <nav class="hidden md:flex flex-grow justify-center">
-          <div class="flex space-x-8 text-base font-bold uppercase tracking-tighter items-center">
+          <div
+            class="flex space-x-8 text-base font-bold uppercase tracking-tighter items-center"
+          >
             <a href="index.html" class="hover:text-gray-500">Home</a>
             <div class="relative group">
-              <button class="hover:text-gray-500 flex items-center gap-1 py-2 uppercase">
+              <button
+                class="hover:text-gray-500 flex items-center gap-1 py-2 uppercase"
+              >
                 Category
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
-              <div class="absolute left-0 top-full hidden group-hover:block w-44 bg-white border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50">
-                <a href="books.html"    class="block px-4 py-2 border-b-4 border-black hover:bg-gray-100 font-black uppercase">Books</a>
-                <a href="supplies.html" class="block px-4 py-2 hover:bg-gray-100 font-black uppercase">Supplies</a>
+              <div
+                class="absolute left-0 top-full hidden group-hover:block w-44 bg-white border border-gray-200 rounded-xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] z-50"
+              >
+                <a
+                  href="books.html"
+                  class="block px-4 py-2 hover:bg-gray-100 font-black uppercase"
+                  >Books</a
+                >
+                <a
+                  href="supplies.html"
+                  class="block px-4 py-2 hover:bg-gray-100 font-black uppercase"
+                  >Supplies</a
+                >
               </div>
             </div>
-            <a href="secondhand.html" class="border-b-4 border-orange-500">Secondhand</a>
-            <a href="about.html"      class="hover:text-gray-500">About</a>
+            <a href="secondhand.html" class="border-b-4 border-orange-500"
+              >Secondhand</a
+            >
+            <a href="about.html" class="hover:text-gray-500">About</a>
           </div>
         </nav>
         <div class="hidden md:flex items-center gap-4 ml-auto">
-          <div class="flex items-center border-2 border-black px-3 py-1 bg-gray-50">
-            <input type="text" placeholder="SEARCH..." class="bg-transparent outline-none w-40 lg:w-56 uppercase text-sm font-bold"/>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          <div
+            class="flex items-center border border-gray-200 rounded-lg px-3 py-1 bg-gray-50"
+          >
+            <input
+              type="text"
+              placeholder="SEARCH..."
+              class="bg-transparent outline-none w-40 lg:w-56 uppercase text-sm font-bold"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
             </svg>
           </div>
-          <a href="profile.html" class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none" aria-label="Profile">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          <a
+            href="profile.html"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            aria-label="Profile"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
             </svg>
           </a>
-          <a href="cart.html" class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+          <a
+            href="cart.html"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
             </svg>
           </a>
         </div>
         <div class="flex md:hidden items-center gap-3 ml-auto">
-          <a href="profile.html" class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none" aria-label="Profile">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          <a
+            href="profile.html"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            aria-label="Profile"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
             </svg>
           </a>
-          <a href="cart.html" class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+          <a
+            href="cart.html"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
             </svg>
           </a>
-          <button id="mobile-menu-btn" aria-label="Open Menu"
-                  class="border-2 border-black p-1.5 hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"/>
+          <button
+            id="mobile-menu-btn"
+            aria-label="Open Menu"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
       </div>
     </header>
 
-    <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-[60] hidden md:hidden"></div>
-    <div id="mobile-sidebar" class="fixed inset-y-0 right-0 z-[70] w-72 sm:w-80 bg-white border-l-4 border-black transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden">
-      <div class="p-4 border-b-4 border-black flex justify-between items-center bg-gray-50">
+    <div
+      id="mobile-overlay"
+      class="fixed inset-0 bg-black bg-opacity-60 z-[60] hidden md:hidden"
+    ></div>
+    <div
+      id="mobile-sidebar"
+      class="fixed inset-y-0 right-0 z-[70] w-72 sm:w-80 bg-white border-l-4 border-black transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden"
+    >
+      <div class="p-4 flex justify-between items-center bg-gray-50">
         <span class="font-black text-2xl uppercase italic">Menu</span>
-        <button id="close-sidebar-btn" aria-label="Close Menu"
-                class="border-2 border-black p-1.5 hover:bg-red-500 hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        <button
+          id="close-sidebar-btn"
+          aria-label="Close Menu"
+          class="border border-gray-200 rounded-lg p-1.5 hover:bg-red-500 hover:text-white transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </div>
-      <nav class="flex-grow overflow-y-auto p-6 flex flex-col gap-8 text-xl font-black uppercase tracking-tighter">
-        <div class="flex items-center border-4 border-black px-3 py-3 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-          <input type="text" placeholder="SEARCH..." class="bg-transparent outline-none w-full text-base font-bold uppercase"/>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      <nav
+        class="flex-grow overflow-y-auto p-6 flex flex-col gap-8 text-xl font-black uppercase tracking-tighter"
+      >
+        <div
+          class="flex items-center border border-gray-200 rounded-xl px-3 py-3 bg-white shadow-sm"
+        >
+          <input
+            type="text"
+            placeholder="SEARCH..."
+            class="bg-transparent outline-none w-full text-base font-bold uppercase"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 shrink-0 ml-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
           </svg>
         </div>
-        <a href="index.html"       class="hover:text-orange-500">Home</a>
+        <a href="index.html" class="hover:text-orange-500">Home</a>
         <div class="flex flex-col gap-3">
-          <span class="text-sm text-gray-400 border-b-2 border-gray-200 pb-2">Categories</span>
-          <a href="books.html"    class="hover:text-orange-500 pl-4 border-l-4 border-black">Books</a>
-          <a href="supplies.html" class="hover:text-orange-500 pl-4 border-l-4 border-black">Supplies</a>
+          <span class="text-sm text-gray-400 border-b-2 border-gray-200 pb-2"
+            >Categories</span
+          >
+          <a
+            href="books.html"
+            class="hover:text-orange-500 pl-4 border-l-4 border-black"
+            >Books</a
+          >
+          <a
+            href="supplies.html"
+            class="hover:text-orange-500 pl-4 border-l-4 border-black"
+            >Supplies</a
+          >
         </div>
         <a href="secondhand.html" class="text-orange-500">Secondhand</a>
-        <a href="about.html"      class="hover:text-orange-500">About</a>
+        <a href="about.html" class="hover:text-orange-500">About</a>
       </nav>
     </div>
     <!-- ════════════════════════════ END HEADER ════════════════════════════ -->
 
     <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 flex-grow w-full">
-
       <!-- Sort Bar -->
       <div class="flex justify-end mb-8">
         <div class="relative group">
-          <button class="border-4 border-black px-5 py-2 flex items-center gap-3 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-black uppercase hover:bg-gray-50 transition text-sm">
+          <button
+            class="border border-gray-200 rounded-xl px-5 py-2 flex items-center gap-3 bg-white shadow-sm font-black uppercase hover:bg-gray-50 transition text-sm"
+          >
             Sort By: Default
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
-          <div class="absolute right-0 top-full hidden group-hover:block w-52 bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] z-40">
-            <a href="#" class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm">Name (A – Z)</a>
-            <a href="#" class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm">Name (Z – A)</a>
-            <a href="#" class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm">Price (Low – High)</a>
-            <a href="#" class="block px-4 py-3 hover:bg-gray-100 font-black uppercase text-sm">Price (High – Low)</a>
+          <div
+            class="absolute right-0 top-full hidden group-hover:block w-52 bg-white border border-gray-200 rounded-xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] z-40"
+          >
+            <a
+              href="#"
+              class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm"
+              >Name (A – Z)</a
+            >
+            <a
+              href="#"
+              class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm"
+              >Name (Z – A)</a
+            >
+            <a
+              href="#"
+              class="block px-4 py-3 border-b-2 border-black hover:bg-gray-100 font-black uppercase text-sm"
+              >Price (Low – High)</a
+            >
+            <a
+              href="#"
+              class="block px-4 py-3 hover:bg-gray-100 font-black uppercase text-sm"
+              >Price (High – Low)</a
+            >
           </div>
         </div>
       </div>
 
       <!-- Used Books Section -->
       <section class="mb-16">
-        <div class="flex items-center gap-3 mb-6 border-b-4 border-black pb-2">
+        <div class="flex items-center gap-3 mb-6 pb-2">
           <span class="text-2xl">📖</span>
-          <h2 class="text-2xl sm:text-3xl font-black uppercase italic">Used Books</h2>
+          <h2 class="text-2xl sm:text-3xl font-black uppercase italic">
+            Used Books
+          </h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <!-- Secondhand Book Card — same format as books.html but with condition badge -->
-          <div class="border-4 border-black flex flex-row hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow bg-white">
-            <div class="w-28 sm:w-32 shrink-0 border-r-4 border-black flex items-center justify-center relative bg-gray-50">
-              <span class="absolute top-2 left-2 bg-green-500 text-white text-[10px] font-black px-2 py-0.5 border-2 border-black">USED</span>
-              <span class="font-black border-2 border-black px-2 py-1 bg-white text-xs">ITEM</span>
+          <div
+            class="border border-gray-200 rounded-xl flex flex-row hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow bg-white"
+          >
+            <div
+              class="w-28 sm:w-32 shrink-0 border-r-4 border-black flex items-center justify-center relative bg-gray-50"
+            >
+              <span
+                class="absolute top-2 left-2 bg-green-500 text-white text-[10px] font-black px-2 py-0.5 border border-gray-200 rounded-lg"
+                >USED</span
+              >
+              <span
+                class="font-black border border-gray-200 rounded-lg px-2 py-1 bg-white text-xs"
+                >ITEM</span
+              >
             </div>
             <div class="flex flex-col p-4 flex-grow min-w-0">
-              <h3 class="text-lg sm:text-xl font-black uppercase mb-1 underline decoration-4 truncate">C++ Programming</h3>
+              <h3
+                class="text-lg sm:text-xl font-black uppercase mb-1 underline decoration-4 truncate"
+              >
+                C++ Programming
+              </h3>
               <div class="flex text-base mb-1">
                 <span>★★★★</span><span class="text-gray-300">★</span>
-                <span class="text-xs font-bold ml-2 mt-0.5">(Good Condition)</span>
+                <span class="text-xs font-bold ml-2 mt-0.5"
+                  >(Good Condition)</span
+                >
               </div>
-              <p class="text-xs italic text-gray-600 mb-3 line-clamp-2">"Minimal highlighting, no missing pages."</p>
+              <p class="text-xs italic text-gray-600 mb-3 line-clamp-2">
+                "Minimal highlighting, no missing pages."
+              </p>
               <div class="mt-auto flex justify-between items-center">
                 <span class="text-2xl font-black text-green-700">$5.00</span>
-                <button class="border-4 border-black px-4 py-1.5 font-black uppercase text-sm hover:bg-black hover:text-white transition shrink-0">Details</button>
+                <button
+                  class="border border-gray-200 rounded-xl px-4 py-1.5 font-black uppercase text-sm hover:text-gray-500 transition shrink-0"
+                >
+                  Details
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
-    <footer class="border-t-4 border-black bg-white mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-        <div class="flex flex-wrap items-center gap-6 justify-center sm:justify-start">
-          <span class="text-lg font-black uppercase border-b-4 border-black">About Us</span>
+    <footer class="bg-white mt-auto">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-6"
+      >
+        <div
+          class="flex flex-wrap items-center gap-6 justify-center sm:justify-start"
+        >
+          <span class="text-lg font-black uppercase">About Us</span>
           <div class="flex gap-5 items-center">
-            <a href="#" aria-label="Facebook" class="hover:text-orange-500 hover:-translate-y-1 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            <a
+              href="#"
+              aria-label="Facebook"
+              class="hover:text-orange-500 hover:-translate-y-1 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
               </svg>
             </a>
-            <a href="#" aria-label="Telegram" class="hover:text-orange-500 hover:-translate-y-1 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            <a
+              href="#"
+              aria-label="Telegram"
+              class="hover:text-orange-500 hover:-translate-y-1 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
             </a>
-            <a href="#" aria-label="Phone" class="hover:text-orange-500 hover:-translate-y-1 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            <a
+              href="#"
+              aria-label="Phone"
+              class="hover:text-orange-500 hover:-translate-y-1 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
               </svg>
             </a>
           </div>
         </div>
-        <div class="flex items-center bg-black text-white px-6 py-4 gap-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] w-full sm:w-auto justify-center">
-          <span class="font-bold uppercase text-sm">Can't find what you want?</span>
-          <button class="bg-white text-black px-5 py-2 font-black uppercase text-sm hover:bg-orange-500 transition shrink-0">Request</button>
+        <div
+          class="flex items-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 px-6 py-4 gap-4 shadow-sm w-full sm:w-auto justify-center"
+        >
+          <span class="font-bold uppercase text-sm"
+            >Can't find what you want?</span
+          >
+          <button
+            class="bg-white text-black px-5 py-2 font-black uppercase text-sm hover:bg-orange-500 transition shrink-0"
+          >
+            Request
+          </button>
         </div>
       </div>
     </footer>
