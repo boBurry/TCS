@@ -151,7 +151,7 @@
           </a>
           <a
             href="cart.html"
-            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@
           <button
             id="mobile-menu-btn"
             aria-label="Open Menu"
-            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-smactive:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            class="border border-gray-200 rounded-lg p-1.5 hover:text-gray-500 transition shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -276,7 +276,7 @@
       <div class="flex justify-end mb-8">
         <div class="relative group">
           <button
-            class="border border-gray-200 rounded-xl px-5 py-2 flex items-center gap-3 bg-white shadow-sm font-black uppercase hover:bg-gray-50 transition text-sm"
+            class="border border-gray-200 px-5 py-2 flex items-center gap-3 bg-white shadow-sm font-black uppercase hover:bg-gray-50 transition text-sm"
           >
             Sort By: Default
             <svg
@@ -294,7 +294,7 @@
             </svg>
           </button>
           <div
-            class="absolute right-0 top-full hidden group-hover:block w-52 bg-white border border-gray-200 rounded-xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] z-40"
+            class="absolute right-0 top-full hidden group-hover:block w-52 bg-white border border-gray-200 shadow-sm z-40"
           >
             <a
               href="#"
@@ -329,82 +329,37 @@
           </h2>
         </div>
 
-        <!-- Book cards: horizontal layout at sm+, stacked on xs -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <!-- Book Card -->
-          <div
-            class="border border-gray-200 rounded-xl flex flex-row gap-0 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow bg-white"
-          >
-            <!-- Cover image -->
-            <div
-              class="w-28 sm:w-32 shrink-0 border-r-4 border-black flex items-center justify-center relative bg-gray-50"
-            >
-              <div
-                class="absolute inset-0 border-t-2 border-black rotate-45 scale-150 opacity-10"
-              ></div>
-              <div
-                class="absolute inset-0 border-t-2 border-black -rotate-45 scale-150 opacity-10"
-              ></div>
-              <span
-                class="font-black border border-gray-200 rounded-lg px-2 py-1 bg-white z-10 text-xs"
-                >BOOK</span
-              >
-            </div>
-            <!-- Info -->
-            <div class="flex flex-col p-4 flex-grow min-w-0">
-              <h3
-                class="text-lg sm:text-xl font-black uppercase mb-1 underline decoration-4 truncate"
-              >
-                Calculus I
-              </h3>
-              <p class="text-xs italic text-gray-600 mb-3 line-clamp-2">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Aliquam erat volutpat..."
-              </p>
-              <div class="mt-auto flex justify-between items-center">
-                <span class="text-2xl font-black">$25.00</span>
-                <button
-                  class="border border-gray-200 rounded-xl px-4 py-1.5 font-black uppercase text-sm hover:text-gray-500 transition shrink-0"
-                >
+        <section class="mb-16">
+          
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            
+            <div class="border border-gray-200 rounded-xl p-4 bg-white shadow-sm hover:-translate-y-1 transition-transform duration-300">
+              <div class="aspect-square border border-gray-200 rounded-lg mb-4 flex items-center justify-center bg-gray-50">
+                <span class="font-bold border border-gray-200 rounded-lg px-3 py-1 bg-white uppercase text-sm">Item</span>
+              </div>
+              <h3 class="font-black text-sm sm:text-base uppercase mb-2 truncate">Calculus I</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-xl font-black">$2.50</span>
+                <button class="border border-gray-200 rounded-lg px-3 py-1 font-black uppercase text-xs hover:text-gray-500 transition">
                   Details
                 </button>
               </div>
             </div>
-          </div>
 
-          <!-- Book Card -->
-          <div
-            class="border border-gray-200 rounded-xl flex flex-row gap-0 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow bg-white"
-          >
-            <div
-              class="w-28 sm:w-32 shrink-0 border-r-4 border-black flex items-center justify-center relative bg-gray-50"
-            >
-              <span
-                class="font-black border border-gray-200 rounded-lg px-2 py-1 bg-white z-10 text-xs"
-                >BOOK</span
-              >
-            </div>
-            <div class="flex flex-col p-4 flex-grow min-w-0">
-              <h3
-                class="text-lg sm:text-xl font-black uppercase mb-1 underline decoration-4 truncate"
-              >
-                Linear Algebra
-              </h3>
-              <p class="text-xs italic text-gray-600 mb-3 line-clamp-2">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Aliquam erat volutpat..."
-              </p>
-              <div class="mt-auto flex justify-between items-center">
-                <span class="text-2xl font-black">$18.00</span>
-                <button
-                  class="border border-gray-200 rounded-xl px-4 py-1.5 font-black uppercase text-sm hover:text-gray-500 transition shrink-0"
-                >
+            <div class="border border-gray-200 rounded-xl p-4 bg-white shadow-sm hover:-translate-y-1 transition-transform duration-300">
+              <div class="aspect-square border border-gray-200 rounded-lg mb-4 flex items-center justify-center bg-gray-50">
+                <span class="font-bold border border-gray-200 rounded-lg px-3 py-1 bg-white uppercase text-sm">Item</span>
+              </div>
+              <h3 class="font-black text-sm sm:text-base uppercase mb-2 truncate">Calculus I</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-xl font-black">$2.50</span>
+                <button class="border border-gray-200 rounded-lg px-3 py-1 font-black uppercase text-xs hover:text-gray-500 transition">
                   Details
                 </button>
               </div>
             </div>
-          </div>
-        </div>
+
+          </div> </section>
       </section>
 
       <!-- Physics Section -->
