@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Build Outputs (Assuming your CSS goes here)
+/public/output.css
+
+# IDEs
+.vscode/
+.idea/
