@@ -1,0 +1,91 @@
+<header class="sticky top-0 z-50 w-full border-b border-stone-200 bg-white">
+  <div class="mx-auto grid max-w-7xl grid-cols-3 items-center px-4 sm:px-6 h-16">
+
+    <!-- Left: Logo -->
+    <div class="flex items-center">
+      <a href="index.html" class="inline-flex items-center justify-center w-auto h-auto rounded font-black text-stone-900 text-lg tracking-tight select-none">
+        <img src="logo.jpg" class="w-20 h-auto"  alt="TCS-logo">
+      </a>
+    </div>
+
+    <!-- Center: Nav -->
+    <nav class="hidden md:flex items-center justify-center gap-1">
+      <a href="#" class="relative px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-900 transition-colors">
+        Home
+        <span class="absolute bottom-0 left-3 right-3 h-0.5 bg-orange-400 rounded-full"></span>
+      </a>
+      <div class="relative group">
+        <button class="flex items-center gap-0.5 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800 transition-colors">
+          Category
+          <span class="material-symbols-outlined" style="font-size:15px;">expand_more</span>
+        </button>
+        <!-- Dropdown -->
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+          <div class="bg-white border border-stone-200 shadow-sm min-w-[140px] py-1">
+            <a href="#" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Books</a>
+            <a href="#" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Supplies</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="relative px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800 transition-colors">
+        Secondhand
+      </a>
+      <a href="#" class="relative px-2 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800 transition-colors">
+        About Us
+      </a>
+    </nav>
+
+    <!-- Right: Search + Profile + Cart -->
+    <div class="flex items-center justify-end gap-2">
+      <!-- Search (desktop) -->
+      <div class="relative hidden md:flex items-center">
+        <input type="text" placeholder="SEARCH..."
+          class="w-40 lg:w-52 border border-stone-200 bg-white py-1.5 pl-3 pr-8 text-xs uppercase tracking-widest text-stone-500 placeholder:text-stone-300 focus:outline-none focus:border-stone-400 transition" />
+        <span class="absolute right-2.5 text-stone-400 pointer-events-none">
+          <span class="material-symbols-outlined" style="font-size:16px">search</span>
+        </span>
+      </div>
+
+      <!-- Profile icon -->
+      <button class="flex items-center justify-center h-9 w-9 text-stone-500 hover:text-stone-900 transition-colors">
+        <span class="material-symbols-outlined" style="font-size:22px">person</span>
+      </button>
+
+      <!-- Cart icon -->
+      <button class="flex items-center justify-center h-9 w-9 text-stone-500 hover:text-stone-900 transition-colors">
+        <span class="material-symbols-outlined" style="font-size:22px">shopping_cart</span>
+      </button>
+
+      <!-- Hamburger (mobile) -->
+      <button id="menu-toggle" class="flex md:hidden items-center justify-center h-9 w-9 text-stone-500 hover:text-stone-900 transition-colors">
+        <span class="material-symbols-outlined" style="font-size:22px">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden border-t border-stone-100 bg-white" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;">
+    <div class="px-4 py-3 flex flex-col gap-1">
+      <div class="relative mb-2">
+        <input type="text" placeholder="SEARCH..."
+          class="w-full border border-stone-200 py-2 pl-3 pr-8 text-xs uppercase tracking-widest placeholder:text-stone-300 focus:outline-none" />
+        <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
+          <span class="material-symbols-outlined" style="font-size:16px">search</span>
+        </span>
+      </div>
+      <a href="#" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-900 border-b-2 border-orange-400 w-fit">Home</a>
+      <div>
+        <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="flex items-center gap-0.5 px-3 py-2 w-full text-left text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">
+          Category
+          <span class="material-symbols-outlined" style="font-size:15px;">expand_more</span>
+        </button>
+        <div class="hidden pl-5 flex flex-col">
+          <a href="#" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Books</a>
+          <a href="#" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Supplies</a>
+        </div>
+      </div>
+      <a href="#" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Secondhand</a>
+      <a href="#" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">About Us</a>
+    </div>
+  </div>
+</header>
