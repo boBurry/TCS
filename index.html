@@ -1,48 +1,790 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TCS</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCS</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
           },
         },
-      },
-    }
-  </script>
+      };
+    </script>
 
-  <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
-</head>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
 
-<body class="bg-stone-50 text-stone-900 antialiased">
+  <body class="bg-stone-50 text-stone-900 antialiased">
+    <div id="header"></div>
 
-  <div id="header"></div>
+    <main>
+      <!-- Hero -->
+      <section class="bg-stone-100">
+        <div
+          class="mx-auto max-w-7xl px-6 py-12 md:py-16 flex flex-col md:flex-row items-center gap-8"
+        >
+          <!-- Left: text + category tag -->
+          <div class="flex-1 order-2 md:order-1">
+            <span
+              class="inline-block border border-stone-400 text-stone-600 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded mb-6"
+              >Category</span
+            >
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-800 leading-tight mb-4"
+            >
+              Welcome To<br />BookingME
+            </h1>
+            <p
+              class="text-stone-600 font-semibold text-base sm:text-lg max-w-md leading-relaxed"
+            >
+              Everything you need is right here. Find a particular destination,
+              want second-hand deals or local experiences.
+            </p>
+          </div>
+ 
+          <!-- Right: stacked book/card images -->
+          <div
+            class="flex-1 order-1 md:order-2 flex justify-center md:justify-end"
+          >
+            <div class="relative w-64 h-52 sm:w-80 sm:h-64">
+              <img
+                src="https://covers.openlibrary.org/b/id/8739161-L.jpg"
+                alt="book"
+                class="absolute left-0 top-4 w-32 sm:w-40 h-44 sm:h-52 object-cover bg-white shadow-md rounded"
+                style="z-index: 1; transform: rotate(-4deg)"
+              />
+              <img
+                src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
+                alt="book"
+                class="absolute left-1/2 -translate-x-1/2 top-0 w-32 sm:w-40 h-44 sm:h-52 object-cover bg-white shadow-xl rounded"
+                style="z-index: 3"
+              />
+              <img
+                src="https://covers.openlibrary.org/b/id/6979861-L.jpg"
+                alt="book"
+                class="absolute right-0 top-4 w-32 sm:w-40 h-44 sm:h-52 object-cover bg-white shadow-md rounded"
+                style="z-index: 1; transform: rotate(4deg)"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- Most Popular -->
+      <section class="mx-auto max-w-7xl px-6 py-12">
+        <div class="flex items-center justify-between mb-6">
+          <h2
+            class="flex items-center gap-2 text-2xl font-black text-stone-800"
+          >
+            <span
+              class="material-symbols-outlined text-stone-700"
+              style="font-size: 26px"
+              >bar_chart</span
+            >
+            Most Popular
+          </h2>
+          <div class="flex gap-2">
+            <button
+              onclick="scrollCarousel('popular', -1)"
+              class="flex items-center justify-center w-8 h-8 rounded border border-stone-300 text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
+            >
+              <span class="material-symbols-outlined" style="font-size: 18px"
+                >chevron_left</span
+              >
+            </button>
+            <button
+              onclick="scrollCarousel('popular', 1)"
+              class="flex items-center justify-center w-8 h-8 rounded border border-stone-300 text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
+            >
+              <span class="material-symbols-outlined" style="font-size: 18px"
+                >chevron_right</span
+              >
+            </button>
+          </div>
+        </div>
+        <div
+          id="popular"
+          class="flex gap-4 overflow-x-auto scroll-smooth pb-2"
+          style="scrollbar-width: none"
+        >
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/6979861-L.jpg"
+              alt="Calculus"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Calculus
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$29.49 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/8739161-L.jpg"
+              alt="Beginning C++"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Beginning C++ Compilers
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$12.99 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
+              alt="Chemistry"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                1st Year Chemistry
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$10.38 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/10527843-L.jpg"
+              alt="Physics"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Fundamental of Physics
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$17.99 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/8739161-L.jpg"
+              alt="Design of Everyday Things"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                The Design of Everyday 
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$18.00 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/6979861-L.jpg"
+              alt="Linear Algebra"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Linear Algebra Done Right
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$22.50 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
+              alt="Organic Chemistry"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Organic Chemistry
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$31.00 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- Recommendation -->
+      <section class="mx-auto max-w-7xl px-6 pb-12">
+        <div class="flex items-center justify-between mb-6">
+          <h2
+            class="flex items-center gap-2 text-2xl font-black text-stone-800"
+          >
+            <span
+              class="material-symbols-outlined text-stone-700"
+              style="font-size: 26px"
+              >thumb_up</span
+            >
+            Recommendation
+          </h2>
+          <div class="flex gap-2">
+            <button
+              onclick="scrollCarousel('recommendation', -1)"
+              class="flex items-center justify-center w-8 h-8 rounded border border-stone-300 text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
+            >
+              <span class="material-symbols-outlined" style="font-size: 18px"
+                >chevron_left</span
+              >
+            </button>
+            <button
+              onclick="scrollCarousel('recommendation', 1)"
+              class="flex items-center justify-center w-8 h-8 rounded border border-stone-300 text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
+            >
+              <span class="material-symbols-outlined" style="font-size: 18px"
+                >chevron_right</span
+              >
+            </button>
+          </div>
+        </div>
+        <div
+          id="recommendation"
+          class="flex gap-4 overflow-x-auto scroll-smooth pb-2"
+          style="scrollbar-width: none"
+        >
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/6979861-L.jpg"
+              alt="Calculus"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Calculus
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$29.49 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/8739161-L.jpg"
+              alt="Intro to Computer"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Introduction to Computer
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$9.99 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
+              alt="Mathematics"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                A Textbook of Mathematics
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$8.50 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/10527843-L.jpg"
+              alt="Physics"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Fundamental of Physics
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$17.99 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/8739161-L.jpg"
+              alt="Clean Code"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Clean Code
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$14.00 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/6979861-L.jpg"
+              alt="Statistics"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Statistics for Engineers
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$19.99 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <img
+              src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
+              alt="Biology"
+              class="w-full h-44 object-contain bg-white rounded shadow"
+            />
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Campbell Biology
+              </p>
+              <p class="text-orange-500 font-bold text-sm mt-1">$35.00 USD</p>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- Secondhand -->
+      <section class="mx-auto max-w-7xl px-6 pb-12">
+        <div class="flex items-center justify-between mb-6">
+          <h2
+            class="flex items-center gap-2 text-2xl font-black text-stone-800"
+          >
+            <span
+              class="material-symbols-outlined text-stone-700"
+              style="font-size: 26px"
+              >autorenew</span
+            >
+            Secondhand
+          </h2>
+          <div class="flex items-center gap-3">
+            <a
+              href="#"
+              class="text-xs font-bold uppercase tracking-widest text-orange-500 hover:text-orange-600 transition-colors"
+              >View All →</a
+            >
+            <div class="flex gap-2">
+              <button
+                onclick="scrollCarousel('secondhand', -1)"
+                class="flex items-center justify-center w-8 h-8 rounded border border-stone-300 text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
+              >
+                <span class="material-symbols-outlined" style="font-size: 18px"
+                  >chevron_left</span
+                >
+              </button>
+              <button
+                onclick="scrollCarousel('secondhand', 1)"
+                class="flex items-center justify-center w-8 h-8 rounded border border-stone-300 text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
+              >
+                <span class="material-symbols-outlined" style="font-size: 18px"
+                  >chevron_right</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          id="secondhand"
+          class="flex gap-4 overflow-x-auto scroll-smooth pb-2"
+          style="scrollbar-width: none"
+        >
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <div class="relative">
+              <img
+                src="https://covers.openlibrary.org/b/id/6979861-L.jpg"
+                alt="Calculus"
+                class="w-full h-44 object-contain bg-white rounded shadow"
+              />
+              <span
+                class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded"
+                >Used</span
+              >
+            </div>
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Calculus
+              </p>
+              <div class="flex items-center gap-2 mt-1">
+                <p class="text-orange-500 font-bold text-sm">$12.00 USD</p>
+                <p class="text-stone-400 line-through text-xs">$29.49</p>
+              </div>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <div class="relative">
+              <img
+                src="https://covers.openlibrary.org/b/id/8739161-L.jpg"
+                alt="C++ Compilers"
+                class="w-full h-44 object-contain bg-white rounded shadow"
+              />
+              <span
+                class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded"
+                >Used</span
+              >
+            </div>
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Beginning C++ Compilers
+              </p>
+              <div class="flex items-center gap-2 mt-1">
+                <p class="text-orange-500 font-bold text-sm">$5.00 USD</p>
+                <p class="text-stone-400 line-through text-xs">$12.99</p>
+              </div>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <div class="relative">
+              <img
+                src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
+                alt="Chemistry"
+                class="w-full h-44 object-contain bg-white rounded shadow"
+              />
+              <span
+                class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded"
+                >Used</span
+              >
+            </div>
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                1st Year Chemistry
+              </p>
+              <div class="flex items-center gap-2 mt-1">
+                <p class="text-orange-500 font-bold text-sm">$4.50 USD</p>
+                <p class="text-stone-400 line-through text-xs">$10.38</p>
+              </div>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <div class="relative">
+              <img
+                src="https://covers.openlibrary.org/b/id/10527843-L.jpg"
+                alt="Physics"
+                class="w-full h-44 object-contain bg-white rounded shadow"
+              />
+              <span
+                class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded"
+                >Used</span
+              >
+            </div>
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Fundamental of Physics
+              </p>
+              <div class="flex items-center gap-2 mt-1">
+                <p class="text-orange-500 font-bold text-sm">$7.00 USD</p>
+                <p class="text-stone-400 line-through text-xs">$17.99</p>
+              </div>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <div class="relative">
+              <img
+                src="https://covers.openlibrary.org/b/id/8739161-L.jpg"
+                alt="Clean Code"
+                class="w-full h-44 object-contain bg-white rounded shadow"
+              />
+              <span
+                class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded"
+                >Used</span
+              >
+            </div>
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Clean Code
+              </p>
+              <div class="flex items-center gap-2 mt-1">
+                <p class="text-orange-500 font-bold text-sm">$6.00 USD</p>
+                <p class="text-stone-400 line-through text-xs">$14.00</p>
+              </div>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+          <div
+            class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56"
+          >
+            <div class="relative">
+              <img
+                src="https://covers.openlibrary.org/b/id/6979861-L.jpg"
+                alt="Statistics"
+                class="w-full h-44 object-contain bg-white rounded shadow"
+              />
+              <span
+                class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded"
+                >Used</span
+              >
+            </div>
+            <div>
+              <p class="font-bold text-stone-800 text-sm leading-snug">
+                Statistics for Engineers
+              </p>
+              <div class="flex items-center gap-2 mt-1">
+                <p class="text-orange-500 font-bold text-sm">$8.00 USD</p>
+                <p class="text-stone-400 line-through text-xs">$19.99</p>
+              </div>
+            </div>
+            <button
+              class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors"
+            >
+              Details
+            </button>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- Browse by Category -->
+      <section class="mx-auto max-w-7xl px-6 pb-16">
+        <h2
+          class="flex items-center gap-2 text-2xl font-black text-stone-800 mb-6"
+        >
+          <span
+            class="material-symbols-outlined text-stone-700"
+            style="font-size: 26px"
+            >category</span
+          >
+          Browse by Category
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <a
+            href="#"
+            class="group flex flex-col items-center justify-center gap-3 bg-stone-200 hover:bg-stone-800 rounded-lg py-8 px-4 transition-colors"
+          >
+            <span
+              class="material-symbols-outlined text-stone-600 group-hover:text-orange-400 transition-colors"
+              style="font-size: 32px"
+              >menu_book</span
+            >
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
+              >Books</span
+            >
+          </a>
+          <a
+            href="#"
+            class="group flex flex-col items-center justify-center gap-3 bg-stone-200 hover:bg-stone-800 rounded-lg py-8 px-4 transition-colors"
+          >
+            <span
+              class="material-symbols-outlined text-stone-600 group-hover:text-orange-400 transition-colors"
+              style="font-size: 32px"
+              >straighten</span
+            >
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
+              >Supplies</span
+            >
+          </a>
+          <a
+            href="#"
+            class="group flex flex-col items-center justify-center gap-3 bg-stone-200 hover:bg-stone-800 rounded-lg py-8 px-4 transition-colors"
+          >
+            <span
+              class="material-symbols-outlined text-stone-600 group-hover:text-orange-400 transition-colors"
+              style="font-size: 32px"
+              >science</span
+            >
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
+              >Science</span
+            >
+          </a>
+          <a
+            href="#"
+            class="group flex flex-col items-center justify-center gap-3 bg-stone-200 hover:bg-stone-800 rounded-lg py-8 px-4 transition-colors"
+          >
+            <span
+              class="material-symbols-outlined text-stone-600 group-hover:text-orange-400 transition-colors"
+              style="font-size: 32px"
+              >calculate</span
+            >
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
+              >Maths</span
+            >
+          </a>
+          <a
+            href="#"
+            class="group flex flex-col items-center justify-center gap-3 bg-stone-200 hover:bg-stone-800 rounded-lg py-8 px-4 transition-colors"
+          >
+            <span
+              class="material-symbols-outlined text-stone-600 group-hover:text-orange-400 transition-colors"
+              style="font-size: 32px"
+              >computer</span
+            >
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
+              >CS & IT</span
+            >
+          </a>
+          <a
+            href="#"
+            class="group flex flex-col items-center justify-center gap-3 bg-stone-200 hover:bg-stone-800 rounded-lg py-8 px-4 transition-colors"
+          >
+            <span
+              class="material-symbols-outlined text-stone-600 group-hover:text-orange-400 transition-colors"
+              style="font-size: 32px"
+              >autorenew</span
+            >
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
+              >Secondhand</span
+            >
+          </a>
+        </div>
+      </section>
+    </main>
 
-  <!-- Page content goes here -->
-  <main class="mx-auto max-w-7xl px-6 py-16 text-center text-stone-400 text-sm">
-    Page content goes here
-  </main>
+    <div id="footer"></div>
 
-  <div id="footer"></div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

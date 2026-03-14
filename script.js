@@ -26,3 +26,11 @@ fetch("footer.html")
     document.getElementById("footer").innerHTML = html;
   })
   .catch(err => console.error("Error loading footer:", err));
+
+// Carousel scroll
+function scrollCarousel(id, direction) {
+  const carousel = document.getElementById(id);
+  if (carousel) {
+    carousel.scrollBy({ left: direction * 240, behavior: "smooth" });
+  }
+}
