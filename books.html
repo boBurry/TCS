@@ -226,10 +226,10 @@
       }
 
       document.querySelectorAll(".cat-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeCategory = btn.dataset.cat; syncButtons(); renderGrid(); });
+        btn.addEventListener("click", () => { activeCategory = btn.dataset.cat; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
       });
       document.querySelectorAll(".sort-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeSort = btn.dataset.sort; syncButtons(); renderGrid(); });
+        btn.addEventListener("click", () => { activeSort = btn.dataset.sort; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
       });
 
       // Mobile drawer
@@ -251,6 +251,9 @@
       const obs = new MutationObserver(() => { setSidebarTop(); obs.disconnect(); });
       obs.observe(document.getElementById("header"), { childList: true });
       window.addEventListener("resize", setSidebarTop);
+
+      const urlCat = new URLSearchParams(window.location.search).get("cat");
+      if (urlCat) { activeCategory = urlCat; syncButtons(); }
 
       renderGrid();
     </script>

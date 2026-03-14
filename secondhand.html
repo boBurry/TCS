@@ -37,7 +37,7 @@
       <div class="mx-auto max-w-7xl px-6 py-8 flex items-center justify-between gap-4">
         <div>
           <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">TCS Store</p>
-          <h1 class="text-4xl sm:text-5xl font-black text-stone-800 leading-tight">Secondhand</h1>
+          <h1 class="text-2xl sm:text-5xl font-black text-stone-800 leading-tight">Secondhand</h1>
         </div>
         <div class="flex items-center gap-3">
           <p id="result-count" class="text-sm font-semibold text-stone-400"></p>
@@ -246,13 +246,13 @@
       }
 
       document.querySelectorAll(".cat-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeCategory = btn.dataset.cat; syncButtons(); renderGrid(); });
+        btn.addEventListener("click", () => { activeCategory = btn.dataset.cat; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
       });
       document.querySelectorAll(".cond-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeCondition = btn.dataset.cond; syncButtons(); renderGrid(); });
+        btn.addEventListener("click", () => { activeCondition = btn.dataset.cond; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
       });
       document.querySelectorAll(".sort-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeSort = btn.dataset.sort; syncButtons(); renderGrid(); });
+        btn.addEventListener("click", () => { activeSort = btn.dataset.sort; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
       });
 
       const drawer  = document.getElementById("filter-drawer");

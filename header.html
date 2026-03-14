@@ -10,7 +10,7 @@
 
     <!-- Center: Nav -->
     <nav class="hidden md:flex items-center justify-center gap-1">
-      <a href="#" class="relative px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-900 transition-colors">
+      <a href="index.html" class="relative px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-900 transition-colors">
         Home
         <span class="absolute bottom-0 left-3 right-3 h-0.5 bg-orange-400 rounded-full"></span>
       </a>
@@ -31,9 +31,9 @@
               <!-- Books submenu -->
               <div class="absolute left-full top-0 opacity-0 invisible group-hover/books:opacity-100 group-hover/books:visible transition-all duration-150 z-50">
                 <div class="bg-white border border-stone-200 shadow-sm min-w-[160px] py-1 ml-0.5">
-                  <a href="#" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Science</a>
-                  <a href="#" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Maths</a>
-                  <a href="#" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">CS &amp; IT</a>
+                  <a href="books.html?cat=science" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Science</a>
+                  <a href="books.html?cat=maths" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Maths</a>
+                  <a href="books.html?cat=cs" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">CS &amp; IT</a>
                 </div>
               </div>
             </div>
@@ -85,30 +85,29 @@
           <span class="material-symbols-outlined" style="font-size:16px">search</span>
         </span>
       </div>
-      <a href="#" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-900 border-b-2 border-orange-400 w-fit">Home</a>
+      <a href="index.html" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-900 border-b-2 border-orange-400 w-fit">Home</a>
       <div>
         <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="flex items-center gap-0.5 px-3 py-2 w-full text-left text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">
           Category
           <span class="material-symbols-outlined" style="font-size:15px;">expand_more</span>
         </button>
-        <div class="hidden pl-5 flex flex-col">
-          <!-- Books with nested subcategories -->
-          <div>
-            <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="flex items-center gap-0.5 px-3 py-1.5 w-full text-left text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">
-              Books
+        <div class="hidden flex flex-col">
+          <div class="flex items-center justify-between ">
+            <a href="books.html" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Books</a>
+            <button onclick="this.closest('div').nextElementSibling.classList.toggle('hidden')"
+              class="text-stone-400 hover:text-stone-800 p-1">
               <span class="material-symbols-outlined" style="font-size:14px;">expand_more</span>
             </button>
-            <div class="hidden pl-4 flex flex-col">
-              <a href="#" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Science</a>
-              <a href="#" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Maths</a>
-              <a href="#" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">CS &amp; IT</a>
-            </div>
           </div>
-          <a href="#" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Supplies</a>
-          <a href="#" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Secondhand</a>
+          <div class="hidden pl-4 flex flex-col">
+            <a href="books.html?cat=science" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Science</a>
+            <a href="books.html?cat=maths"   class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Maths</a>
+            <a href="books.html?cat=cs"      class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">CS &amp; IT</a>
+          </div>
+          <a href="supplies.html"   class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Supplies</a>
+          <a href="secondhand.html" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Secondhand</a>
         </div>
       </div>
-      <a href="#" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Secondhand</a>
       <a href="#" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">About Us</a>
     </div>
   </div>

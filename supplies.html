@@ -220,10 +220,10 @@
       }
 
       document.querySelectorAll(".cat-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeCategory = btn.dataset.cat; syncButtons(); renderGrid(); });
+        btn.addEventListener("click", () => { activeCategory = btn.dataset.cat; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
       });
       document.querySelectorAll(".sort-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeSort = btn.dataset.sort; syncButtons(); renderGrid(); });
+        btn.addEventListener("click", () => { activeSort = btn.dataset.sort; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
       });
 
       const drawer  = document.getElementById("filter-drawer");
