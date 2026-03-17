@@ -37,7 +37,7 @@
       <div class="mx-auto max-w-7xl px-6 py-8 flex items-center justify-between gap-4">
         <div>
           <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">TCS Store</p>
-          <h1 class="text-2xl sm:text-5xl font-black text-stone-800 leading-tight">Secondhand</h1>
+          <h1 class="text-4xl sm:text-5xl font-black text-stone-800 leading-tight">Secondhand</h1>
         </div>
         <div class="flex items-center gap-3">
           <p id="result-count" class="text-sm font-semibold text-stone-400"></p>
@@ -145,31 +145,12 @@
     </div>
 
     <div id="footer"></div>
+    <script src="data.js"></script>
     <script src="script.js"></script>
 
     <script>
-      const ITEMS = [
-        // Books
-        { id:1,  title:"Calculus",                     category:"books",    condition:"good",      price:12.00, originalPrice:29.49, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-        { id:2,  title:"Beginning C++ Compilers",      category:"books",    condition:"fair",      price: 5.00, originalPrice:12.99, cover:"https://covers.openlibrary.org/b/id/8739161-L.jpg" },
-        { id:3,  title:"1st Year Chemistry",           category:"books",    condition:"like-new",  price: 4.50, originalPrice:10.38, cover:"https://covers.openlibrary.org/b/id/8091016-L.jpg" },
-        { id:4,  title:"Fundamental of Physics",       category:"books",    condition:"good",      price: 7.00, originalPrice:17.99, cover:"https://covers.openlibrary.org/b/id/10527843-L.jpg" },
-        { id:5,  title:"Clean Code",                   category:"books",    condition:"like-new",  price: 6.00, originalPrice:14.00, cover:"https://covers.openlibrary.org/b/id/8739161-L.jpg" },
-        { id:6,  title:"Statistics for Engineers",     category:"books",    condition:"fair",      price: 8.00, originalPrice:19.99, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-        { id:7,  title:"Organic Chemistry",            category:"books",    condition:"good",      price:13.00, originalPrice:31.00, cover:"https://covers.openlibrary.org/b/id/8091016-L.jpg" },
-        { id:8,  title:"Linear Algebra Done Right",    category:"books",    condition:"like-new",  price: 9.00, originalPrice:22.50, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-        { id:9,  title:"Campbell Biology",             category:"books",    condition:"fair",      price:14.00, originalPrice:35.00, cover:"https://covers.openlibrary.org/b/id/8091016-L.jpg" },
-        { id:10, title:"Introduction to Algorithms",   category:"books",    condition:"good",      price:15.00, originalPrice:32.00, cover:"https://covers.openlibrary.org/b/id/8739161-L.jpg" },
-        // Supplies
-        { id:11, title:"Casio FX-991EX Calculator",  category:"supplies", condition:"like-new",  price: 10.00, originalPrice:18.99, cover:"https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?w=400&q=80" },
-        { id:12, title:"Casio FX-82MS Calculator",   category:"supplies", condition:"good",      price:  7.00, originalPrice:12.50, cover:"https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?w=400&q=80" },
-        { id:13, title:"Binder A4 2-Ring",            category:"supplies", condition:"fair",      price:  2.00, originalPrice: 4.99, cover:"https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=400&q=80" },
-        { id:14, title:"Notebook A4 (200 pages)",     category:"supplies", condition:"good",      price:  2.00, originalPrice: 3.99, cover:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" },
-        { id:15, title:"T-Square Ruler 60cm",         category:"supplies", condition:"like-new",  price:  3.00, originalPrice: 5.50, cover:"https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80" },
-        { id:16, title:"Compass & Protractor Set",    category:"supplies", condition:"good",      price:  2.00, originalPrice: 3.99, cover:"https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80" },
-        { id:17, title:"Drawing Pad A3",              category:"supplies", condition:"like-new",  price:  3.00, originalPrice: 6.50, cover:"https://images.unsplash.com/photo-1503602642458-232111445657?w=400&q=80" },
-        { id:18, title:"Spiral Notebook A5",          category:"supplies", condition:"fair",      price:  1.00, originalPrice: 2.50, cover:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" },
-      ];
+      // Data loaded from data.js
+      const ITEMS = SECONDHAND.map(resolveSecondhand);
 
       // Condition config
       const condConfig = {
@@ -184,13 +165,14 @@
 
       function getFiltered() {
         let list = [...ITEMS];
-        if (activeCategory  !== "all") list = list.filter(i => i.category  === activeCategory);
-        if (activeCondition !== "all") list = list.filter(i => i.condition === activeCondition);
+        if (activeCategory === "books")    list = list.filter(i => i.category === "books");
+        if (activeCategory === "supplies") list = list.filter(i => i.category === "supplies");
+        if (activeCondition !== "all")     list = list.filter(i => i.condition === activeCondition);
         switch (activeSort) {
           case "az":      list.sort((a,b) => a.title.localeCompare(b.title)); break;
           case "za":      list.sort((a,b) => b.title.localeCompare(a.title)); break;
-          case "lowhigh": list.sort((a,b) => a.price - b.price); break;
-          case "highlow": list.sort((a,b) => b.price - a.price); break;
+          case "lowhigh": list.sort((a,b) => a.salePrice - b.salePrice); break;
+          case "highlow": list.sort((a,b) => b.salePrice - a.salePrice); break;
         }
         return list;
       }
@@ -208,14 +190,13 @@
           } else {
             empty.classList.add("hidden");
             grid.innerHTML = items.map(i => {
-              const cond = condConfig[i.condition];
+              const cond   = condConfig[i.condition];
               const isBook = i.category === "books";
               return `
               <div class="item-card bg-white rounded-lg p-3 flex flex-col gap-3 border border-stone-100 cursor-pointer">
                 <div class="relative bg-stone-50 rounded overflow-hidden flex items-center justify-center" style="height:190px;">
                   <img src="${i.cover}" alt="${i.title}"
                     class="h-full w-full ${isBook ? "object-contain" : "object-cover"} rounded" />
-                  <!-- Condition badge on image -->
                   <span class="absolute top-2 left-2 text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded ${cond.color}">
                     ${cond.label}
                   </span>
@@ -226,7 +207,7 @@
                   </span>
                   <p class="font-bold text-stone-800 text-sm leading-snug mt-1">${i.title}</p>
                   <div class="flex items-center gap-2">
-                    <p class="text-orange-500 font-black text-sm">$${i.price.toFixed(2)} <span class="text-stone-400 font-normal text-xs">USD</span></p>
+                    <p class="text-orange-500 font-black text-sm">$${i.salePrice.toFixed(2)} <span class="text-stone-400 font-normal text-xs">USD</span></p>
                     <p class="text-stone-400 line-through text-xs">$${i.originalPrice.toFixed(2)}</p>
                   </div>
                 </div>
