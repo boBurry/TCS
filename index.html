@@ -19,6 +19,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
+    <link rel="icon" type="image/png" href="logo.png" />
+
     <script>
       tailwind.config = {
         theme: {
@@ -331,7 +333,7 @@
 
     <script src="data.js"></script>
     <script src="script.js"></script>
-  
+
     <script>
       // ── Render carousels from data.js ──────────────────────────────────
       function bookCard(b) {
@@ -349,7 +351,7 @@
             </button>
           </div>`;
       }
- 
+
       function secondhandCard(r) {
         return `
           <div class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56">
@@ -369,16 +371,23 @@
             </button>
           </div>`;
       }
- 
-      document.getElementById("popular").innerHTML =
-        BOOKS.filter(b => b.popular).map(bookCard).join("");
- 
-      document.getElementById("recommendation").innerHTML =
-        BOOKS.filter(b => b.recommended).map(bookCard).join("");
- 
-      document.getElementById("secondhand").innerHTML =
-        SECONDHAND.slice(0, 7).map(resolveSecondhand).map(secondhandCard).join("");
-    </script>
 
+      document.getElementById("popular").innerHTML = BOOKS.filter(
+        (b) => b.popular,
+      )
+        .map(bookCard)
+        .join("");
+
+      document.getElementById("recommendation").innerHTML = BOOKS.filter(
+        (b) => b.recommended,
+      )
+        .map(bookCard)
+        .join("");
+
+      document.getElementById("secondhand").innerHTML = SECONDHAND.slice(0, 7)
+        .map(resolveSecondhand)
+        .map(secondhandCard)
+        .join("");
+    </script>
   </body>
 </html>
