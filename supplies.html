@@ -126,31 +126,13 @@
     </div>
 
     <div id="footer"></div>
+    <script src="data.js"></script>
     <script src="script.js"></script>
+    <script src="data.js"></script>
 
     <script>
-      const ITEMS = [
-        { id:1,  title:"Casio FX-991EX Calculator",   category:"calculator", price: 18.99, img:"https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?w=400&q=80" },
-        { id:2,  title:"Casio FX-82MS Calculator",    category:"calculator", price: 12.50, img:"https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?w=400&q=80" },
-        { id:3,  title:"Casio FX-350ES Plus",          category:"calculator", price: 14.99, img:"https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?w=400&q=80" },
-        { id:4,  title:"A4 Paper Ream (500 sheets)",   category:"paper",      price:  5.99, img:"https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=400&q=80" },
-        { id:5,  title:"A3 Paper Pack (100 sheets)",   category:"paper",      price:  4.50, img:"https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=400&q=80" },
-        { id:6,  title:"Graph Paper Pad A4",           category:"paper",      price:  2.99, img:"https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=400&q=80" },
-        { id:7,  title:"Notebook A4 (200 pages)",      category:"notebook",   price:  3.99, img:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" },
-        { id:8,  title:"Spiral Notebook A5",           category:"notebook",   price:  2.50, img:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" },
-        { id:9,  title:"Lab Report Notebook",          category:"notebook",   price:  4.20, img:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" },
-        { id:10, title:"30cm Clear Ruler",             category:"ruler",      price:  0.99, img:"https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80" },
-        { id:11, title:"Ruler Set (30cm + 15cm)",      category:"ruler",      price:  1.99, img:"https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80" },
-        { id:12, title:"T-Square Ruler 60cm",          category:"ruler",      price:  5.50, img:"https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80" },
-        { id:13, title:"Compass & Protractor Set",     category:"ruler",      price:  3.99, img:"https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80" },
-        { id:14, title:"Ballpoint Pen Set (10pc)",     category:"pen",        price:  2.50, img:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&q=80" },
-        { id:15, title:"Mechanical Pencil 0.5mm",      category:"pen",        price:  3.50, img:"https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400&q=80" },
-        { id:16, title:"Highlighter Set (6 Colors)",   category:"pen",        price:  4.50, img:"https://images.unsplash.com/photo-1503602642458-232111445657?w=400&q=80" },
-        { id:17, title:"Gel Pen Black (5pc)",          category:"pen",        price:  2.99, img:"https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&q=80" },
-        { id:18, title:"Sticky Notes Pack (5 Colors)", category:"stationery", price:  2.20, img:"https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80" },
-        { id:19, title:"Binder A4 2-Ring",             category:"stationery", price:  4.99, img:"https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=400&q=80" },
-        { id:20, title:"Correction Tape",              category:"stationery", price:  1.50, img:"https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&q=80" },
-      ];
+      // SUPPLIES array is loaded from data.js
+      const ITEMS = SUPPLIES;
 
       let activeCategory = "all";
       let activeSort     = "default";

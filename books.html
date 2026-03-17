@@ -140,31 +140,12 @@
     </div>
 
     <div id="footer"></div>
+    <script src="data.js"></script>
     <script src="script.js"></script>
+    <script src="data.js"></script>
 
     <script>
-      const BOOKS = [
-        { id:1,  title:"Calculus",                      category:"maths",   price:29.49, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-        { id:2,  title:"Beginning C++ Compilers",       category:"cs",      price:12.99, cover:"https://covers.openlibrary.org/b/id/8739161-L.jpg" },
-        { id:3,  title:"1st Year Chemistry",            category:"science", price:10.38, cover:"https://covers.openlibrary.org/b/id/8091016-L.jpg" },
-        { id:4,  title:"Fundamental of Physics",        category:"science", price:17.99, cover:"https://covers.openlibrary.org/b/id/10527843-L.jpg" },
-        { id:5,  title:"The Design of Everyday Things", category:"cs",      price:18.00, cover:"https://covers.openlibrary.org/b/id/8739161-L.jpg" },
-        { id:6,  title:"Linear Algebra Done Right",     category:"maths",   price:22.50, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-        { id:7,  title:"Organic Chemistry",             category:"science", price:31.00, cover:"https://covers.openlibrary.org/b/id/8091016-L.jpg" },
-        { id:8,  title:"Introduction to Computer",      category:"cs",      price: 9.99, cover:"https://covers.openlibrary.org/b/id/8739161-L.jpg" },
-        { id:9,  title:"A Textbook of Mathematics",     category:"maths",   price: 8.50, cover:"https://covers.openlibrary.org/b/id/8091016-L.jpg" },
-        { id:10, title:"Clean Code",                    category:"cs",      price:14.00, cover:"https://covers.openlibrary.org/b/id/8739161-L.jpg" },
-        { id:11, title:"Statistics for Engineers",      category:"maths",   price:19.99, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-        { id:12, title:"Campbell Biology",              category:"science", price:35.00, cover:"https://covers.openlibrary.org/b/id/8091016-L.jpg" },
-        { id:13, title:"Discrete Mathematics",          category:"maths",   price:24.00, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-        { id:14, title:"Data Structures & Algorithms",  category:"cs",      price:27.50, cover:"https://covers.openlibrary.org/b/id/10527843-L.jpg" },
-        { id:15, title:"General Physics Vol.1",         category:"science", price:21.00, cover:"https://covers.openlibrary.org/b/id/10527843-L.jpg" },
-        { id:16, title:"Introduction to Algorithms",    category:"cs",      price:32.00, cover:"https://covers.openlibrary.org/b/id/8739161-L.jpg" },
-        { id:17, title:"Probability & Statistics",      category:"maths",   price:16.75, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-        { id:18, title:"Biochemistry Essentials",       category:"science", price:28.00, cover:"https://covers.openlibrary.org/b/id/8091016-L.jpg" },
-        { id:19, title:"Computer Networks",             category:"cs",      price:23.99, cover:"https://covers.openlibrary.org/b/id/10527843-L.jpg" },
-        { id:20, title:"Advanced Calculus",             category:"maths",   price:33.00, cover:"https://covers.openlibrary.org/b/id/6979861-L.jpg" },
-      ];
+      // BOOKS array is loaded from data.js
 
       let activeCategory = "all";
       let activeSort     = "default";
@@ -252,6 +233,7 @@
       obs.observe(document.getElementById("header"), { childList: true });
       window.addEventListener("resize", setSidebarTop);
 
+      // ── READ URL PARAM & pre-set category ────────────────────────────────
       const urlCat = new URLSearchParams(window.location.search).get("cat");
       if (urlCat) { activeCategory = urlCat; syncButtons(); }
 
