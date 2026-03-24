@@ -150,7 +150,7 @@
 
     <script>
       // Data loaded from data.js
-      const ITEMS = SECONDHAND.map(resolveSecondhand);
+      const ITEMS = SECONDHAND.map(resolveSecondhand).filter(Boolean);
 
       // Condition config
       const condConfig = {

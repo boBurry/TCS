@@ -79,19 +79,18 @@
           >
             <div class="relative w-64 h-52 sm:w-80 sm:h-64">
               <img
-                src="https://covers.openlibrary.org/b/id/8739161-L.jpg"
-                alt="book"
+                src="assets/books/Calculus- Early Transcendentals — James Stewart (8th ed.).jpg"
                 class="absolute left-0 top-4 w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-md rounded"
                 style="z-index: 1; transform: rotate(-4deg)"
               />
               <img
-                src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
+                src="assets/books/Introduction to Information Technology — Sanjay Saxena.jpg"
                 alt="book"
                 class="absolute left-1/2 -translate-x-1/2 top-0 w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-xl rounded"
                 style="z-index: 3"
               />
               <img
-                src="https://covers.openlibrary.org/b/id/6979861-L.jpg"
+                src="assets/books/Fundamentals of Physics.jpeg"
                 alt="book"
                 class="absolute right-0 top-4 w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-md rounded"
                 style="z-index: 1; transform: rotate(4deg)"
@@ -331,13 +330,13 @@
 
     <script src="data.js"></script>
     <script src="script.js"></script>
-  
+
     <script>
       // ── Render carousels from data.js ──────────────────────────────────
       function bookCard(b) {
         return `
-          <div class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56">
-            <div class="bg-white rounded flex items-center justify-center" style="height:144px;">
+          <div class="bg-white rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56">
+            <div class="bg-stone-50 rounded flex items-center justify-center" style="height:144px;">
               <img src="${b.cover}" alt="${b.title}" class="h-full w-full object-contain rounded shadow" />
             </div>
             <div>
@@ -349,11 +348,11 @@
             </button>
           </div>`;
       }
- 
+
       function secondhandCard(r) {
         return `
-          <div class="bg-stone-200 rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56">
-            <div class="relative bg-white rounded flex items-center justify-center" style="height:144px;">
+          <div class="bg-white rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56">
+            <div class="relative bg-stone-50 rounded flex items-center justify-center" style="height:144px;">
               <img src="${r.cover}" alt="${r.title}" class="h-full w-full object-contain rounded shadow" />
               <span class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded">Used</span>
             </div>
@@ -369,16 +368,24 @@
             </button>
           </div>`;
       }
- 
-      document.getElementById("popular").innerHTML =
-        BOOKS.filter(b => b.popular).map(bookCard).join("");
- 
-      document.getElementById("recommendation").innerHTML =
-        BOOKS.filter(b => b.recommended).map(bookCard).join("");
- 
-      document.getElementById("secondhand").innerHTML =
-        SECONDHAND.slice(0, 7).map(resolveSecondhand).map(secondhandCard).join("");
-    </script>
 
+      document.getElementById("popular").innerHTML = BOOKS.filter(
+        (b) => b.popular,
+      )
+        .map(bookCard)
+        .join("");
+
+      document.getElementById("recommendation").innerHTML = BOOKS.filter(
+        (b) => b.recommended,
+      )
+        .map(bookCard)
+        .join("");
+
+      document.getElementById("secondhand").innerHTML = SECONDHAND.slice(0, 7)
+        .map(resolveSecondhand)
+        .filter(Boolean)
+        .map(secondhandCard)
+        .join("");
+    </script>
   </body>
 </html>

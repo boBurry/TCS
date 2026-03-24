@@ -19,7 +19,7 @@ fetch("header.html")
 
     // ── Active nav highlight ─────────────────────────────────────────────
     const page = window.location.pathname.split("/").pop() || "index.html";
-    const categoryPages = ["books.html", "supplies.html", "secondhand.html"];
+    const categoryPages = ["books.html", "supplies.html", "secondhand.html", "aboutus.html"];
 
     if (categoryPages.includes(page)) {
       // Desktop — remove underline from Home
