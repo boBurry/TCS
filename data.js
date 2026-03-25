@@ -272,7 +272,7 @@ const SUPPLIES = [
     title: "Ruler Set (30cm + 15cm)",
     category: "ruler",
     price: 1.99,
-    img: "assets/supplies/Ruler Set (30cm + 15cm).jpg",
+    img: "assets/supplies/Ruler Set (30cm, 15cm).jpg",
   },
   {
     id: 110,
