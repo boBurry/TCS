@@ -3,28 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Techno Campus Store (TCS) - Your one-stop shop for campus books, supplies, and secondhand materials."
+    />
+    <meta name="author" content="TCS Team" />
+
+    <meta name="theme-color" content="#fafaf9" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TCS Store" />
+    <meta
+      property="og:description"
+      content="Your one-stop shop for campus books and supplies."
+    />
+    <meta
+      property="og:image"
+      content="https://techno-cs.vercel.app/assets/logo.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TCS Store" />
+    <meta
+      name="twitter:description"
+      content="Your one-stop shop for campus books and supplies."
+    />
+    <meta
+      name="twitter:image"
+      content="https://techno-cs.vercel.app/assets/logo.png"
+    />
     <title>Supplies — TCS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <script>
-      tailwind.config = { theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } } };
+      tailwind.config = {
+        theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } },
+      };
     </script>
     <style>
-      .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24; }
-      body { font-family: "Inter", sans-serif; }
-      .item-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
-      .item-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
-      .cat-btn.active  { background-color: #1c1917; color: #fff; border-color: #1c1917; }
-      .sort-btn.active { background-color: #1c1917; color: #fff; border-color: #1c1917; }
-      #items-grid { transition: opacity 0.15s ease; }
-      #items-grid.sorting { opacity: 0.35; }
-      #sidebar { position: sticky; align-self: flex-start; }
-      #filter-drawer  { transform: translateX(-100%); transition: transform 0.25s ease; }
-      #filter-drawer.open  { transform: translateX(0); }
-      #drawer-overlay { opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
-      #drawer-overlay.open { opacity: 1; pointer-events: all; }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .item-card {
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .item-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+      .cat-btn.active {
+        background-color: #1c1917;
+        color: #fff;
+        border-color: #1c1917;
+      }
+      .sort-btn.active {
+        background-color: #1c1917;
+        color: #fff;
+        border-color: #1c1917;
+      }
+      #items-grid {
+        transition: opacity 0.15s ease;
+      }
+      #items-grid.sorting {
+        opacity: 0.35;
+      }
+      #sidebar {
+        position: sticky;
+        align-self: flex-start;
+      }
+      #filter-drawer {
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+      }
+      #filter-drawer.open {
+        transform: translateX(0);
+      }
+      #drawer-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+      #drawer-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
     </style>
   </head>
 
@@ -33,16 +115,30 @@
 
     <!-- Page Header -->
     <section class="bg-stone-100 border-b border-stone-200">
-      <div class="mx-auto max-w-7xl px-6 py-8 flex items-center justify-between gap-4">
+      <div
+        class="mx-auto max-w-7xl px-6 py-8 flex items-center justify-between gap-4"
+      >
         <div>
-          <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">TCS Store</p>
-          <h1 class="text-4xl sm:text-5xl font-black text-stone-800 leading-tight">Supplies</h1>
+          <p
+            class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1"
+          >
+            TCS Store
+          </p>
+          <h1
+            class="text-4xl sm:text-5xl font-black text-stone-800 leading-tight"
+          >
+            Supplies
+          </h1>
         </div>
         <div class="flex items-center gap-3">
           <p id="result-count" class="text-sm font-semibold text-stone-400"></p>
-          <button id="mobile-filter-btn"
-            class="flex md:hidden items-center gap-1.5 border border-stone-300 bg-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-colors">
-            <span class="material-symbols-outlined" style="font-size:16px">tune</span>
+          <button
+            id="mobile-filter-btn"
+            class="flex md:hidden items-center gap-1.5 border border-stone-300 bg-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-colors"
+          >
+            <span class="material-symbols-outlined" style="font-size: 16px"
+              >tune</span
+            >
             Filter
           </button>
         </div>
@@ -51,76 +147,233 @@
 
     <!-- Main layout -->
     <div class="mx-auto max-w-7xl px-6 py-8 flex gap-8 items-start">
-
       <!-- SIDEBAR -->
       <aside id="sidebar" class="hidden md:block w-52 flex-shrink-0">
-
         <div class="mb-8">
-          <p class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3">Category</p>
+          <p
+            class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
+          >
+            Category
+          </p>
           <div class="flex flex-col gap-1">
-            <button data-cat="all"         class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">All Supplies</button>
-            <button data-cat="calculator"  class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Calculator</button>
-            <button data-cat="notebook"    class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Notebook</button>
-            <button data-cat="paper"       class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Paper</button>
-            <button data-cat="ruler"       class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Ruler &amp; Set</button>
-            <button data-cat="pen"         class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Pen &amp; Pencil</button>
-            <button data-cat="stationery"  class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Stationery</button>
+            <button
+              data-cat="all"
+              class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              All Supplies
+            </button>
+            <button
+              data-cat="calculator"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Calculator
+            </button>
+            <button
+              data-cat="notebook"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Notebook
+            </button>
+            <button
+              data-cat="paper"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Paper
+            </button>
+            <button
+              data-cat="ruler"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Ruler &amp; Set
+            </button>
+            <button
+              data-cat="pen"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Pen &amp; Pencil
+            </button>
+            <button
+              data-cat="stationery"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Stationery
+            </button>
           </div>
         </div>
 
         <div class="border-t border-stone-200 mb-8"></div>
 
         <div>
-          <p class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3">Sort By</p>
+          <p
+            class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
+          >
+            Sort By
+          </p>
           <div class="flex flex-col gap-1">
-            <button data-sort="default"  class="sort-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Default</button>
-            <button data-sort="az"       class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">A → Z</button>
-            <button data-sort="za"       class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Z → A</button>
-            <button data-sort="lowhigh"  class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Price: Low → High</button>
-            <button data-sort="highlow"  class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800">Price: High → Low</button>
+            <button
+              data-sort="default"
+              class="sort-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Default
+            </button>
+            <button
+              data-sort="az"
+              class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              A → Z
+            </button>
+            <button
+              data-sort="za"
+              class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Z → A
+            </button>
+            <button
+              data-sort="lowhigh"
+              class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Price: Low → High
+            </button>
+            <button
+              data-sort="highlow"
+              class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Price: High → Low
+            </button>
           </div>
         </div>
-
       </aside>
 
       <!-- GRID -->
       <div class="flex-1 min-w-0">
-        <div id="items-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5"></div>
-        <div id="empty-state" class="hidden flex flex-col items-center justify-center py-24 text-center">
-          <span class="material-symbols-outlined text-stone-300 mb-4" style="font-size:56px">straighten</span>
-          <p class="text-stone-400 font-bold uppercase tracking-widest text-sm">No items found</p>
+        <div
+          id="items-grid"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5"
+        ></div>
+        <div
+          id="empty-state"
+          class="hidden flex flex-col items-center justify-center py-24 text-center"
+        >
+          <span
+            class="material-symbols-outlined text-stone-300 mb-4"
+            style="font-size: 56px"
+            >straighten</span
+          >
+          <p class="text-stone-400 font-bold uppercase tracking-widest text-sm">
+            No items found
+          </p>
         </div>
       </div>
     </div>
 
     <!-- MOBILE DRAWER -->
     <div id="drawer-overlay" class="fixed inset-0 bg-black/40 z-50"></div>
-    <div id="filter-drawer" class="fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl flex flex-col">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-stone-100">
-        <p class="text-sm font-black uppercase tracking-widest text-stone-800">Filter &amp; Sort</p>
-        <button id="close-drawer" class="text-stone-400 hover:text-stone-800 transition-colors">
-          <span class="material-symbols-outlined" style="font-size:22px">close</span>
+    <div
+      id="filter-drawer"
+      class="fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl flex flex-col"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-stone-100"
+      >
+        <p class="text-sm font-black uppercase tracking-widest text-stone-800">
+          Filter &amp; Sort
+        </p>
+        <button
+          id="close-drawer"
+          class="text-stone-400 hover:text-stone-800 transition-colors"
+        >
+          <span class="material-symbols-outlined" style="font-size: 22px"
+            >close</span
+          >
         </button>
       </div>
       <div class="flex-1 overflow-y-auto px-6 py-6">
-        <p class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3">Category</p>
+        <p
+          class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
+        >
+          Category
+        </p>
         <div class="flex flex-col gap-1 mb-8">
-          <button data-cat="all"         class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">All Supplies</button>
-          <button data-cat="calculator"  class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Calculator</button>
-          <button data-cat="notebook"    class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Notebook</button>
-          <button data-cat="paper"       class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Paper</button>
-          <button data-cat="ruler"       class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Ruler &amp; Set</button>
-          <button data-cat="pen"         class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Pen &amp; Pencil</button>
-          <button data-cat="stationery"  class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Stationery</button>
+          <button
+            data-cat="all"
+            class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            All Supplies
+          </button>
+          <button
+            data-cat="calculator"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Calculator
+          </button>
+          <button
+            data-cat="notebook"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Notebook
+          </button>
+          <button
+            data-cat="paper"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Paper
+          </button>
+          <button
+            data-cat="ruler"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Ruler &amp; Set
+          </button>
+          <button
+            data-cat="pen"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Pen &amp; Pencil
+          </button>
+          <button
+            data-cat="stationery"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Stationery
+          </button>
         </div>
         <div class="border-t border-stone-100 mb-8"></div>
-        <p class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3">Sort By</p>
+        <p
+          class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
+        >
+          Sort By
+        </p>
         <div class="flex flex-col gap-1">
-          <button data-sort="default"  class="sort-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Default</button>
-          <button data-sort="az"       class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">A → Z</button>
-          <button data-sort="za"       class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Z → A</button>
-          <button data-sort="lowhigh"  class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Price: Low → High</button>
-          <button data-sort="highlow"  class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors">Price: High → Low</button>
+          <button
+            data-sort="default"
+            class="sort-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Default
+          </button>
+          <button
+            data-sort="az"
+            class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            A → Z
+          </button>
+          <button
+            data-sort="za"
+            class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Z → A
+          </button>
+          <button
+            data-sort="lowhigh"
+            class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Price: Low → High
+          </button>
+          <button
+            data-sort="highlow"
+            class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Price: High → Low
+          </button>
         </div>
       </div>
     </div>
@@ -134,38 +387,49 @@
       const ITEMS = SUPPLIES;
 
       let activeCategory = "all";
-      let activeSort     = "default";
+      let activeSort = "default";
 
       function getFiltered() {
-        let list = activeCategory === "all" ? [...ITEMS] : ITEMS.filter(i => i.category === activeCategory);
+        let list =
+          activeCategory === "all"
+            ? [...ITEMS]
+            : ITEMS.filter((i) => i.category === activeCategory);
         switch (activeSort) {
-          case "az":      list.sort((a,b) => a.title.localeCompare(b.title)); break;
-          case "za":      list.sort((a,b) => b.title.localeCompare(a.title)); break;
-          case "lowhigh": list.sort((a,b) => a.price - b.price); break;
-          case "highlow": list.sort((a,b) => b.price - a.price); break;
+          case "az":
+            list.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+          case "za":
+            list.sort((a, b) => b.title.localeCompare(a.title));
+            break;
+          case "lowhigh":
+            list.sort((a, b) => a.price - b.price);
+            break;
+          case "highlow":
+            list.sort((a, b) => b.price - a.price);
+            break;
         }
         return list;
       }
 
       const catColors = {
-        calculator:  "bg-blue-100 text-blue-600",
-        notebook:    "bg-purple-100 text-purple-600",
-        paper:       "bg-stone-200 text-stone-600",
-        ruler:       "bg-orange-100 text-orange-600",
-        pen:         "bg-green-100 text-green-600",
-        stationery:  "bg-yellow-100 text-yellow-700",
+        calculator: "bg-blue-100 text-blue-600",
+        notebook: "bg-purple-100 text-purple-600",
+        paper: "bg-stone-200 text-stone-600",
+        ruler: "bg-orange-100 text-orange-600",
+        pen: "bg-green-100 text-green-600",
+        stationery: "bg-yellow-100 text-yellow-700",
       };
       const catLabels = {
-        calculator:  "Calculator",
-        notebook:    "Notebook",
-        paper:       "Paper",
-        ruler:       "Ruler & Set",
-        pen:         "Pen & Pencil",
-        stationery:  "Stationery",
+        calculator: "Calculator",
+        notebook: "Notebook",
+        paper: "Paper",
+        ruler: "Ruler & Set",
+        pen: "Pen & Pencil",
+        stationery: "Stationery",
       };
 
       function renderGrid() {
-        const grid  = document.getElementById("items-grid");
+        const grid = document.getElementById("items-grid");
         const empty = document.getElementById("empty-state");
         const count = document.getElementById("result-count");
         const items = getFiltered();
@@ -176,7 +440,9 @@
             empty.classList.remove("hidden");
           } else {
             empty.classList.add("hidden");
-            grid.innerHTML = items.map(i => `
+            grid.innerHTML = items
+              .map(
+                (i) => `
               <div class="item-card bg-white rounded-lg p-3 flex flex-col gap-3 border border-stone-100 cursor-pointer">
                 <div class="bg-stone-50 rounded overflow-hidden" style="height:190px;">
                   <img src="${i.img}" alt="${i.title}" class="h-full w-full object-cover rounded" />
@@ -188,7 +454,9 @@
                 </div>
                 <button class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
               </div>
-            `).join("");
+            `,
+              )
+              .join("");
           }
           count.textContent = `${items.length} item${items.length !== 1 ? "s" : ""}`;
           grid.classList.remove("sorting");
@@ -196,32 +464,63 @@
       }
 
       function syncButtons() {
-        document.querySelectorAll(".cat-btn").forEach(b  => b.classList.toggle("active", b.dataset.cat  === activeCategory));
-        document.querySelectorAll(".sort-btn").forEach(b => b.classList.toggle("active", b.dataset.sort === activeSort));
+        document
+          .querySelectorAll(".cat-btn")
+          .forEach((b) =>
+            b.classList.toggle("active", b.dataset.cat === activeCategory),
+          );
+        document
+          .querySelectorAll(".sort-btn")
+          .forEach((b) =>
+            b.classList.toggle("active", b.dataset.sort === activeSort),
+          );
       }
 
-      document.querySelectorAll(".cat-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeCategory = btn.dataset.cat; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      document.querySelectorAll(".cat-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeCategory = btn.dataset.cat;
+          syncButtons();
+          renderGrid();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
       });
-      document.querySelectorAll(".sort-btn").forEach(btn => {
-        btn.addEventListener("click", () => { activeSort = btn.dataset.sort; syncButtons(); renderGrid(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      document.querySelectorAll(".sort-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeSort = btn.dataset.sort;
+          syncButtons();
+          renderGrid();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
       });
 
-      const drawer  = document.getElementById("filter-drawer");
+      const drawer = document.getElementById("filter-drawer");
       const overlay = document.getElementById("drawer-overlay");
-      const openDrawer  = () => { drawer.classList.add("open");    overlay.classList.add("open"); };
-      const closeDrawer = () => { drawer.classList.remove("open"); overlay.classList.remove("open"); };
-      document.getElementById("mobile-filter-btn").addEventListener("click", openDrawer);
-      document.getElementById("close-drawer").addEventListener("click", closeDrawer);
+      const openDrawer = () => {
+        drawer.classList.add("open");
+        overlay.classList.add("open");
+      };
+      const closeDrawer = () => {
+        drawer.classList.remove("open");
+        overlay.classList.remove("open");
+      };
+      document
+        .getElementById("mobile-filter-btn")
+        .addEventListener("click", openDrawer);
+      document
+        .getElementById("close-drawer")
+        .addEventListener("click", closeDrawer);
       overlay.addEventListener("click", closeDrawer);
 
       function setSidebarTop() {
-        const nav     = document.querySelector("#header header");
+        const nav = document.querySelector("#header header");
         const sidebar = document.getElementById("sidebar");
         if (!sidebar) return;
-        sidebar.style.top = ((nav ? nav.offsetHeight : 64) + 16) + "px";
+        sidebar.style.top = (nav ? nav.offsetHeight : 64) + 16 + "px";
       }
-      const obs = new MutationObserver(() => { setSidebarTop(); obs.disconnect(); });
+      const obs = new MutationObserver(() => {
+        setSidebarTop();
+        obs.disconnect();
+      });
       obs.observe(document.getElementById("header"), { childList: true });
       window.addEventListener("resize", setSidebarTop);
 
