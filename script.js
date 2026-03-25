@@ -77,6 +77,11 @@ fetch("footer.html")
   .then((res) => res.text())
   .then((html) => {
     document.getElementById("footer").innerHTML = html;
+
+    if (window.location.hash === "#contact") {
+      const el = document.getElementById("contact");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
   })
   .catch((err) => console.error("Error loading footer:", err));
 
