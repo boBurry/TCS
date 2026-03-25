@@ -16,7 +16,7 @@ const BOOKS = [
     category: "cs",
     price: 12.99,
     cover:
-      "assets/books/Beginning C++ Through Game Programming — Michael Dawson.jpg",
+      "assets/books/Beginning CPP Through Game Programming — Michael Dawson.jpg",
     popular: true,
     recommended: false,
   },
