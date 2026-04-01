@@ -96,6 +96,6 @@ function scrollCarousel(id, direction) {
 // Lead Website Icon
 const webLogo = document.createElement("link");
 webLogo.rel = "icon";
-webLogo.type = "image/png";
-webLogo.href = "webLogo.png";
+webLogo.type = "/image/png";
+webLogo.href = "assets/webLogo.png";
 document.head.appendChild(webLogo);
