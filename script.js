@@ -25,6 +25,43 @@ fetch("header.html")
       "secondhand.html",
       "aboutus.html",
     ];
+    
+    // Profile page — orange profile icon, no Home underline
+    if (page === "profile.html") {
+      // Desktop — remove underline from Home
+      const homeLink = document.querySelector("nav a.relative");
+      if (homeLink) {
+        homeLink.querySelector("span.absolute")?.remove();
+        homeLink.classList.remove("text-stone-900");
+        homeLink.classList.add("text-stone-400");
+      }
+
+      // Desktop — make profile icon orange
+      const profileIcon = document.querySelector("a[href='profile.html'] .material-symbols-outlined");
+      if (profileIcon) {
+        profileIcon.classList.add("text-orange-400");
+        
+        // Remove the default text color from the parent <a> tag 
+        const parentLink = profileIcon.closest('a');
+        if (parentLink) {
+            parentLink.classList.remove("text-stone-500");
+        }
+      }
+
+      // Mobile — remove underline from Home
+      const mobileHome = document.querySelector("#mobile-menu a.border-b-2");
+      if (mobileHome) {
+        mobileHome.classList.remove("text-stone-900", "border-b-2", "border-orange-400");
+        mobileHome.classList.add("text-stone-400");
+      }
+
+      // Mobile — make profile icon/link orange
+      const mobileProfile = document.querySelector("#mobile-menu a[href='profile.html']");
+      if (mobileProfile) {
+        mobileProfile.classList.remove("text-stone-400");
+        mobileProfile.classList.add("text-orange-400");
+      }
+    }
 
     if (categoryPages.includes(page)) {
       // Desktop — remove underline from Home
