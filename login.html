@@ -7,9 +7,18 @@
     <title>TCS — Login</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
     <script>
       tailwind.config = {
@@ -23,16 +32,24 @@
 
     <style>
       .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
       }
-      body { font-family: "Inter", sans-serif; }
-      html { scroll-behavior: smooth; }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
 
       /* Animated background grid */
       .bg-grid {
         background-image:
-          linear-gradient(rgba(214,211,209,0.35) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(214,211,209,0.35) 1px, transparent 1px);
+          linear-gradient(rgba(214, 211, 209, 0.35) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(214, 211, 209, 0.35) 1px, transparent 1px);
         background-size: 40px 40px;
       }
 
@@ -40,30 +57,59 @@
       .tcs-input:focus {
         outline: none;
         border-color: #fb923c;
-        box-shadow: 0 0 0 3px rgba(251,146,60,0.12);
+        box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.12);
       }
 
       /* Fade-up animation */
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(24px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      .fade-up { animation: fadeUp 0.55s cubic-bezier(.22,1,.36,1) both; }
-      .delay-1 { animation-delay: 0.08s; }
-      .delay-2 { animation-delay: 0.16s; }
-      .delay-3 { animation-delay: 0.24s; }
-      .delay-4 { animation-delay: 0.32s; }
+      .fade-up {
+        animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .delay-1 {
+        animation-delay: 0.08s;
+      }
+      .delay-2 {
+        animation-delay: 0.16s;
+      }
+      .delay-3 {
+        animation-delay: 0.24s;
+      }
+      .delay-4 {
+        animation-delay: 0.32s;
+      }
 
       /* Password toggle button */
-      .toggle-pw { cursor: pointer; }
+      .toggle-pw {
+        cursor: pointer;
+      }
 
       /* Error shake */
       @keyframes shake {
-        0%,100% { transform: translateX(0); }
-        20%,60%  { transform: translateX(-6px); }
-        40%,80%  { transform: translateX(6px); }
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20%,
+        60% {
+          transform: translateX(-6px);
+        }
+        40%,
+        80% {
+          transform: translateX(6px);
+        }
       }
-      .shake { animation: shake 0.4s ease; }
+      .shake {
+        animation: shake 0.4s ease;
+      }
     </style>
   </head>
 
@@ -71,31 +117,47 @@
     <div id="header"></div>
 
     <!-- Page Layout -->
-    <main class="min-h-[calc(100vh-64px)] bg-grid flex items-center justify-center px-4 py-16">
-
+    <main
+      class="min-h-[calc(100vh-64px)] bg-grid flex items-center justify-center px-4 py-16"
+    >
       <div class="w-full max-w-md fade-up">
-
         <!-- Card -->
-        <div class="bg-white border border-stone-200 shadow-sm rounded-lg overflow-hidden">
-
+        <div
+          class="bg-white border border-stone-200 shadow-sm rounded-lg overflow-hidden"
+        >
           <!-- Card Header -->
           <div class="bg-stone-900 px-8 py-7 fade-up delay-1">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400 mb-1">Techno Campus Store</p>
-            <h1 class="text-2xl font-black text-white leading-tight">Welcome Back</h1>
-            <p class="text-stone-400 text-sm mt-1 font-medium">Sign in to your student account</p>
+            <p
+              class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400 mb-1"
+            >
+              Techno Campus Store
+            </p>
+            <h1 class="text-2xl font-black text-white leading-tight">
+              Welcome Back
+            </h1>
+            <p class="text-stone-400 text-sm mt-1 font-medium">
+              Sign in to your student account
+            </p>
           </div>
 
           <!-- Form -->
           <div class="px-8 py-8 flex flex-col gap-5">
-
             <!-- Student ID -->
             <div class="fade-up delay-2">
-              <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">
+              <label
+                class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
+              >
                 Student ID
               </label>
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
-                  <span class="material-symbols-outlined" style="font-size:18px">badge</span>
+                <span
+                  class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >badge</span
+                  >
                 </span>
                 <input
                   id="studentId"
@@ -104,17 +166,30 @@
                   class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
                 />
               </div>
-              <p id="studentId-err" class="text-xs text-red-500 font-semibold mt-1.5 hidden">Please enter your Student ID.</p>
+              <p
+                id="studentId-err"
+                class="text-xs text-red-500 font-semibold mt-1.5 hidden"
+              >
+                Please enter your Student ID.
+              </p>
             </div>
 
             <!-- Password -->
             <div class="fade-up delay-3">
-              <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">
+              <label
+                class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
+              >
                 Password
               </label>
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
-                  <span class="material-symbols-outlined" style="font-size:18px">lock</span>
+                <span
+                  class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >lock</span
+                  >
                 </span>
                 <input
                   id="password"
@@ -122,26 +197,58 @@
                   placeholder="••••••••"
                   class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-11 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
                 />
-                <button type="button" class="toggle-pw absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors" onclick="togglePw('password', this)">
-                  <span class="material-symbols-outlined" style="font-size:18px">visibility_off</span>
+                <button
+                  type="button"
+                  class="toggle-pw absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors"
+                  onclick="togglePw('password', this)"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >visibility_off</span
+                  >
                 </button>
               </div>
-              <p id="password-err" class="text-xs text-red-500 font-semibold mt-1.5 hidden">Please enter your password.</p>
+              <p
+                id="password-err"
+                class="text-xs text-red-500 font-semibold mt-1.5 hidden"
+              >
+                Please enter your password.
+              </p>
             </div>
 
             <!-- Remember + Forgot -->
             <div class="flex items-center justify-between fade-up delay-3">
               <label class="flex items-center gap-2 cursor-pointer select-none">
-                <input type="checkbox" id="remember" class="accent-orange-400 w-4 h-4 rounded" />
-                <span class="text-xs font-semibold text-stone-500">Remember me</span>
+                <input
+                  type="checkbox"
+                  id="remember"
+                  class="accent-orange-400 w-4 h-4 rounded"
+                />
+                <span class="text-xs font-semibold text-stone-500"
+                  >Remember me</span
+                >
               </label>
-              <a href="#" class="text-xs font-bold uppercase tracking-widest text-orange-400 hover:text-orange-500 transition-colors">Forgot password?</a>
+              <a
+                href="#"
+                class="text-xs font-bold uppercase tracking-widest text-orange-400 hover:text-orange-500 transition-colors"
+                >Forgot password?</a
+              >
             </div>
 
             <!-- Error banner -->
-            <div id="login-error" class="hidden bg-red-50 border border-red-200 rounded px-4 py-3 flex items-center gap-2">
-              <span class="material-symbols-outlined text-red-400" style="font-size:18px">error</span>
-              <p class="text-xs font-semibold text-red-600">Invalid Student ID or password. Please try again.</p>
+            <div
+              id="login-error"
+              class="hidden bg-red-50 border border-red-200 rounded px-4 py-3 flex items-center gap-2"
+            >
+              <span
+                class="material-symbols-outlined text-red-400"
+                style="font-size: 18px"
+                >error</span
+              >
+              <p class="text-xs font-semibold text-red-600">
+                Invalid Student ID or password. Please try again.
+              </p>
             </div>
 
             <!-- Submit -->
@@ -151,7 +258,12 @@
               class="fade-up delay-4 w-full bg-orange-400 hover:bg-orange-500 active:scale-[0.98] text-white text-xs font-black uppercase tracking-[0.18em] py-3.5 rounded transition-all duration-150 flex items-center justify-center gap-2"
             >
               <span id="btn-text">Sign In</span>
-              <span id="btn-spinner" class="hidden material-symbols-outlined animate-spin" style="font-size:16px">progress_activity</span>
+              <span
+                id="btn-spinner"
+                class="hidden material-symbols-outlined animate-spin"
+                style="font-size: 16px"
+                >progress_activity</span
+              >
             </button>
 
             <!-- Divider -->
@@ -160,20 +272,31 @@
                 <div class="w-full border-t border-stone-100"></div>
               </div>
               <div class="relative flex justify-center">
-                <span class="bg-white px-3 text-xs font-bold uppercase tracking-widest text-stone-300">or</span>
+                <span
+                  class="bg-white px-3 text-xs font-bold uppercase tracking-widest text-stone-300"
+                  >or</span
+                >
               </div>
             </div>
 
             <!-- Register link -->
-            <p class="text-center text-sm text-stone-500 font-medium fade-up delay-4">
+            <p
+              class="text-center text-sm text-stone-500 font-medium fade-up delay-4"
+            >
               Don't have an account?
-              <a href="register.html" class="font-bold text-stone-900 hover:text-orange-500 transition-colors">Register here</a>
+              <a
+                href="register.html"
+                class="font-bold text-stone-900 hover:text-orange-500 transition-colors"
+                >Register here</a
+              >
             </p>
           </div>
         </div>
 
         <!-- Footer note -->
-        <p class="text-center text-xs text-stone-400 font-medium mt-5 fade-up delay-4">
+        <p
+          class="text-center text-xs text-stone-400 font-medium mt-5 fade-up delay-4"
+        >
           © 2026 TCS — For ITC Students Only
         </p>
       </div>
@@ -184,70 +307,81 @@
     <script src="data.js"></script>
     <script src="script.js"></script>
     <script>
+      // Redirect away if already logged in
+      if (localStorage.getItem("tcs_user")) {
+        window.location.href = "profile.html";
+      }
+
       function togglePw(inputId, btn) {
         const input = document.getElementById(inputId);
-        const icon = btn.querySelector('.material-symbols-outlined');
-        if (input.type === 'password') {
-          input.type = 'text';
-          icon.textContent = 'visibility';
+        const icon = btn.querySelector(".material-symbols-outlined");
+        if (input.type === "password") {
+          input.type = "text";
+          icon.textContent = "visibility";
         } else {
-          input.type = 'password';
-          icon.textContent = 'visibility_off';
+          input.type = "password";
+          icon.textContent = "visibility_off";
         }
       }
 
       function handleLogin() {
-        const studentId = document.getElementById('studentId');
-        const password  = document.getElementById('password');
-        const errBanner = document.getElementById('login-error');
-        const btn       = document.getElementById('login-btn');
-        const btnText   = document.getElementById('btn-text');
-        const spinner   = document.getElementById('btn-spinner');
+        const studentId = document.getElementById("studentId");
+        const password = document.getElementById("password");
+        const errBanner = document.getElementById("login-error");
+        const btn = document.getElementById("login-btn");
+        const btnText = document.getElementById("btn-text");
+        const spinner = document.getElementById("btn-spinner");
 
         let valid = true;
 
         // Clear previous errors
-        document.getElementById('studentId-err').classList.add('hidden');
-        document.getElementById('password-err').classList.add('hidden');
-        errBanner.classList.add('hidden');
-        studentId.classList.remove('border-red-300');
-        password.classList.remove('border-red-300');
+        document.getElementById("studentId-err").classList.add("hidden");
+        document.getElementById("password-err").classList.add("hidden");
+        errBanner.classList.add("hidden");
+        studentId.classList.remove("border-red-300");
+        password.classList.remove("border-red-300");
 
         if (!studentId.value.trim()) {
-          document.getElementById('studentId-err').classList.remove('hidden');
-          studentId.classList.add('border-red-300');
+          document.getElementById("studentId-err").classList.remove("hidden");
+          studentId.classList.add("border-red-300");
           valid = false;
         }
         if (!password.value.trim()) {
-          document.getElementById('password-err').classList.remove('hidden');
-          password.classList.add('border-red-300');
+          document.getElementById("password-err").classList.remove("hidden");
+          password.classList.add("border-red-300");
           valid = false;
         }
         if (!valid) return;
 
         // Simulate loading
         btn.disabled = true;
-        btnText.textContent = 'Signing In...';
-        spinner.classList.remove('hidden');
+        btnText.textContent = "Signing In...";
+        spinner.classList.remove("hidden");
 
         setTimeout(() => {
           btn.disabled = false;
-          btnText.textContent = 'Sign In';
-          spinner.classList.add('hidden');
+          btnText.textContent = "Sign In";
+          spinner.classList.add("hidden");
 
-          if (studentId.value.trim() === 'e20230105' && password.value === '12345678') {
-            window.location.href = 'profile.html';
+          const found = USERS.find(
+            (u) =>
+              u.studentId === studentId.value.trim() &&
+              u.password === password.value,
+          );
+          if (found) {
+            localStorage.setItem("tcs_user", JSON.stringify(found));
+            window.location.href = "profile.html";
           } else {
-            errBanner.classList.remove('hidden');
-            errBanner.classList.add('shake');
-            setTimeout(() => errBanner.classList.remove('shake'), 500);
+            errBanner.classList.remove("hidden");
+            errBanner.classList.add("shake");
+            setTimeout(() => errBanner.classList.remove("shake"), 500);
           }
         }, 1200);
       }
 
       // Enter key support
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') handleLogin();
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") handleLogin();
       });
     </script>
   </body>
