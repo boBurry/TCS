@@ -377,7 +377,7 @@ const USERS = [
     role: "CS Student",
   },
   {
-    studentId: "ITC2024002",
+    studentId: "ITC2024003",
     password: "password",
     firstName: "Phai",
     lastName: "Jingpo",
@@ -387,7 +387,7 @@ const USERS = [
     role: "CS Student",
   },
   {
-    studentId: "ITC2024003",
+    studentId: "ITC2024004",
     password: "password",
     firstName: "Thy",
     lastName: "Rathanak",
@@ -397,7 +397,7 @@ const USERS = [
     role: "CS Student",
   },
   {
-    studentId: "ITC2024004",
+    studentId: "ITC2024005",
     password: "password",
     firstName: "Rin",
     lastName: "Sopheary",
