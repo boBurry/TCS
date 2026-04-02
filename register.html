@@ -667,30 +667,30 @@
           btnText.textContent = "Create Account";
           spinner.classList.add("hidden");
 
-          // Check if Student ID or email already exists
-          const duplicate = USERS.find(
-            (u) => u.studentId === studentId || u.email === email,
-          );
-          if (duplicate) {
-            showErr(
-              "studentId",
-              "This Student ID or email is already registered.",
-            );
-            return;
-          }
+        // Check duplicates in both hardcoded USERS and localStorage registered users
+        const registered = JSON.parse(localStorage.getItem("tcs_registered") || "[]");
+        const allUsers = [...USERS, ...registered];
 
-          // Save new user to USERS array
-          USERS.push({
-            studentId,
-            password,
-            firstName,
-            lastName,
-            email,
-            phone: "",
-            location: "",
-            role: "CS Student",
-          });
+        const duplicate = allUsers.find(
+          (u) => u.studentId === studentId || u.email === email,
+        );
+        if (duplicate) {
+          showErr("studentId", "This Student ID or email is already registered.");
+          return;
+        }
 
+        // Save to localStorage 
+        registered.push({
+          studentId,
+          password,
+          firstName,
+          lastName,
+          email,
+          phone: "",
+          location: "",
+          role: "CS Student",
+        });
+        localStorage.setItem("tcs_registered", JSON.stringify(registered));
           document.getElementById("success-overlay").classList.add("active");
         }, 1400);
       }

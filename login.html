@@ -363,7 +363,12 @@
           btnText.textContent = "Sign In";
           spinner.classList.add("hidden");
 
-          const found = USERS.find(
+          const registered = JSON.parse(
+            localStorage.getItem("tcs_registered") || "[]",
+          );
+          const allUsers = [...USERS, ...registered];
+
+          const found = allUsers.find(
             (u) =>
               u.studentId === studentId.value.trim() &&
               u.password === password.value,
