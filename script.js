@@ -1,8 +1,24 @@
+// ── Auth helpers ─────────────────────────────────────────────────────────────
+function isLoggedIn() {
+  return localStorage.getItem("tcs_user") !== null;
+}
+
+function getUser() {
+  return JSON.parse(localStorage.getItem("tcs_user"));
+}
+
+function logout() {
+  localStorage.removeItem("tcs_user");
+  window.location.href = "login.html";
+}
+
 // Load header
 fetch("header.html")
   .then((res) => res.text())
   .then((html) => {
     document.getElementById("header").innerHTML = html;
+
+    const page = window.location.pathname.split("/").pop() || "index.html";
 
     // Init hamburger AFTER header is injected into the DOM
     const toggle = document.getElementById("menu-toggle");
@@ -17,15 +33,41 @@ fetch("header.html")
       });
     }
 
+    // ── Auth: redirect profile icon to login if not logged in ────────────────────
+    const profileLink = document.querySelector("a[href='profile.html']");
+    if (profileLink) {
+      profileLink.addEventListener("click", (e) => {
+        if (!isLoggedIn()) {
+          e.preventDefault();
+          window.location.href = "login.html";
+        }
+      });
+    }
+
+    // ── Auth: protect profile page ───────────────────────────────────────────────
+    if (page === "profile.html" && !isLoggedIn()) {
+      window.location.href = "login.html";
+    }
+
+    // ── Auth: show orange profile icon if logged in ───────────────────────────────
+    if (isLoggedIn()) {
+      const profileIcon = document.querySelector(
+        "a[href='profile.html'] .material-symbols-outlined",
+      );
+      if (profileIcon) {
+        profileIcon.classList.add("text-orange-400");
+        profileIcon.closest("a")?.classList.remove("text-stone-500");
+      }
+    }
+
     // ── Active nav highlight ─────────────────────────────────────────────
-    const page = window.location.pathname.split("/").pop() || "index.html";
     const categoryPages = [
       "books.html",
       "supplies.html",
       "secondhand.html",
       "aboutus.html",
     ];
-    
+
     // Profile page — orange profile icon, no Home underline
     if (page === "profile.html") {
       // Desktop — remove underline from Home
@@ -37,26 +79,34 @@ fetch("header.html")
       }
 
       // Desktop — make profile icon orange
-      const profileIcon = document.querySelector("a[href='profile.html'] .material-symbols-outlined");
+      const profileIcon = document.querySelector(
+        "a[href='profile.html'] .material-symbols-outlined",
+      );
       if (profileIcon) {
         profileIcon.classList.add("text-orange-400");
-        
-        // Remove the default text color from the parent <a> tag 
-        const parentLink = profileIcon.closest('a');
+
+        // Remove the default text color from the parent <a> tag
+        const parentLink = profileIcon.closest("a");
         if (parentLink) {
-            parentLink.classList.remove("text-stone-500");
+          parentLink.classList.remove("text-stone-500");
         }
       }
 
       // Mobile — remove underline from Home
       const mobileHome = document.querySelector("#mobile-menu a.border-b-2");
       if (mobileHome) {
-        mobileHome.classList.remove("text-stone-900", "border-b-2", "border-orange-400");
+        mobileHome.classList.remove(
+          "text-stone-900",
+          "border-b-2",
+          "border-orange-400",
+        );
         mobileHome.classList.add("text-stone-400");
       }
 
       // Mobile — make profile icon/link orange
-      const mobileProfile = document.querySelector("#mobile-menu a[href='profile.html']");
+      const mobileProfile = document.querySelector(
+        "#mobile-menu a[href='profile.html']",
+      );
       if (mobileProfile) {
         mobileProfile.classList.remove("text-stone-400");
         mobileProfile.classList.add("text-orange-400");
@@ -120,7 +170,8 @@ fetch("footer.html")
     const isHome = page === "index.html" || page === "";
     if (!isHome) {
       const mapWrapper = document.querySelector("#contact iframe");
-      if (mapWrapper) mapWrapper.closest(".col-span-2.md\\:col-span-4").remove();
+      if (mapWrapper)
+        mapWrapper.closest(".col-span-2.md\\:col-span-4").remove();
     }
 
     if (window.location.hash === "#contact") {

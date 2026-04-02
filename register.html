@@ -7,9 +7,18 @@
     <title>TCS — Register</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
     <script>
       tailwind.config = {
@@ -23,22 +32,30 @@
 
     <style>
       .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
       }
-      body { font-family: "Inter", sans-serif; }
-      html { scroll-behavior: smooth; }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
 
       .bg-grid {
         background-image:
-          linear-gradient(rgba(214,211,209,0.35) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(214,211,209,0.35) 1px, transparent 1px);
+          linear-gradient(rgba(214, 211, 209, 0.35) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(214, 211, 209, 0.35) 1px, transparent 1px);
         background-size: 40px 40px;
       }
 
       .tcs-input:focus {
         outline: none;
         border-color: #fb923c;
-        box-shadow: 0 0 0 3px rgba(251,146,60,0.12);
+        box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.12);
       }
       .tcs-input.error {
         border-color: #fca5a5 !important;
@@ -46,20 +63,42 @@
       }
 
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(24px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      .fade-up { animation: fadeUp 0.55s cubic-bezier(.22,1,.36,1) both; }
-      .delay-1 { animation-delay: 0.06s; }
-      .delay-2 { animation-delay: 0.12s; }
-      .delay-3 { animation-delay: 0.18s; }
-      .delay-4 { animation-delay: 0.24s; }
-      .delay-5 { animation-delay: 0.30s; }
-      .delay-6 { animation-delay: 0.36s; }
+      .fade-up {
+        animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .delay-1 {
+        animation-delay: 0.06s;
+      }
+      .delay-2 {
+        animation-delay: 0.12s;
+      }
+      .delay-3 {
+        animation-delay: 0.18s;
+      }
+      .delay-4 {
+        animation-delay: 0.24s;
+      }
+      .delay-5 {
+        animation-delay: 0.3s;
+      }
+      .delay-6 {
+        animation-delay: 0.36s;
+      }
 
       /* Password strength bar */
       #strength-bar {
-        transition: width 0.35s ease, background-color 0.35s ease;
+        transition:
+          width 0.35s ease,
+          background-color 0.35s ease;
       }
 
       /* Success overlay */
@@ -67,34 +106,63 @@
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(28,25,23,0.6);
+        background: rgba(28, 25, 23, 0.6);
         backdrop-filter: blur(4px);
         z-index: 999;
         align-items: center;
         justify-content: center;
       }
-      #success-overlay.active { display: flex; }
+      #success-overlay.active {
+        display: flex;
+      }
 
       @keyframes popIn {
-        from { opacity: 0; transform: scale(0.85); }
-        to   { opacity: 1; transform: scale(1); }
+        from {
+          opacity: 0;
+          transform: scale(0.85);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
-      #success-card { animation: popIn 0.4s cubic-bezier(.22,1,.36,1) both; }
+      #success-card {
+        animation: popIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
 
       @keyframes shake {
-        0%,100% { transform: translateX(0); }
-        20%,60%  { transform: translateX(-5px); }
-        40%,80%  { transform: translateX(5px); }
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20%,
+        60% {
+          transform: translateX(-5px);
+        }
+        40%,
+        80% {
+          transform: translateX(5px);
+        }
       }
-      .shake { animation: shake 0.4s ease; }
+      .shake {
+        animation: shake 0.4s ease;
+      }
 
       /* Step indicator */
       .step-dot {
-        width: 8px; height: 8px; border-radius: 9999px;
-        background: #d6d3d1; transition: all 0.3s ease;
+        width: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: #d6d3d1;
+        transition: all 0.3s ease;
       }
-      .step-dot.active { background: #fb923c; width: 24px; }
-      .step-dot.done   { background: #22c55e; }
+      .step-dot.active {
+        background: #fb923c;
+        width: 24px;
+      }
+      .step-dot.done {
+        background: #22c55e;
+      }
     </style>
   </head>
 
@@ -103,29 +171,53 @@
 
     <!-- Success Overlay -->
     <div id="success-overlay">
-      <div id="success-card" class="bg-white border border-stone-200 rounded-lg shadow-lg p-10 max-w-sm w-full mx-4 text-center">
-        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
-          <span class="material-symbols-outlined text-green-500" style="font-size:32px">check_circle</span>
+      <div
+        id="success-card"
+        class="bg-white border border-stone-200 rounded-lg shadow-lg p-10 max-w-sm w-full mx-4 text-center"
+      >
+        <div
+          class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5"
+        >
+          <span
+            class="material-symbols-outlined text-green-500"
+            style="font-size: 32px"
+            >check_circle</span
+          >
         </div>
         <h2 class="text-xl font-black text-stone-900 mb-2">Account Created!</h2>
-        <p class="text-sm text-stone-500 font-medium mb-6">Welcome to TCS. You can now sign in with your Student ID.</p>
-        <a href="login.html" class="block w-full bg-orange-400 hover:bg-orange-500 text-white text-xs font-black uppercase tracking-widest py-3 rounded transition-colors">
+        <p class="text-sm text-stone-500 font-medium mb-6">
+          Welcome to TCS. You can now sign in with your Student ID.
+        </p>
+        <a
+          href="login.html"
+          class="block w-full bg-orange-400 hover:bg-orange-500 text-white text-xs font-black uppercase tracking-widest py-3 rounded transition-colors"
+        >
           Go to Login
         </a>
       </div>
     </div>
 
-    <main class="min-h-[calc(100vh-64px)] bg-grid flex items-center justify-center px-4 py-16">
+    <main
+      class="min-h-[calc(100vh-64px)] bg-grid flex items-center justify-center px-4 py-16"
+    >
       <div class="w-full max-w-lg fade-up">
-
         <!-- Card -->
-        <div class="bg-white border border-stone-200 shadow-sm rounded-lg overflow-hidden">
-
+        <div
+          class="bg-white border border-stone-200 shadow-sm rounded-lg overflow-hidden"
+        >
           <!-- Card Header -->
           <div class="bg-stone-900 px-8 py-7 fade-up delay-1">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400 mb-1">Techno Campus Store</p>
-            <h1 class="text-2xl font-black text-white leading-tight">Create Account</h1>
-            <p class="text-stone-400 text-sm mt-1 font-medium">Register with your ITC student details</p>
+            <p
+              class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400 mb-1"
+            >
+              Techno Campus Store
+            </p>
+            <h1 class="text-2xl font-black text-white leading-tight">
+              Create Account
+            </h1>
+            <p class="text-stone-400 text-sm mt-1 font-medium">
+              Register with your ITC student details
+            </p>
 
             <!-- Progress dots -->
             <div class="flex items-center gap-2 mt-4">
@@ -137,106 +229,259 @@
 
           <!-- Form -->
           <div class="px-8 py-8 flex flex-col gap-5">
-
             <!-- Row: First Name + Last Name -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 fade-up delay-2">
               <div>
-                <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">First Name</label>
+                <label
+                  class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
+                  >First Name</label
+                >
                 <div class="relative">
-                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
-                    <span class="material-symbols-outlined" style="font-size:18px">person</span>
+                  <span
+                    class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 18px"
+                      >person</span
+                    >
                   </span>
-                  <input id="firstName" type="text" placeholder="Sun"
-                    class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition" />
+                  <input
+                    id="firstName"
+                    type="text"
+                    placeholder="Sun"
+                    class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
+                  />
                 </div>
-                <p id="firstName-err" class="text-xs text-red-500 font-semibold mt-1.5 hidden">Required.</p>
+                <p
+                  id="firstName-err"
+                  class="text-xs text-red-500 font-semibold mt-1.5 hidden"
+                >
+                  Required.
+                </p>
               </div>
               <div>
-                <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Last Name</label>
+                <label
+                  class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
+                  >Last Name</label
+                >
                 <div class="relative">
-                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
-                    <span class="material-symbols-outlined" style="font-size:18px">person</span>
+                  <span
+                    class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 18px"
+                      >person</span
+                    >
                   </span>
-                  <input id="lastName" type="text" placeholder="Sovisal"
-                    class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition" />
+                  <input
+                    id="lastName"
+                    type="text"
+                    placeholder="Sovisal"
+                    class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
+                  />
                 </div>
-                <p id="lastName-err" class="text-xs text-red-500 font-semibold mt-1.5 hidden">Required.</p>
+                <p
+                  id="lastName-err"
+                  class="text-xs text-red-500 font-semibold mt-1.5 hidden"
+                >
+                  Required.
+                </p>
               </div>
             </div>
 
             <!-- Student ID -->
             <div class="fade-up delay-3">
-              <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Student ID</label>
+              <label
+                class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
+                >Student ID</label
+              >
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
-                  <span class="material-symbols-outlined" style="font-size:18px">badge</span>
+                <span
+                  class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >badge</span
+                  >
                 </span>
-                <input id="studentId" type="text" placeholder="e.g. ITC2024001"
-                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition" />
+                <input
+                  id="studentId"
+                  type="text"
+                  placeholder="e.g. ITC2024001"
+                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
+                />
               </div>
-              <p id="studentId-err" class="text-xs text-red-500 font-semibold mt-1.5 hidden">Please enter your Student ID.</p>
+              <p
+                id="studentId-err"
+                class="text-xs text-red-500 font-semibold mt-1.5 hidden"
+              >
+                Please enter your Student ID.
+              </p>
             </div>
 
             <!-- Email -->
             <div class="fade-up delay-3">
-              <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Email</label>
+              <label
+                class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
+                >Email</label
+              >
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
-                  <span class="material-symbols-outlined" style="font-size:18px">mail</span>
+                <span
+                  class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >mail</span
+                  >
                 </span>
-                <input id="email" type="email" placeholder="you@itc.edu.kh"
-                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition" />
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="you@itc.edu.kh"
+                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
+                />
               </div>
-              <p id="email-err" class="text-xs text-red-500 font-semibold mt-1.5 hidden">Enter a valid email.</p>
+              <p
+                id="email-err"
+                class="text-xs text-red-500 font-semibold mt-1.5 hidden"
+              >
+                Enter a valid email.
+              </p>
             </div>
 
             <!-- Password -->
             <div class="fade-up delay-4">
-              <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Password</label>
+              <label
+                class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
+                >Password</label
+              >
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
-                  <span class="material-symbols-outlined" style="font-size:18px">lock</span>
+                <span
+                  class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >lock</span
+                  >
                 </span>
-                <input id="password" type="password" placeholder="Min. 8 characters"
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="Min. 8 characters"
                   oninput="updateStrength(this.value)"
-                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-11 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition" />
-                <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors" onclick="togglePw('password', this)">
-                  <span class="material-symbols-outlined" style="font-size:18px">visibility_off</span>
+                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-11 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
+                />
+                <button
+                  type="button"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors"
+                  onclick="togglePw('password', this)"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >visibility_off</span
+                  >
                 </button>
               </div>
               <!-- Strength bar -->
               <div class="mt-2 h-1 bg-stone-100 rounded-full overflow-hidden">
-                <div id="strength-bar" class="h-full rounded-full w-0 bg-stone-300"></div>
+                <div
+                  id="strength-bar"
+                  class="h-full rounded-full w-0 bg-stone-300"
+                ></div>
               </div>
-              <p id="strength-label" class="text-xs font-semibold mt-1 text-stone-300"></p>
-              <p id="password-err" class="text-xs text-red-500 font-semibold mt-1 hidden">Must be at least 8 characters.</p>
+              <p
+                id="strength-label"
+                class="text-xs font-semibold mt-1 text-stone-300"
+              ></p>
+              <p
+                id="password-err"
+                class="text-xs text-red-500 font-semibold mt-1 hidden"
+              >
+                Must be at least 8 characters.
+              </p>
             </div>
 
             <!-- Confirm Password -->
             <div class="fade-up delay-5">
-              <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Confirm Password</label>
+              <label
+                class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
+                >Confirm Password</label
+              >
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
-                  <span class="material-symbols-outlined" style="font-size:18px">lock_reset</span>
+                <span
+                  class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >lock_reset</span
+                  >
                 </span>
-                <input id="confirmPassword" type="password" placeholder="Re-enter password"
-                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-11 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition" />
-                <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors" onclick="togglePw('confirmPassword', this)">
-                  <span class="material-symbols-outlined" style="font-size:18px">visibility_off</span>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  placeholder="Re-enter password"
+                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-11 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
+                />
+                <button
+                  type="button"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors"
+                  onclick="togglePw('confirmPassword', this)"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >visibility_off</span
+                  >
                 </button>
               </div>
-              <p id="confirmPassword-err" class="text-xs text-red-500 font-semibold mt-1.5 hidden">Passwords do not match.</p>
+              <p
+                id="confirmPassword-err"
+                class="text-xs text-red-500 font-semibold mt-1.5 hidden"
+              >
+                Passwords do not match.
+              </p>
             </div>
 
             <!-- Terms -->
             <div class="fade-up delay-5">
-              <label class="flex items-start gap-2.5 cursor-pointer select-none">
-                <input type="checkbox" id="terms" class="accent-orange-400 w-4 h-4 mt-0.5 flex-shrink-0 rounded" />
-                <span class="text-xs font-medium text-stone-500 leading-relaxed">
-                  I agree to the <a href="#" class="font-bold text-stone-800 hover:text-orange-500 transition-colors">Terms of Service</a> and <a href="#" class="font-bold text-stone-800 hover:text-orange-500 transition-colors">Privacy Policy</a>
+              <label
+                class="flex items-start gap-2.5 cursor-pointer select-none"
+              >
+                <input
+                  type="checkbox"
+                  id="terms"
+                  class="accent-orange-400 w-4 h-4 mt-0.5 flex-shrink-0 rounded"
+                />
+                <span
+                  class="text-xs font-medium text-stone-500 leading-relaxed"
+                >
+                  I agree to the
+                  <a
+                    href="#"
+                    class="font-bold text-stone-800 hover:text-orange-500 transition-colors"
+                    >Terms of Service</a
+                  >
+                  and
+                  <a
+                    href="#"
+                    class="font-bold text-stone-800 hover:text-orange-500 transition-colors"
+                    >Privacy Policy</a
+                  >
                 </span>
               </label>
-              <p id="terms-err" class="text-xs text-red-500 font-semibold mt-1.5 hidden">You must accept the terms.</p>
+              <p
+                id="terms-err"
+                class="text-xs text-red-500 font-semibold mt-1.5 hidden"
+              >
+                You must accept the terms.
+              </p>
             </div>
 
             <!-- Submit -->
@@ -246,7 +491,12 @@
               class="fade-up delay-6 w-full bg-orange-400 hover:bg-orange-500 active:scale-[0.98] text-white text-xs font-black uppercase tracking-[0.18em] py-3.5 rounded transition-all duration-150 flex items-center justify-center gap-2"
             >
               <span id="btn-text">Create Account</span>
-              <span id="btn-spinner" class="hidden material-symbols-outlined" style="font-size:16px;animation:spin 1s linear infinite">progress_activity</span>
+              <span
+                id="btn-spinner"
+                class="hidden material-symbols-outlined"
+                style="font-size: 16px; animation: spin 1s linear infinite"
+                >progress_activity</span
+              >
             </button>
 
             <!-- Divider -->
@@ -255,19 +505,30 @@
                 <div class="w-full border-t border-stone-100"></div>
               </div>
               <div class="relative flex justify-center">
-                <span class="bg-white px-3 text-xs font-bold uppercase tracking-widest text-stone-300">or</span>
+                <span
+                  class="bg-white px-3 text-xs font-bold uppercase tracking-widest text-stone-300"
+                  >or</span
+                >
               </div>
             </div>
 
             <!-- Login link -->
-            <p class="text-center text-sm text-stone-500 font-medium fade-up delay-6">
+            <p
+              class="text-center text-sm text-stone-500 font-medium fade-up delay-6"
+            >
               Already have an account?
-              <a href="login.html" class="font-bold text-stone-900 hover:text-orange-500 transition-colors">Sign in</a>
+              <a
+                href="login.html"
+                class="font-bold text-stone-900 hover:text-orange-500 transition-colors"
+                >Sign in</a
+              >
             </p>
           </div>
         </div>
 
-        <p class="text-center text-xs text-stone-400 font-medium mt-5 fade-up delay-6">
+        <p
+          class="text-center text-xs text-stone-400 font-medium mt-5 fade-up delay-6"
+        >
           © 2026 TCS — For ITC Students Only
         </p>
       </div>
@@ -281,117 +542,176 @@
       // ── Password visibility toggle ──
       function togglePw(inputId, btn) {
         const input = document.getElementById(inputId);
-        const icon  = btn.querySelector('.material-symbols-outlined');
-        if (input.type === 'password') {
-          input.type = 'text';
-          icon.textContent = 'visibility';
+        const icon = btn.querySelector(".material-symbols-outlined");
+        if (input.type === "password") {
+          input.type = "text";
+          icon.textContent = "visibility";
         } else {
-          input.type = 'password';
-          icon.textContent = 'visibility_off';
+          input.type = "password";
+          icon.textContent = "visibility_off";
         }
       }
 
       // ── Password strength ──
       function updateStrength(val) {
-        const bar   = document.getElementById('strength-bar');
-        const label = document.getElementById('strength-label');
+        const bar = document.getElementById("strength-bar");
+        const label = document.getElementById("strength-label");
         let score = 0;
-        if (val.length >= 8)  score++;
+        if (val.length >= 8) score++;
         if (/[A-Z]/.test(val)) score++;
         if (/[0-9]/.test(val)) score++;
         if (/[^A-Za-z0-9]/.test(val)) score++;
 
         const levels = [
-          { w: '0%',   color: '#d6d3d1', text: '' },
-          { w: '25%',  color: '#ef4444', text: 'Weak' },
-          { w: '50%',  color: '#f97316', text: 'Fair' },
-          { w: '75%',  color: '#eab308', text: 'Good' },
-          { w: '100%', color: '#22c55e', text: 'Strong' },
+          { w: "0%", color: "#d6d3d1", text: "" },
+          { w: "25%", color: "#ef4444", text: "Weak" },
+          { w: "50%", color: "#f97316", text: "Fair" },
+          { w: "75%", color: "#eab308", text: "Good" },
+          { w: "100%", color: "#22c55e", text: "Strong" },
         ];
         const lvl = val.length === 0 ? levels[0] : levels[score];
-        bar.style.width           = lvl.w;
+        bar.style.width = lvl.w;
         bar.style.backgroundColor = lvl.color;
-        label.textContent         = lvl.text;
-        label.style.color         = lvl.color;
+        label.textContent = lvl.text;
+        label.style.color = lvl.color;
 
         // Update progress dots
-        const dots = [document.getElementById('dot-1'), document.getElementById('dot-2'), document.getElementById('dot-3')];
+        const dots = [
+          document.getElementById("dot-1"),
+          document.getElementById("dot-2"),
+          document.getElementById("dot-3"),
+        ];
         dots.forEach((d, i) => {
-          d.classList.remove('active', 'done');
-          if (score > i + 1)       d.classList.add('done');
-          else if (score === i + 1) d.classList.add('active');
+          d.classList.remove("active", "done");
+          if (score > i + 1) d.classList.add("done");
+          else if (score === i + 1) d.classList.add("active");
         });
       }
 
       // ── Validation helpers ──
       function showErr(id, msg) {
-        const el = document.getElementById(id + '-err');
+        const el = document.getElementById(id + "-err");
         if (msg) el.textContent = msg;
-        el.classList.remove('hidden');
-        document.getElementById(id)?.classList.add('error');
+        el.classList.remove("hidden");
+        document.getElementById(id)?.classList.add("error");
       }
       function clearErr(id) {
-        document.getElementById(id + '-err')?.classList.add('hidden');
-        document.getElementById(id)?.classList.remove('error');
+        document.getElementById(id + "-err")?.classList.add("hidden");
+        document.getElementById(id)?.classList.remove("error");
       }
 
       // ── Register handler ──
       function handleRegister() {
-        const fields = ['firstName','lastName','studentId','email','password','confirmPassword'];
+        const fields = [
+          "firstName",
+          "lastName",
+          "studentId",
+          "email",
+          "password",
+          "confirmPassword",
+        ];
         fields.forEach(clearErr);
-        clearErr('terms');
+        clearErr("terms");
 
-        const firstName       = document.getElementById('firstName').value.trim();
-        const lastName        = document.getElementById('lastName').value.trim();
-        const studentId       = document.getElementById('studentId').value.trim();
-        const email           = document.getElementById('email').value.trim();
-        const password        = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
-        const terms           = document.getElementById('terms').checked;
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const studentId = document.getElementById("studentId").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+        const terms = document.getElementById("terms").checked;
 
         let valid = true;
 
-        if (!firstName)    { showErr('firstName', 'Required.'); valid = false; }
-        if (!lastName)     { showErr('lastName',  'Required.'); valid = false; }
-        if (!studentId)    { showErr('studentId', 'Please enter your Student ID.'); valid = false; }
+        if (!firstName) {
+          showErr("firstName", "Required.");
+          valid = false;
+        }
+        if (!lastName) {
+          showErr("lastName", "Required.");
+          valid = false;
+        }
+        if (!studentId) {
+          showErr("studentId", "Please enter your Student ID.");
+          valid = false;
+        }
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          showErr('email', 'Enter a valid email.'); valid = false;
+          showErr("email", "Enter a valid email.");
+          valid = false;
         }
         if (password.length < 8) {
-          showErr('password', 'Must be at least 8 characters.'); valid = false;
+          showErr("password", "Must be at least 8 characters.");
+          valid = false;
         }
         if (password !== confirmPassword) {
-          showErr('confirmPassword', 'Passwords do not match.'); valid = false;
+          showErr("confirmPassword", "Passwords do not match.");
+          valid = false;
         }
         if (!terms) {
-          showErr('terms', 'You must accept the terms.'); valid = false;
+          showErr("terms", "You must accept the terms.");
+          valid = false;
         }
         if (!valid) return;
 
         // Simulate loading
-        const btn     = document.getElementById('register-btn');
-        const btnText = document.getElementById('btn-text');
-        const spinner = document.getElementById('btn-spinner');
+        const btn = document.getElementById("register-btn");
+        const btnText = document.getElementById("btn-text");
+        const spinner = document.getElementById("btn-spinner");
         btn.disabled = true;
-        btnText.textContent = 'Creating Account...';
-        spinner.classList.remove('hidden');
+        btnText.textContent = "Creating Account...";
+        spinner.classList.remove("hidden");
 
         setTimeout(() => {
           btn.disabled = false;
-          btnText.textContent = 'Create Account';
-          spinner.classList.add('hidden');
-          document.getElementById('success-overlay').classList.add('active');
+          btnText.textContent = "Create Account";
+          spinner.classList.add("hidden");
+
+          // Check if Student ID or email already exists
+          const duplicate = USERS.find(
+            (u) => u.studentId === studentId || u.email === email,
+          );
+          if (duplicate) {
+            showErr(
+              "studentId",
+              "This Student ID or email is already registered.",
+            );
+            return;
+          }
+
+          // Save new user to USERS array
+          USERS.push({
+            studentId,
+            password,
+            firstName,
+            lastName,
+            email,
+            phone: "",
+            location: "",
+            role: "CS Student",
+          });
+
+          document.getElementById("success-overlay").classList.add("active");
         }, 1400);
       }
 
       // Close overlay on backdrop click
-      document.getElementById('success-overlay').addEventListener('click', function(e) {
-        if (e.target === this) this.classList.remove('active');
-      });
+      document
+        .getElementById("success-overlay")
+        .addEventListener("click", function (e) {
+          if (e.target === this) this.classList.remove("active");
+        });
     </script>
 
     <style>
-      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
     </style>
   </body>
 </html>

@@ -355,6 +355,59 @@ const SECONDHAND = [
   { id: 218, supplyId: 108, salePrice: 1.0, condition: "fair" },
 ];
 
+const USERS = [
+  {
+    studentId: "ITC2024001",
+    password: "password",
+    firstName: "Sun",
+    lastName: "Sovisal",
+    email: "sunsovisal@itc.edu.kh",
+    phone: "+855 12 345 678",
+    location: "Phnom Penh, Cambodia",
+    role: "CS Student",
+  },
+  {
+    studentId: "ITC2024002",
+    password: "password",
+    firstName: "Sun",
+    lastName: "Ousaphea",
+    email: "sunousaphea@itc.edu.kh",
+    phone: "+855 12 345 678",
+    location: "Phnom Penh, Cambodia",
+    role: "CS Student",
+  },
+  {
+    studentId: "ITC2024002",
+    password: "password",
+    firstName: "Phai",
+    lastName: "Jingpo",
+    email: "phaijingpo@itc.edu.kh",
+    phone: "+855 12 345 678",
+    location: "Phnom Penh, Cambodia",
+    role: "CS Student",
+  },
+  {
+    studentId: "ITC2024003",
+    password: "password",
+    firstName: "Thy",
+    lastName: "Rathanak",
+    email: "thyrathanak@itc.edu.kh",
+    phone: "+855 12 345 678",
+    location: "Phnom Penh, Cambodia",
+    role: "CS Student",
+  },
+  {
+    studentId: "ITC2024004",
+    password: "password",
+    firstName: "Rin",
+    lastName: "Sopheary",
+    email: "rinsopheary@itc.edu.kh",
+    phone: "+855 12 345 678",
+    location: "Phnom Penh, Cambodia",
+    role: "CS Student",
+  },
+];
+
 // ── Helper: resolve a secondhand entry into a full display object ──────────
 function resolveSecondhand(entry) {
   if (entry.bookId) {
