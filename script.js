@@ -115,6 +115,14 @@ fetch("footer.html")
   .then((html) => {
     document.getElementById("footer").innerHTML = html;
 
+    // Hide the map on every page except the home page
+    const page = window.location.pathname.split("/").pop() || "index.html";
+    const isHome = page === "index.html" || page === "";
+    if (!isHome) {
+      const mapWrapper = document.querySelector("#contact iframe");
+      if (mapWrapper) mapWrapper.closest(".col-span-2.md\\:col-span-4").remove();
+    }
+
     if (window.location.hash === "#contact") {
       const el = document.getElementById("contact");
       if (el) el.scrollIntoView({ behavior: "smooth" });
