@@ -12,11 +12,30 @@ function logout() {
   window.location.href = "login.html";
 }
 
+// ── Load translations.js dynamically (if not already loaded) ─────────────────
+(function () {
+  if (!window.TRANSLATIONS) {
+    const s = document.createElement("script");
+    s.src = "translations.js";
+    s.onload = () => {
+      i18n.apply();
+      syncLangButtons();
+    };
+    document.head.appendChild(s);
+  }
+})();
+
 // Load header
 fetch("header.html")
   .then((res) => res.text())
   .then((html) => {
     document.getElementById("header").innerHTML = html;
+
+    // Apply translations into the freshly-injected header
+    if (window.i18n) {
+      i18n.apply();
+      syncLangButtons();
+    }
 
     const page = window.location.pathname.split("/").pop() || "index.html";
 
@@ -33,7 +52,7 @@ fetch("header.html")
       });
     }
 
-    // ── Auth: redirect profile icon to login if not logged in ────────────────────
+    // ── Auth: redirect profile icon to login if not logged in ────────────────
     const profileLink = document.querySelector("a[href='profile.html']");
     if (profileLink) {
       profileLink.addEventListener("click", (e) => {
@@ -44,12 +63,12 @@ fetch("header.html")
       });
     }
 
-    // ── Auth: protect profile page ───────────────────────────────────────────────
+    // ── Auth: protect profile page ───────────────────────────────────────────
     if (page === "profile.html" && !isLoggedIn()) {
       window.location.href = "login.html";
     }
 
-    // ── Auth: show orange profile icon if logged in ───────────────────────────────
+    // ── Auth: show orange profile icon if logged in ───────────────────────────
     if (isLoggedIn()) {
       const profileIcon = document.querySelector(
         "a[href='profile.html'] .material-symbols-outlined",
@@ -60,7 +79,7 @@ fetch("header.html")
       }
     }
 
-    // ── Active nav highlight ─────────────────────────────────────────────
+    // ── Active nav highlight ─────────────────────────────────────────────────
     const categoryPages = [
       "books.html",
       "supplies.html",
@@ -68,61 +87,34 @@ fetch("header.html")
       "aboutus.html",
     ];
 
-    // Profile page — orange profile icon, no Home underline
     if (page === "profile.html") {
-      // Desktop — remove underline from Home
       const homeLink = document.querySelector("nav a.relative");
       if (homeLink) {
         homeLink.querySelector("span.absolute")?.remove();
         homeLink.classList.remove("text-stone-900");
         homeLink.classList.add("text-stone-400");
       }
-
-      // Desktop — make profile icon orange
       const profileIcon = document.querySelector(
         "a[href='profile.html'] .material-symbols-outlined",
       );
       if (profileIcon) {
         profileIcon.classList.add("text-orange-400");
-
-        // Remove the default text color from the parent <a> tag
-        const parentLink = profileIcon.closest("a");
-        if (parentLink) {
-          parentLink.classList.remove("text-stone-500");
-        }
+        profileIcon.closest("a")?.classList.remove("text-stone-500");
       }
-
-      // Mobile — remove underline from Home
       const mobileHome = document.querySelector("#mobile-menu a.border-b-2");
       if (mobileHome) {
-        mobileHome.classList.remove(
-          "text-stone-900",
-          "border-b-2",
-          "border-orange-400",
-        );
+        mobileHome.classList.remove("text-stone-900", "border-b-2", "border-orange-400");
         mobileHome.classList.add("text-stone-400");
-      }
-
-      // Mobile — make profile icon/link orange
-      const mobileProfile = document.querySelector(
-        "#mobile-menu a[href='profile.html']",
-      );
-      if (mobileProfile) {
-        mobileProfile.classList.remove("text-stone-400");
-        mobileProfile.classList.add("text-orange-400");
       }
     }
 
     if (categoryPages.includes(page)) {
-      // Desktop — remove underline from Home
       const homeLink = document.querySelector("nav a.relative");
       if (homeLink) {
         homeLink.querySelector("span.absolute")?.remove();
         homeLink.classList.remove("text-stone-900");
         homeLink.classList.add("text-stone-400");
       }
-
-      // Desktop — add underline to Category button
       const categoryBtn = document.querySelector("nav .group > button");
       if (categoryBtn) {
         categoryBtn.classList.remove("text-stone-400");
@@ -133,27 +125,15 @@ fetch("header.html")
           "absolute bottom-0 left-3 right-3 h-0.5 bg-orange-400 rounded-full";
         categoryBtn.appendChild(underline);
       }
-
-      // Mobile — remove underline from Home
       const mobileHome = document.querySelector("#mobile-menu a.border-b-2");
       if (mobileHome) {
-        mobileHome.classList.remove(
-          "text-stone-900",
-          "border-b-2",
-          "border-orange-400",
-        );
+        mobileHome.classList.remove("text-stone-900", "border-b-2", "border-orange-400");
         mobileHome.classList.add("text-stone-400");
       }
-
-      // Mobile — add underline to Category button
       const mobileCatBtn = document.querySelector("#mobile-menu div > button");
       if (mobileCatBtn) {
         mobileCatBtn.classList.remove("text-stone-400");
-        mobileCatBtn.classList.add(
-          "text-stone-900",
-          "border-b-2",
-          "border-orange-400",
-        );
+        mobileCatBtn.classList.add("text-stone-900", "border-b-2", "border-orange-400");
       }
     }
   })
@@ -165,7 +145,9 @@ fetch("footer.html")
   .then((html) => {
     document.getElementById("footer").innerHTML = html;
 
-    // Hide the map on every page except the home page
+    // Apply translations into the footer
+    if (window.i18n) i18n.apply();
+
     const page = window.location.pathname.split("/").pop() || "index.html";
     const isHome = page === "index.html" || page === "";
     if (!isHome) {
@@ -180,6 +162,14 @@ fetch("footer.html")
     }
   })
   .catch((err) => console.error("Error loading footer:", err));
+
+// ── Sync all lang-btn active states ──────────────────────────────────────────
+function syncLangButtons() {
+  if (!window.i18n) return;
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.classList.toggle("lang-active", btn.dataset.lang === i18n.current);
+  });
+}
 
 // Carousel scroll
 function scrollCarousel(id, direction) {
