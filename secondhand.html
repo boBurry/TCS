@@ -46,6 +46,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Siemreap&display=swap"
+      rel="stylesheet"
+    />
+
     <script>
       tailwind.config = {
         theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } },
@@ -124,13 +132,9 @@
         class="mx-auto max-w-7xl px-6 py-8 flex items-center justify-between gap-4"
       >
         <div>
-          <p
-            class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1"
-          >
-            TCS Store
-          </p>
           <h1
-            class="text-4xl sm:text-5xl font-black text-stone-800 leading-tight"
+            data-i18n="page_secondhand_title"
+            class="text-3xl sm:text-5xl font-black text-stone-800 leading-tight"
           >
             Secondhand
           </h1>
@@ -144,7 +148,7 @@
             <span class="material-symbols-outlined" style="font-size: 16px"
               >tune</span
             >
-            Filter
+            <span data-i18n="btn_filter">Filter</span>
           </button>
         </div>
       </div>
@@ -154,9 +158,9 @@
     <div class="mx-auto max-w-7xl px-6 py-8 flex gap-8 items-start">
       <!-- SIDEBAR -->
       <aside id="sidebar" class="hidden md:block w-52 flex-shrink-0">
-        <!-- Category -->
         <div class="mb-8">
           <p
+            data-i18n="filter_category"
             class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
           >
             Category
@@ -164,18 +168,21 @@
           <div class="flex flex-col gap-1">
             <button
               data-cat="all"
+              data-i18n="filter_all_items"
               class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               All Items
             </button>
             <button
               data-cat="books"
+              data-i18n="filter_books"
               class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Books
             </button>
             <button
               data-cat="supplies"
+              data-i18n="filter_supplies"
               class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Supplies
@@ -185,9 +192,9 @@
 
         <div class="border-t border-stone-200 mb-8"></div>
 
-        <!-- Condition -->
         <div class="mb-8">
           <p
+            data-i18n="filter_condition"
             class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
           >
             Condition
@@ -195,24 +202,28 @@
           <div class="flex flex-col gap-1">
             <button
               data-cond="all"
+              data-i18n="filter_all_conditions"
               class="cond-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               All Conditions
             </button>
             <button
               data-cond="like-new"
+              data-i18n="filter_like_new"
               class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Like New
             </button>
             <button
               data-cond="good"
+              data-i18n="filter_good"
               class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Good
             </button>
             <button
               data-cond="fair"
+              data-i18n="filter_fair"
               class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Fair
@@ -222,9 +233,9 @@
 
         <div class="border-t border-stone-200 mb-8"></div>
 
-        <!-- Sort -->
         <div>
           <p
+            data-i18n="filter_sort"
             class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
           >
             Sort By
@@ -232,30 +243,35 @@
           <div class="flex flex-col gap-1">
             <button
               data-sort="default"
+              data-i18n="sort_default"
               class="sort-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Default
             </button>
             <button
               data-sort="az"
+              data-i18n="sort_az"
               class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               A → Z
             </button>
             <button
               data-sort="za"
+              data-i18n="sort_za"
               class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Z → A
             </button>
             <button
               data-sort="lowhigh"
+              data-i18n="sort_low_high"
               class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Price: Low → High
             </button>
             <button
               data-sort="highlow"
+              data-i18n="sort_high_low"
               class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Price: High → Low
@@ -279,7 +295,10 @@
             style="font-size: 56px"
             >autorenew</span
           >
-          <p class="text-stone-400 font-bold uppercase tracking-widest text-sm">
+          <p
+            data-i18n="empty_items"
+            class="text-stone-400 font-bold uppercase tracking-widest text-sm"
+          >
             No items found
           </p>
         </div>
@@ -295,7 +314,10 @@
       <div
         class="flex items-center justify-between px-6 py-4 border-b border-stone-100"
       >
-        <p class="text-sm font-black uppercase tracking-widest text-stone-800">
+        <p
+          data-i18n="filter_title"
+          class="text-sm font-black uppercase tracking-widest text-stone-800"
+        >
           Filter &amp; Sort
         </p>
         <button
@@ -310,6 +332,7 @@
       <div class="flex-1 overflow-y-auto px-6 py-6">
         <!-- Category -->
         <p
+          data-i18n="filter_category"
           class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
         >
           Category
@@ -317,26 +340,29 @@
         <div class="flex flex-col gap-1 mb-8">
           <button
             data-cat="all"
+            data-i18n="filter_all_items"
             class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             All Items
           </button>
           <button
             data-cat="books"
+            data-i18n="filter_books"
             class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Books
           </button>
           <button
             data-cat="supplies"
+            data-i18n="filter_supplies"
             class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Supplies
           </button>
         </div>
         <div class="border-t border-stone-100 mb-8"></div>
-        <!-- Condition -->
         <p
+          data-i18n="filter_condition"
           class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
         >
           Condition
@@ -344,32 +370,36 @@
         <div class="flex flex-col gap-1 mb-8">
           <button
             data-cond="all"
+            data-i18n="filter_all_conditions"
             class="cond-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             All Conditions
           </button>
           <button
             data-cond="like-new"
+            data-i18n="filter_like_new"
             class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Like New
           </button>
           <button
             data-cond="good"
+            data-i18n="filter_good"
             class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Good
           </button>
           <button
             data-cond="fair"
+            data-i18n="filter_fair"
             class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Fair
           </button>
         </div>
         <div class="border-t border-stone-100 mb-8"></div>
-        <!-- Sort -->
         <p
+          data-i18n="filter_sort"
           class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
         >
           Sort By
@@ -377,30 +407,35 @@
         <div class="flex flex-col gap-1">
           <button
             data-sort="default"
+            data-i18n="sort_default"
             class="sort-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Default
           </button>
           <button
             data-sort="az"
+            data-i18n="sort_az"
             class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             A → Z
           </button>
           <button
             data-sort="za"
+            data-i18n="sort_za"
             class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Z → A
           </button>
           <button
             data-sort="lowhigh"
+            data-i18n="sort_low_high"
             class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Price: Low → High
           </button>
           <button
             data-sort="highlow"
+            data-i18n="sort_high_low"
             class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Price: High → Low
@@ -410,6 +445,7 @@
     </div>
 
     <div id="footer"></div>
+    <script src="translations.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
 
@@ -459,6 +495,7 @@
         const count = document.getElementById("result-count");
         const items = getFiltered();
         grid.classList.add("sorting");
+        
         setTimeout(() => {
           if (!items.length) {
             grid.innerHTML = "";
@@ -469,17 +506,21 @@
               .map((i) => {
                 const cond = condConfig[i.condition];
                 const isBook = i.category === "books";
+                // Create the key for the translation dictionary (e.g. cond_like_new)
+                const conditionKey = "cond_" + i.condition.replace("-", "_");
+                const categoryKey = isBook ? "cat_book" : "cat_supply";
+                
                 return `
               <div class="item-card bg-white rounded-lg p-3 flex flex-col gap-3 border border-stone-100 cursor-pointer">
                 <div class="relative bg-stone-50 rounded overflow-hidden flex items-center justify-center" style="height:190px;">
                   <img src="${i.cover}" alt="${i.title}"
                     class="h-full w-full ${isBook ? "object-contain" : "object-cover"} rounded" />
-                  <span class="absolute top-2 left-2 text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded ${cond.color}">
+                  <span data-i18n="${conditionKey}" class="absolute top-2 left-2 text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded ${cond.color}">
                     ${cond.label}
                   </span>
                 </div>
                 <div class="flex-1 flex flex-col gap-1">
-                  <span class="text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded w-fit ${isBook ? "bg-orange-100 text-orange-600" : "bg-teal-100 text-teal-600"}">
+                  <span data-i18n="${categoryKey}" class="text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded w-fit ${isBook ? "bg-orange-100 text-orange-600" : "bg-teal-100 text-teal-600"}">
                     ${isBook ? "Book" : "Supply"}
                   </span>
                   <p class="font-bold text-stone-800 text-sm leading-snug mt-1">${i.title}</p>
@@ -488,14 +529,22 @@
                     <p class="text-stone-400 line-through text-xs">$${i.originalPrice.toFixed(2)}</p>
                   </div>
                 </div>
-                <button class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
+                <button data-i18n="btn_details" class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
               </div>
             `;
               })
               .join("");
           }
-          count.textContent = `${items.length} item${items.length !== 1 ? "s" : ""}`;
+          
+          // Update count with translation keys
+          const countKey = items.length === 1 ? 'result_item' : 'result_items';
+          const fallbackText = items.length === 1 ? 'item' : 'items';
+          count.innerHTML = `${items.length} <span data-i18n="${countKey}">${fallbackText}</span>`;
+          
           grid.classList.remove("sorting");
+          
+          // Force translation engine to catch newly drawn elements
+          if (window.i18n) window.i18n.apply();
         }, 120);
       }
 
