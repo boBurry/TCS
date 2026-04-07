@@ -20,6 +20,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Siemreap&display=swap"
+      rel="stylesheet"
+    />
+
     <script>
       tailwind.config = {
         theme: {
@@ -184,12 +191,21 @@
             >check_circle</span
           >
         </div>
-        <h2 class="text-xl font-black text-stone-900 mb-2">Account Created!</h2>
-        <p class="text-sm text-stone-500 font-medium mb-6">
+        <h2
+          data-i18n="register_success_title"
+          class="text-xl font-black text-stone-900 mb-2"
+        >
+          Account Created!
+        </h2>
+        <p
+          data-i18n="register_success_msg"
+          class="text-sm text-stone-500 font-medium mb-6"
+        >
           Welcome to TCS. You can now sign in with your Student ID.
         </p>
         <a
           href="login.html"
+          data-i18n="register_success_btn"
           class="block w-full bg-orange-400 hover:bg-orange-500 text-white text-xs font-black uppercase tracking-widest py-3 rounded transition-colors"
         >
           Go to Login
@@ -208,14 +224,21 @@
           <!-- Card Header -->
           <div class="bg-stone-900 px-8 py-7 fade-up delay-1">
             <p
-              class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400 mb-1"
+              data-i18n="register_brand"
+              class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400 mb-2"
             >
               Techno Campus Store
             </p>
-            <h1 class="text-2xl font-black text-white leading-tight">
+            <h1
+              data-i18n="register_title"
+              class="text-2xl font-black text-white leading-tight"
+            >
               Create Account
             </h1>
-            <p class="text-stone-400 text-sm mt-1 font-medium">
+            <p
+              data-i18n="register_subtitle"
+              class="text-stone-400 text-sm mt-1 font-medium"
+            >
               Register with your ITC student details
             </p>
 
@@ -233,6 +256,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 fade-up delay-2">
               <div>
                 <label
+                  data-i18n="register_first_name"
                   class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
                   >First Name</label
                 >
@@ -262,6 +286,7 @@
               </div>
               <div>
                 <label
+                  data-i18n="register_last_name"
                   class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
                   >Last Name</label
                 >
@@ -294,6 +319,7 @@
             <!-- Student ID -->
             <div class="fade-up delay-3">
               <label
+                data-i18n="register_student_id"
                 class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
                 >Student ID</label
               >
@@ -325,6 +351,7 @@
             <!-- Email -->
             <div class="fade-up delay-3">
               <label
+                data-i18n="register_email"
                 class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
                 >Email</label
               >
@@ -356,6 +383,7 @@
             <!-- Password -->
             <div class="fade-up delay-4">
               <label
+                data-i18n="register_password"
                 class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
                 >Password</label
               >
@@ -410,6 +438,7 @@
             <!-- Confirm Password -->
             <div class="fade-up delay-5">
               <label
+                data-i18n="register_confirm_password"
                 class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
                 >Confirm Password</label
               >
@@ -462,15 +491,17 @@
                 <span
                   class="text-xs font-medium text-stone-500 leading-relaxed"
                 >
-                  I agree to the
+                  <span data-i18n="register_terms_text">I agree to the</span>
                   <a
                     href="#"
+                    data-i18n="register_terms_link"
                     class="font-bold text-stone-800 hover:text-orange-500 transition-colors"
                     >Terms of Service</a
                   >
-                  and
+                  <span data-i18n="register_and">and</span>
                   <a
                     href="#"
+                    data-i18n="register_privacy_link"
                     class="font-bold text-stone-800 hover:text-orange-500 transition-colors"
                     >Privacy Policy</a
                   >
@@ -490,7 +521,7 @@
               onclick="handleRegister()"
               class="fade-up delay-6 w-full bg-orange-400 hover:bg-orange-500 active:scale-[0.98] text-white text-xs font-black uppercase tracking-[0.18em] py-3.5 rounded transition-all duration-150 flex items-center justify-center gap-2"
             >
-              <span id="btn-text">Create Account</span>
+              <span id="btn-text" data-i18n="register_btn">Create Account</span>
               <span
                 id="btn-spinner"
                 class="hidden material-symbols-outlined"
@@ -516,7 +547,7 @@
             <p
               class="text-center text-sm text-stone-500 font-medium fade-up delay-6"
             >
-              Already have an account?
+              <span data-i18n="register_have_account">Already have an account?</span>
               <a
                 href="login.html"
                 class="font-bold text-stone-900 hover:text-orange-500 transition-colors"
@@ -527,7 +558,7 @@
         </div>
 
         <p
-          class="text-center text-xs text-stone-400 font-medium mt-5 fade-up delay-6"
+          data-i18n="register_footer" class="text-center text-xs text-stone-400 font-medium mt-5 fade-up delay-6"
         >
           © 2026 TCS — For ITC Students Only
         </p>
@@ -536,6 +567,7 @@
 
     <div id="footer"></div>
 
+    <script src="translations.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
     <script>
@@ -562,17 +594,24 @@
         if (/[0-9]/.test(val)) score++;
         if (/[^A-Za-z0-9]/.test(val)) score++;
 
+        // Map the keys instead of hardcoded text
         const levels = [
-          { w: "0%", color: "#d6d3d1", text: "" },
-          { w: "25%", color: "#ef4444", text: "Weak" },
-          { w: "50%", color: "#f97316", text: "Fair" },
-          { w: "75%", color: "#eab308", text: "Good" },
-          { w: "100%", color: "#22c55e", text: "Strong" },
+          { w: "0%", color: "#d6d3d1", key: "" },
+          { w: "25%", color: "#ef4444", key: "strength_weak" },
+          { w: "50%", color: "#f97316", key: "strength_fair" },
+          { w: "75%", color: "#eab308", key: "strength_good" },
+          { w: "100%", color: "#22c55e", key: "strength_strong" },
         ];
         const lvl = val.length === 0 ? levels[0] : levels[score];
         bar.style.width = lvl.w;
         bar.style.backgroundColor = lvl.color;
-        label.textContent = lvl.text;
+        
+        // Use translation engine for the strength label
+        if (lvl.key && window.i18n) {
+          label.textContent = window.i18n.t(lvl.key);
+        } else {
+          label.textContent = "";
+        }
         label.style.color = lvl.color;
 
         // Update progress dots
@@ -589,12 +628,80 @@
       }
 
       // ── Validation helpers ──
-      function showErr(id, msg) {
+      function showErr(id, msgKey) {
         const el = document.getElementById(id + "-err");
-        if (msg) el.textContent = msg;
+        // Pass the key to the translation engine!
+        if (msgKey) {
+          el.textContent = window.i18n ? window.i18n.t(msgKey) : msgKey;
+        }
         el.classList.remove("hidden");
         document.getElementById(id)?.classList.add("error");
       }
+
+      function clearErr(id) {
+        document.getElementById(id + "-err")?.classList.add("hidden");
+        document.getElementById(id)?.classList.remove("error");
+      }
+
+      // ── Register handler ──
+      function handleRegister() {
+        const fields = ["firstName", "lastName", "studentId", "email", "password", "confirmPassword"];
+        fields.forEach(clearErr);
+        clearErr("terms");
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const studentId = document.getElementById("studentId").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const terms = document.getElementById("terms").checked;
+
+        let valid = true;
+
+        // Use the dictionary keys from translations.js
+        if (!firstName) { showErr("firstName", "err_required"); valid = false; }
+        if (!lastName) { showErr("lastName", "err_required"); valid = false; }
+        if (!studentId) { showErr("studentId", "err_student_id"); valid = false; }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr("email", "err_email"); valid = false; }
+        if (password.length < 8) { showErr("password", "err_password_min"); valid = false; }
+        if (password !== confirmPassword) { showErr("confirmPassword", "err_password_match"); valid = false; }
+        if (!terms) { showErr("terms", "err_terms"); valid = false; }
+        
+        if (!valid) return;
+
+        // Simulate loading with translated text
+        const btn = document.getElementById("register-btn");
+        const btnText = document.getElementById("btn-text");
+        const spinner = document.getElementById("btn-spinner");
+        btn.disabled = true;
+        btnText.textContent = window.i18n ? window.i18n.t("register_btn_loading") : "Creating Account...";
+        spinner.classList.remove("hidden");
+
+        setTimeout(() => {
+          btn.disabled = false;
+          btnText.textContent = window.i18n ? window.i18n.t("register_btn") : "Create Account";
+          spinner.classList.add("hidden");
+
+          const registered = JSON.parse(localStorage.getItem("tcs_registered") || "[]");
+          const allUsers = [...USERS, ...registered];
+
+          const duplicate = allUsers.find(
+            (u) => u.studentId === studentId || u.email === email,
+          );
+          if (duplicate) {
+            showErr("studentId", "err_duplicate"); // Use translation key here too!
+            return;
+          }
+
+          registered.push({
+            studentId, password, firstName, lastName, email, phone: "", location: "", role: "CS Student",
+          });
+          localStorage.setItem("tcs_registered", JSON.stringify(registered));
+          document.getElementById("success-overlay").classList.add("active");
+        }, 1400);
+      }
+     
       function clearErr(id) {
         document.getElementById(id + "-err")?.classList.add("hidden");
         document.getElementById(id)?.classList.remove("error");
@@ -667,30 +774,35 @@
           btnText.textContent = "Create Account";
           spinner.classList.add("hidden");
 
-        // Check duplicates in both hardcoded USERS and localStorage registered users
-        const registered = JSON.parse(localStorage.getItem("tcs_registered") || "[]");
-        const allUsers = [...USERS, ...registered];
+          // Check duplicates in both hardcoded USERS and localStorage registered users
+          const registered = JSON.parse(
+            localStorage.getItem("tcs_registered") || "[]",
+          );
+          const allUsers = [...USERS, ...registered];
 
-        const duplicate = allUsers.find(
-          (u) => u.studentId === studentId || u.email === email,
-        );
-        if (duplicate) {
-          showErr("studentId", "This Student ID or email is already registered.");
-          return;
-        }
+          const duplicate = allUsers.find(
+            (u) => u.studentId === studentId || u.email === email,
+          );
+          if (duplicate) {
+            showErr(
+              "studentId",
+              "This Student ID or email is already registered.",
+            );
+            return;
+          }
 
-        // Save to localStorage 
-        registered.push({
-          studentId,
-          password,
-          firstName,
-          lastName,
-          email,
-          phone: "",
-          location: "",
-          role: "CS Student",
-        });
-        localStorage.setItem("tcs_registered", JSON.stringify(registered));
+          // Save to localStorage
+          registered.push({
+            studentId,
+            password,
+            firstName,
+            lastName,
+            email,
+            phone: "",
+            location: "",
+            role: "CS Student",
+          });
+          localStorage.setItem("tcs_registered", JSON.stringify(registered));
           document.getElementById("success-overlay").classList.add("active");
         }, 1400);
       }

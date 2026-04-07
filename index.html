@@ -51,6 +51,13 @@
 
     <link rel="icon" type="image/png" href="logo.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Siemreap&display=swap"
+      rel="stylesheet"
+    />
+
     <script>
       tailwind.config = {
         theme: {
@@ -77,7 +84,7 @@
 
       html {
         scroll-behavior: smooth;
-      } 
+      }
     </style>
   </head>
 
@@ -93,19 +100,21 @@
           <!-- Left: text + category tag -->
           <div class="flex-1 order-2 md:order-1">
             <span
+              data-i18n="hero_tag"
               class="inline-block border border-stone-400 text-stone-600 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded mb-6"
               >Category</span
             >
             <h1
+              data-i18n="hero_title"
               class="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-800 leading-tight mb-4"
             >
-              Welcome To<br />Techno Campus Store
+              Welcome To Techno Campus Store
             </h1>
             <p
+              data-i18n="hero_subtitle"
               class="text-stone-600 font-semibold text-base sm:text-lg max-w-md leading-relaxed"
             >
-              Everything you need is right here. Find a particular destination,
-              want second-hand deals or local experiences.
+              Everything you need is right here. Find supplies, want second-hand deals and quality.
             </p>
           </div>
 
@@ -147,7 +156,7 @@
               style="font-size: 26px"
               >bar_chart</span
             >
-            Most Popular
+            <span data-i18n="section_popular">Most Popular</span>
           </h2>
           <div class="flex gap-2">
             <button
@@ -188,7 +197,7 @@
               style="font-size: 26px"
               >thumb_up</span
             >
-            Recommendation
+            <span data-i18n="section_recommendation">Recommendation</span>
           </h2>
           <div class="flex gap-2">
             <button
@@ -229,7 +238,7 @@
               style="font-size: 26px"
               >autorenew</span
             >
-            Secondhand
+            <span data-i18n="section_secondhand">Secondhand</span>
           </h2>
           <div class="flex items-center gap-3">
             <div class="flex gap-2">
@@ -271,7 +280,7 @@
             style="font-size: 26px"
             >category</span
           >
-          Browse by Category
+          <span data-i18n="section_browse">Browse by Category</span>
         </h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           <a
@@ -284,6 +293,7 @@
               >menu_book</span
             >
             <span
+              data-i18n="browse_books"
               class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
               >Books</span
             >
@@ -298,6 +308,7 @@
               >straighten</span
             >
             <span
+              data-i18n="browse_supplies"
               class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
               >Supplies</span
             >
@@ -312,6 +323,7 @@
               >science</span
             >
             <span
+              data-i18n="browse_science"
               class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
               >Science</span
             >
@@ -326,6 +338,7 @@
               >calculate</span
             >
             <span
+              data-i18n="browse_maths"
               class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
               >Maths</span
             >
@@ -340,6 +353,7 @@
               >computer</span
             >
             <span
+              data-i18n="browse_cs"
               class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
               >CS & IT</span
             >
@@ -354,6 +368,7 @@
               >autorenew</span
             >
             <span
+              data-i18n="browse_secondhand"
               class="text-xs font-bold uppercase tracking-widest text-stone-700 group-hover:text-white transition-colors"
               >Secondhand</span
             >
@@ -363,7 +378,8 @@
     </main>
 
     <div id="footer"></div>
-
+    <script src="translations.js"></script>
+    <script src="translations.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
     <script src="cart-helper.js"></script>
@@ -380,7 +396,7 @@
               <p class="font-bold text-stone-800 text-sm leading-snug">${b.title}</p>
               <p class="text-orange-500 font-bold text-sm mt-1">$${b.price.toFixed(2)} USD</p>
             </div>
-            <button data-book-id="${b.id}" class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors">
+            <button data-book-id="${b.id}" data-i18n="btn_details" class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors">
               Details
             </button>
           </div>`;
@@ -400,7 +416,7 @@
                 <p class="text-stone-400 line-through text-xs">$${r.originalPrice.toFixed(2)}</p>
               </div>
             </div>
-            <button data-secondhand-id="${r.id}" class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors">
+            <button data-secondhand-id="${r.id}" data-i18n="btn_details" class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors">
               Details
             </button>
           </div>`;

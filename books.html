@@ -48,6 +48,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Siemreap&display=swap"
+      rel="stylesheet"
+    />
+
     <script>
       tailwind.config = {
         theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } },
@@ -129,12 +136,8 @@
         class="mx-auto max-w-7xl px-6 py-8 flex items-center justify-between gap-4"
       >
         <div>
-          <p
-            class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1"
-          >
-            TCS Store
-          </p>
           <h1
+            data-i18n="page_books_title"
             class="text-4xl sm:text-5xl font-black text-stone-800 leading-tight"
           >
             Books
@@ -150,7 +153,7 @@
             <span class="material-symbols-outlined" style="font-size: 16px"
               >tune</span
             >
-            Filter
+            <span data-i18n="btn_filter">Filter</span>
           </button>
         </div>
       </div>
@@ -162,6 +165,7 @@
       <aside id="sidebar" class="hidden md:block w-52 flex-shrink-0">
         <div class="mb-8">
           <p
+            data-i18n="filter_category"
             class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
           >
             Category
@@ -169,24 +173,28 @@
           <div class="flex flex-col gap-1">
             <button
               data-cat="all"
+              data-i18n="filter_all_books"
               class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               All Books
             </button>
             <button
               data-cat="science"
+              data-i18n="filter_science"
               class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Science
             </button>
             <button
               data-cat="maths"
+              data-i18n="filter_maths"
               class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Maths
             </button>
             <button
               data-cat="cs"
+              data-i18n="filter_cs"
               class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               CS &amp; IT
@@ -198,6 +206,7 @@
 
         <div>
           <p
+            data-i18n="filter_sort"
             class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
           >
             Sort By
@@ -205,30 +214,35 @@
           <div class="flex flex-col gap-1">
             <button
               data-sort="default"
+              data-i18n="sort_default"
               class="sort-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Default
             </button>
             <button
               data-sort="az"
+              data-i18n="sort_az"
               class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               A → Z
             </button>
             <button
               data-sort="za"
+              data-i18n="sort_za"
               class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Z → A
             </button>
             <button
               data-sort="lowhigh"
+              data-i18n="sort_low_high"
               class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Price: Low → High
             </button>
             <button
               data-sort="highlow"
+              data-i18n="sort_high_low"
               class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
               Price: High → Low
@@ -252,7 +266,10 @@
             style="font-size: 56px"
             >menu_book</span
           >
-          <p class="text-stone-400 font-bold uppercase tracking-widest text-sm">
+          <p
+            data-i18n="empty_books"
+            class="text-stone-400 font-bold uppercase tracking-widest text-sm"
+          >
             No books found
           </p>
         </div>
@@ -270,7 +287,10 @@
       <div
         class="flex items-center justify-between px-6 py-4 border-b border-stone-100"
       >
-        <p class="text-sm font-black uppercase tracking-widest text-stone-800">
+        <p
+          data-i18n="filter_title"
+          class="text-sm font-black uppercase tracking-widest text-stone-800"
+        >
           Filter &amp; Sort
         </p>
         <button
@@ -284,6 +304,7 @@
       </div>
       <div class="flex-1 overflow-y-auto px-6 py-6">
         <p
+          data-i18n="filter_category"
           class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
         >
           Category
@@ -291,24 +312,28 @@
         <div class="flex flex-col gap-1 mb-8">
           <button
             data-cat="all"
+            data-i18n="filter_all_books"
             class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             All Books
           </button>
           <button
             data-cat="science"
+            data-i18n="filter_science"
             class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Science
           </button>
           <button
             data-cat="maths"
+            data-i18n="filter_maths"
             class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Maths
           </button>
           <button
             data-cat="cs"
+            data-i18n="filter_cs"
             class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             CS &amp; IT
@@ -316,6 +341,7 @@
         </div>
         <div class="border-t border-stone-100 mb-8"></div>
         <p
+          data-i18n="filter_sort"
           class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
         >
           Sort By
@@ -323,30 +349,35 @@
         <div class="flex flex-col gap-1">
           <button
             data-sort="default"
+            data-i18n="sort_default"
             class="sort-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Default
           </button>
           <button
             data-sort="az"
+            data-i18n="sort_az"
             class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             A → Z
           </button>
           <button
             data-sort="za"
+            data-i18n="sort_za"
             class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Z → A
           </button>
           <button
             data-sort="lowhigh"
+            data-i18n="sort_low_high"
             class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Price: Low → High
           </button>
           <button
             data-sort="highlow"
+            data-i18n="sort_high_low"
             class="sort-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
             Price: High → Low
@@ -356,6 +387,7 @@
     </div>
 
     <div id="footer"></div>
+    <script src="translations.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
     <script src="cart-helper.js"></script>
@@ -405,6 +437,7 @@
         const count = document.getElementById("result-count");
         const books = getFiltered();
         grid.classList.add("sorting");
+
         setTimeout(() => {
           if (!books.length) {
             grid.innerHTML = "";
@@ -423,14 +456,22 @@
                   <p class="font-bold text-stone-800 text-sm leading-snug mt-1">${b.title}</p>
                   <p class="text-orange-500 font-black text-sm">$${b.price.toFixed(2)} <span class="text-stone-400 font-normal text-xs">USD</span></p>
                 </div>
-                <button data-book-id="${b.id}" class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
+                <button data-book-id="${b.id}" data-i18n="btn_details" class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
               </div>
             `,
               )
               .join("");
           }
-          count.textContent = `${books.length} book${books.length !== 1 ? "s" : ""}`;
+
+          // Update count with translation keys
+          const countKey = books.length === 1 ? "result_book" : "result_books";
+          const fallbackText = books.length === 1 ? "book" : "books";
+          count.innerHTML = `${books.length} <span data-i18n="${countKey}">${fallbackText}</span>`;
+
           grid.classList.remove("sorting");
+
+          // IMPORTANT: Force the translation engine to check the new HTML we just injected
+          if (window.i18n) window.i18n.apply();
         }, 120);
       }
 

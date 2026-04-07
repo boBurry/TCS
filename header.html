@@ -4,19 +4,19 @@
     <!-- Left: Logo -->
     <div class="flex items-center">
       <a href="index.html" class="inline-flex items-center justify-center w-auto h-auto rounded font-black text-stone-900 text-lg tracking-tight select-none">
-        <img src="assets/logo.png" class="w-20 h-auto"  alt="TCS-logo">
+        <img src="assets/logo.png" class="w-20 h-auto" alt="TCS-logo">
       </a>
     </div>
 
     <!-- Center: Nav -->
     <nav class="hidden md:flex items-center justify-center gap-1">
       <a href="index.html" class="relative px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-900 transition-colors">
-        Home
+        <span data-i18n="nav_home">Home</span>
         <span class="absolute bottom-0 left-3 right-3 h-0.5 bg-orange-400 rounded-full"></span>
       </a>
       <div class="relative group">
         <button class="flex items-center gap-0.5 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800 transition-colors">
-          Category
+          <span data-i18n="nav_category">Category</span>
           <span class="material-symbols-outlined" style="font-size:15px;">expand_more</span>
         </button>
         <!-- Dropdown -->
@@ -25,37 +25,53 @@
             <!-- Books group -->
             <div class="relative group/books">
               <a href="books.html" class="flex items-center justify-between px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">
-                Books
+                <span data-i18n="nav_books">Books</span>
                 <span class="material-symbols-outlined" style="font-size:14px;">chevron_right</span>
               </a>
               <!-- Books submenu -->
               <div class="absolute left-full top-0 opacity-0 invisible group-hover/books:opacity-100 group-hover/books:visible transition-all duration-150 z-50">
                 <div class="bg-white border border-stone-200 shadow-sm min-w-[160px] py-1 ml-0.5">
-                  <a href="books.html?cat=science" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Science</a>
-                  <a href="books.html?cat=maths" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Maths</a>
-                  <a href="books.html?cat=cs" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">CS &amp; IT</a>
+                  <a href="books.html?cat=science" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors" data-i18n="nav_science">Science</a>
+                  <a href="books.html?cat=maths" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors" data-i18n="nav_maths">Maths</a>
+                  <a href="books.html?cat=cs" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors" data-i18n="nav_cs">CS &amp; IT</a>
                 </div>
               </div>
             </div>
-            <a href="supplies.html" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Supplies</a>
-            <a href="secondhand.html" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors">Secondhand</a>
+            <a href="supplies.html" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors" data-i18n="nav_supplies">Supplies</a>
+            <a href="secondhand.html" class="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-colors" data-i18n="nav_secondhand">Secondhand</a>
           </div>
         </div>
       </div>
       <a href="index.html#contact" class="relative px-2 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800 transition-colors">
-        About Us
+        <span data-i18n="nav_about">About Us</span>
       </a>
     </nav>
 
-    <!-- Right: Search + Profile + Cart -->
+    <!-- Right: Search + Lang + Profile + Cart -->
     <div class="flex items-center justify-end gap-2">
       <!-- Search (desktop) -->
       <div class="relative hidden md:flex items-center">
-        <input type="text" placeholder="SEARCH..."
+        <input type="text" data-i18n-placeholder="nav_search_placeholder" placeholder="SEARCH..."
           class="w-40 lg:w-52 border border-stone-200 bg-white py-1.5 pl-3 pr-8 text-xs uppercase tracking-widest text-stone-500 placeholder:text-stone-300 focus:outline-none focus:border-stone-400 transition" />
         <span class="absolute right-2.5 text-stone-400 pointer-events-none">
           <span class="material-symbols-outlined" style="font-size:16px">search</span>
         </span>
+      </div>
+
+      <!-- Language switcher -->
+      <div class="hidden md:flex items-center border border-stone-200 rounded overflow-hidden text-xs font-black uppercase tracking-widest select-none">
+        <button
+          data-lang="en"
+          class="lang-btn lang-active px-2.5 py-1.5 transition-colors"
+          onclick="i18n.setLang('en')"
+        >EN</button>
+        <span class="w-px h-4 bg-stone-200"></span>
+        <button
+          data-lang="kh"
+          class="lang-btn px-2.5 py-1.5 transition-colors"
+          onclick="i18n.setLang('kh')"
+          style="font-family: 'Khmer', 'Noto Sans Khmer', sans-serif; font-size: 11px;"
+        >ខ្មែរ</button>
       </div>
 
       <!-- Profile icon -->
@@ -79,36 +95,77 @@
   <div id="mobile-menu" class="md:hidden border-t border-stone-100 bg-white" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;">
     <div class="px-4 py-3 flex flex-col gap-1">
       <div class="relative mb-2">
-        <input type="text" placeholder="SEARCH..."
+        <input type="text" data-i18n-placeholder="nav_search_placeholder" placeholder="SEARCH..."
           class="w-full border border-stone-200 py-2 pl-3 pr-8 text-xs uppercase tracking-widest placeholder:text-stone-300 focus:outline-none" />
         <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
           <span class="material-symbols-outlined" style="font-size:16px">search</span>
         </span>
       </div>
-      <a href="index.html" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-900 border-b-2 border-orange-400 w-fit">Home</a>
+      <a href="index.html" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-900 border-b-2 border-orange-400 w-fit" data-i18n="nav_home">Home</a>
       <div>
         <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="flex items-center gap-0.5 px-3 py-2 w-full text-left text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">
-          Category
+          <span data-i18n="nav_category">Category</span>
           <span class="material-symbols-outlined" style="font-size:15px;">expand_more</span>
         </button>
         <div class="hidden flex flex-col">
-          <div class="flex items-center justify-between ">
-            <a href="books.html" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Books</a>
+          <div class="flex items-center justify-between">
+            <a href="books.html" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800" data-i18n="nav_books">Books</a>
             <button onclick="this.closest('div').nextElementSibling.classList.toggle('hidden')"
               class="text-stone-400 hover:text-stone-800 p-1">
               <span class="material-symbols-outlined" style="font-size:14px;">expand_more</span>
             </button>
           </div>
           <div class="hidden pl-4 flex flex-col">
-            <a href="books.html?cat=science" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Science</a>
-            <a href="books.html?cat=maths"   class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Maths</a>
-            <a href="books.html?cat=cs"      class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">CS &amp; IT</a>
+            <a href="books.html?cat=science" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800" data-i18n="nav_science">Science</a>
+            <a href="books.html?cat=maths"   class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800" data-i18n="nav_maths">Maths</a>
+            <a href="books.html?cat=cs"      class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800" data-i18n="nav_cs">CS &amp; IT</a>
           </div>
-          <a href="supplies.html"   class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Supplies</a>
-          <a href="secondhand.html" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">Secondhand</a>
+          <a href="supplies.html"   class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800" data-i18n="nav_supplies">Supplies</a>
+          <a href="secondhand.html" class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800" data-i18n="nav_secondhand">Secondhand</a>
         </div>
       </div>
-      <a href="index.html#contact" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800">About Us</a>
+      <a href="index.html#contact" class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-800" data-i18n="nav_about">About Us</a>
+
+      <!-- Mobile language switcher -->
+      <div class="flex items-center gap-2 px-3 pt-2 pb-1">
+        <span class="text-xs font-bold uppercase tracking-widest text-stone-400">Lang:</span>
+        <div class="flex items-center border border-stone-200 rounded overflow-hidden text-xs font-black uppercase tracking-widest">
+          <button
+            data-lang="en"
+            class="lang-btn lang-active px-2.5 py-1 transition-colors"
+            onclick="i18n.setLang('en')"
+          >EN</button>
+          <span class="w-px h-4 bg-stone-200"></span>
+          <button
+            data-lang="kh"
+            class="lang-btn px-2.5 py-1 transition-colors"
+            onclick="i18n.setLang('kh')"
+            style="font-family: 'Siemreap', sans-serif; font-size: 11px;"
+          >ខ្មែរ</button>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+
+<style>
+  /* Language switcher active state */
+  .lang-btn {
+    color: #a8a29e;
+    background: white;
+  }
+  .lang-btn.lang-active {
+    background: #1c1917;
+    color: #fff;
+  }
+  .lang-btn:hover:not(.lang-active) {
+    background: #f5f5f4;
+    color: #1c1917;
+  }
+
+  /* Khmer font support */
+  .lang-kh body,
+  .lang-kh [data-i18n] {
+    font-family: 'Siemreap', sans-serif;
+  }
+</style>

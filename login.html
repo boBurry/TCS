@@ -20,6 +20,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Siemreap&display=swap" rel="stylesheet">
+
     <script>
       tailwind.config = {
         theme: {
@@ -127,15 +131,13 @@
         >
           <!-- Card Header -->
           <div class="bg-stone-900 px-8 py-7 fade-up delay-1">
-            <p
-              class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400 mb-1"
-            >
+            <p data-i18n="login_brand" class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400 mb-2">
               Techno Campus Store
             </p>
-            <h1 class="text-2xl font-black text-white leading-tight">
+            <h1 data-i18n="login_title" class="text-2xl font-black text-white leading-tight">
               Welcome Back
             </h1>
-            <p class="text-stone-400 text-sm mt-1 font-medium">
+            <p data-i18n="login_subtitle" class="text-stone-400 text-sm mt-1 font-medium">
               Sign in to your student account
             </p>
           </div>
@@ -144,109 +146,59 @@
           <div class="px-8 py-8 flex flex-col gap-5">
             <!-- Student ID -->
             <div class="fade-up delay-2">
-              <label
-                class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
-              >
-                Student ID
-              </label>
-              <div class="relative">
-                <span
-                  class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
-                >
-                  <span
-                    class="material-symbols-outlined"
-                    style="font-size: 18px"
-                    >badge</span
-                  >
-                </span>
-                <input
-                  id="studentId"
-                  type="text"
-                  placeholder="e.g. ITC2024001"
-                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
-                />
-              </div>
-              <p
-                id="studentId-err"
-                class="text-xs text-red-500 font-semibold mt-1.5 hidden"
-              >
-                Please enter your Student ID.
-              </p>
+              <label data-i18n="login_student_id" class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Student ID</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
+                    <span class="material-symbols-outlined" style="font-size: 18px">badge</span>
+                  </span>
+                  <input
+                    id="studentId"
+                    type="text"
+                    data-i18n-placeholder="login_student_id"
+                    placeholder="e.g. ITC2024001"
+                    class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-4 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
+                  />
+                </div>
+                <p id="studentId-err" data-i18n="err_student_id" class="text-xs text-red-500 font-semibold mt-1.5 hidden">
+                  Please enter your Student ID.
+                </p>
             </div>
 
             <!-- Password -->
             <div class="fade-up delay-3">
-              <label
-                class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2"
-              >
-                Password
-              </label>
-              <div class="relative">
-                <span
-                  class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"
-                >
-                  <span
-                    class="material-symbols-outlined"
-                    style="font-size: 18px"
-                    >lock</span
-                  >
-                </span>
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="••••••••"
-                  class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-11 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
-                />
-                <button
-                  type="button"
-                  class="toggle-pw absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors"
-                  onclick="togglePw('password', this)"
-                >
-                  <span
-                    class="material-symbols-outlined"
-                    style="font-size: 18px"
-                    >visibility_off</span
-                  >
-                </button>
-              </div>
-              <p
-                id="password-err"
-                class="text-xs text-red-500 font-semibold mt-1.5 hidden"
-              >
-                Please enter your password.
-              </p>
+              <label data-i18n="login_password" class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Password</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
+                    <span class="material-symbols-outlined" style="font-size: 18px">lock</span>
+                  </span>
+                  <input
+                    id="password"
+                    type="password"
+                    data-i18n-placeholder="login_password"
+                    placeholder="••••••••"
+                    class="tcs-input w-full border border-stone-200 bg-stone-50 py-3 pl-10 pr-11 text-sm font-medium text-stone-800 placeholder:text-stone-300 rounded transition"
+                  />
+                  <button type="button" class="toggle-pw absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors" onclick="togglePw('password', this)">
+                    <span class="material-symbols-outlined" style="font-size: 18px">visibility_off</span>
+                  </button>
+                </div>
+                <p id="password-err" data-i18n="err_password" class="text-xs text-red-500 font-semibold mt-1.5 hidden">
+                  Please enter your password.
+                </p>
             </div>
 
             <!-- Remember + Forgot -->
             <div class="flex items-center justify-between fade-up delay-3">
               <label class="flex items-center gap-2 cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  id="remember"
-                  class="accent-orange-400 w-4 h-4 rounded"
-                />
-                <span class="text-xs font-semibold text-stone-500"
-                  >Remember me</span
-                >
+                <input type="checkbox" id="remember" class="accent-orange-400 w-4 h-4 rounded" />
+                <span data-i18n="login_remember" class="text-xs font-semibold text-stone-500">Remember me</span>
               </label>
-              <a
-                href="#"
-                class="text-xs font-bold uppercase tracking-widest text-orange-400 hover:text-orange-500 transition-colors"
-                >Forgot password?</a
-              >
+              <a href="#" data-i18n="login_forgot" class="text-xs font-bold uppercase tracking-widest text-orange-400 hover:text-orange-500 transition-colors">Forgot password?</a>
             </div>
 
-            <!-- Error banner -->
-            <div
-              id="login-error"
-              class="hidden bg-red-50 border border-red-200 rounded px-4 py-3 flex items-center gap-2"
-            >
-              <span
-                class="material-symbols-outlined text-red-400"
-                style="font-size: 18px"
-                >error</span
-              >
-              <p class="text-xs font-semibold text-red-600">
+            <div id="login-error" class="hidden bg-red-50 border border-red-200 rounded px-4 py-3 flex items-center gap-2">
+              <span class="material-symbols-outlined text-red-400" style="font-size: 18px">error</span>
+              <p data-i18n="login_error" class="text-xs font-semibold text-red-600">
                 Invalid Student ID or password. Please try again.
               </p>
             </div>
@@ -257,7 +209,7 @@
               onclick="handleLogin()"
               class="fade-up delay-4 w-full bg-orange-400 hover:bg-orange-500 active:scale-[0.98] text-white text-xs font-black uppercase tracking-[0.18em] py-3.5 rounded transition-all duration-150 flex items-center justify-center gap-2"
             >
-              <span id="btn-text">Sign In</span>
+              <span id="btn-text" data-i18n="login-btn">Sign In</span>
               <span
                 id="btn-spinner"
                 class="hidden material-symbols-outlined animate-spin"
@@ -283,10 +235,11 @@
             <p
               class="text-center text-sm text-stone-500 font-medium fade-up delay-4"
             >
-              Don't have an account?
+              <span data-i18n="login_no_account">Don't have an account?</span>
               <a
                 href="register.html"
                 class="font-bold text-stone-900 hover:text-orange-500 transition-colors"
+                data-i18n="login_register_link"
                 >Register here</a
               >
             </p>
@@ -296,6 +249,7 @@
         <!-- Footer note -->
         <p
           class="text-center text-xs text-stone-400 font-medium mt-5 fade-up delay-4"
+          data-i18n="login_footer"
         >
           © 2026 TCS — For ITC Students Only
         </p>
@@ -304,6 +258,8 @@
 
     <div id="footer"></div>
 
+    <script src="translations.js"></script>
+    <script src="translations.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
     <script>
@@ -355,12 +311,12 @@
 
         // Simulate loading
         btn.disabled = true;
-        btnText.textContent = "Signing In...";
+        btnText.textContent = window.i18n ? window.i18n.t("login_btn_loading") : "Signing In...";
         spinner.classList.remove("hidden");
 
         setTimeout(() => {
           btn.disabled = false;
-          btnText.textContent = "Sign In";
+          btnText.textContent = window.i18n ? window.i18n.t("login_btn") : "Sign In";
           spinner.classList.add("hidden");
 
           const registered = JSON.parse(
