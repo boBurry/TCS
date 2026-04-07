@@ -412,6 +412,7 @@
     <div id="footer"></div>
     <script src="data.js"></script>
     <script src="script.js"></script>
+    <script src="cart-helper.js"></script>
 
     <script>
       // Data loaded from data.js
@@ -488,7 +489,7 @@
                     <p class="text-stone-400 line-through text-xs">$${i.originalPrice.toFixed(2)}</p>
                   </div>
                 </div>
-                <button class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
+                <button data-secondhand-id="${i.id}" class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
               </div>
             `;
               })

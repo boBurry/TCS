@@ -381,6 +381,7 @@
     <div id="footer"></div>
     <script src="data.js"></script>
     <script src="script.js"></script>
+    <script src="cart-helper.js"></script>
 
     <script>
       // SUPPLIES array is loaded from data.js
@@ -452,7 +453,7 @@
                   <p class="font-bold text-stone-800 text-sm leading-snug mt-1">${i.title}</p>
                   <p class="text-orange-500 font-black text-sm">$${i.price.toFixed(2)} <span class="text-stone-400 font-normal text-xs">USD</span></p>
                 </div>
-                <button class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
+                <button data-supply-id="${i.id}" class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
               </div>
             `,
               )
