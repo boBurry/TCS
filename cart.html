@@ -187,7 +187,7 @@
       function proceedToCheckout() {
         const cart = getCart();
         if (!cart.length) return;
-        showToast("Checkout coming soon!");
+        window.location.href = "checkout.html"
       }
 
       // ── Render ────────────────────────────────────────────────────────────
