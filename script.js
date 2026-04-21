@@ -103,7 +103,11 @@ fetch("header.html")
       }
       const mobileHome = document.querySelector("#mobile-menu a.border-b-2");
       if (mobileHome) {
-        mobileHome.classList.remove("text-stone-900", "border-b-2", "border-orange-400");
+        mobileHome.classList.remove(
+          "text-stone-900",
+          "border-b-2",
+          "border-orange-400",
+        );
         mobileHome.classList.add("text-stone-400");
       }
     }
@@ -127,16 +131,86 @@ fetch("header.html")
       }
       const mobileHome = document.querySelector("#mobile-menu a.border-b-2");
       if (mobileHome) {
-        mobileHome.classList.remove("text-stone-900", "border-b-2", "border-orange-400");
+        mobileHome.classList.remove(
+          "text-stone-900",
+          "border-b-2",
+          "border-orange-400",
+        );
         mobileHome.classList.add("text-stone-400");
       }
       const mobileCatBtn = document.querySelector("#mobile-menu div > button");
       if (mobileCatBtn) {
         mobileCatBtn.classList.remove("text-stone-400");
-        mobileCatBtn.classList.add("text-stone-900", "border-b-2", "border-orange-400");
+        mobileCatBtn.classList.add(
+          "text-stone-900",
+          "border-b-2",
+          "border-orange-400",
+        );
       }
     }
+
+    // Inside fetch("header.html").then((html) => { ... })
+
+    const searchInput = document.getElementById("search-input");
+    const searchResults = document.getElementById("search-results");
+
+    if (searchInput && searchResults) {
+      searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        searchResults.innerHTML = ""; // Clear existing results
+
+        if (query.length < 1) {
+          searchResults.classList.add("hidden");
+          return;
+        }
+
+        // Combine BOOKS and SUPPLIES for a global search
+        const allProducts = [
+          ...BOOKS.map((b) => ({ ...b, img: b.cover, type: "books" })),
+          ...SUPPLIES.map((s) => ({ ...s, type: "supplies" })),
+        ];
+
+        // Filter based on the title
+        const matches = allProducts.filter((item) =>
+          item.title.toLowerCase().includes(query),
+        );
+
+        if (matches.length > 0) {
+          matches.forEach((item) => {
+            const resultItem = document.createElement("a");
+            // Link to the correct page based on type
+            resultItem.href = `${item.type}.html?id=${item.id}`;
+            resultItem.className =
+              "flex items-center gap-3 p-3 hover:bg-stone-50 border-b border-stone-100 last:border-0 transition-colors";
+
+            resultItem.innerHTML = `
+          <img src="${item.img || item.cover}" class="w-10 h-12 object-cover border border-stone-100">
+          <div class="flex flex-col">
+            <span class="text-[10px] font-bold text-stone-900 uppercase leading-tight">${item.title}</span>
+            <span class="text-[10px] font-bold text-orange-500 mt-0.5">$${item.price.toFixed(2)}</span>
+          </div>
+        `;
+            searchResults.appendChild(resultItem);
+          });
+          searchResults.classList.remove("hidden");
+        } else {
+          // Show "No results" or keep hidden
+          searchResults.classList.add("hidden");
+        }
+      });
+
+      // Hide dropdown when clicking outside the search wrapper
+      document.addEventListener("click", (e) => {
+        const wrapper = document.querySelector(
+          ".relative.hidden.md\\:flex.items-center",
+        );
+        if (wrapper && !wrapper.contains(e.target)) {
+          searchResults.classList.add("hidden");
+        }
+      });
+    }
   })
+
   .catch((err) => console.error("Error loading header:", err));
 
 // Load footer
