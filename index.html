@@ -84,6 +84,157 @@
 
       html {
         scroll-behavior: smooth;
+
+        /* ── Square modal box ── */
+        #request-modal {
+          animation: modalIn 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes modalIn {
+          from {
+            opacity: 0;
+            transform: scale(0.93) translateY(12px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+
+        /* compact label + input rows */
+        .field-row {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+        }
+        .field-row label {
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #78716c;
+        }
+        .field-row input[type="text"],
+        .field-row input[type="number"] {
+          border: 1.5px solid #d6d3d1;
+          border-radius: 4px;
+          padding: 7px 10px;
+          font-size: 13px;
+          font-family: inherit;
+          color: #1c1917;
+          background: #fff;
+          outline: none;
+          transition: border-color 0.15s;
+        }
+        .field-row input:focus {
+          border-color: #78716c;
+        }
+
+        /* file input row */
+        .file-row {
+          display: flex;
+          align-items: center;
+          border: 1.5px solid #d6d3d1;
+          border-radius: 4px;
+          overflow: hidden;
+          background: #fff;
+        }
+        .file-row span {
+          flex: 1;
+          padding: 7px 10px;
+          font-size: 12px;
+          color: #a8a29e;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .file-row input[type="file"] {
+          display: none;
+        }
+        .file-row label.choose-btn {
+          background: #57534e;
+          color: #fff;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          padding: 8px 14px;
+          cursor: pointer;
+          white-space: nowrap;
+          transition: background 0.15s;
+        }
+        .file-row label.choose-btn:hover {
+          background: #292524;
+        }
+
+        /* request button */
+        #modal-submit-btn {
+          background: #292524;
+          color: #fff;
+          font-family: inherit;
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          border: none;
+          border-radius: 4px;
+          padding: 11px;
+          cursor: pointer;
+          transition:
+            background 0.15s,
+            transform 0.1s;
+          margin-top: auto;
+        }
+        #modal-submit-btn:hover {
+          background: #f97316;
+        }
+        #modal-submit-btn:active {
+          transform: scale(0.98);
+        }
+
+        /* close button */
+        #modal-close-btn {
+          position: absolute;
+          top: 14px;
+          right: 14px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #a8a29e;
+          line-height: 1;
+          padding: 2px;
+          transition: color 0.15s;
+        }
+        #modal-close-btn:hover {
+          color: #292524;
+        }
+
+        /* ── Demo page styles ── */
+        .demo-page {
+          min-height: 100vh;
+          background: #f5f5f4;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+        }
+        .open-modal-btn {
+          background: #292524;
+          color: #fff;
+          font-family: inherit;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          padding: 12px 28px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background 0.15s;
+        }
+        .open-modal-btn:hover {
+          background: #f97316;
+        }
       }
     </style>
   </head>
@@ -114,8 +265,15 @@
               data-i18n="hero_subtitle"
               class="text-stone-600 font-semibold text-base sm:text-lg max-w-md leading-relaxed"
             >
-              Everything you need is right here. Find supplies, want second-hand deals and quality.
+              Everything you need is right here. Find supplies, want second-hand
+              deals and quality.
             </p>
+            <button
+              onclick="openRequestModal()"
+              class="bg-stone-800 hover:bg-orange-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 my-5 rounded transition-colors"
+            >
+              Request an Item
+            </button>
           </div>
 
           <!-- Right: stacked book/card images -->
@@ -378,6 +536,201 @@
     </main>
 
     <div id="footer"></div>
+
+    <!-- Backdrop -->
+    <div
+      id="request-modal-backdrop"
+      onclick="handleBackdropClick(event)"
+      class="hidden fixed inset-0 bg-stone-900/55 backdrop-blur-sm z-[9999] items-center justify-center"
+    >
+      <!-- Square modal -->
+      <div
+        id="request-modal"
+        class="bg-stone-50 w-[420px] h-[420px] max-w-[92vw] max-h-[92vw] rounded-md flex flex-col p-7 relative shadow-2xl overflow-hidden"
+      >
+        <!-- Close -->
+        <button
+          id="modal-close-btn"
+          onclick="closeRequestModal()"
+          aria-label="Close"
+          class="absolute top-3.5 right-3.5 text-stone-400 hover:text-stone-800 transition-colors leading-none p-0.5 bg-transparent border-none cursor-pointer"
+        >
+          <span class="material-symbols-outlined" style="font-size: 20px"
+            >close</span
+          >
+        </button>
+
+        <!-- Header -->
+        <div class="mb-4">
+          <h2 class="text-lg font-black text-stone-900 tracking-tight mb-0.5">
+            Request Item
+          </h2>
+          <p
+            class="text-[11px] text-stone-400 font-medium leading-snug max-w-[280px]"
+          >
+            Looking for something not listed? Send a request and we'll deliver
+            it for you.
+          </p>
+        </div>
+
+        <!-- Form fields -->
+        <div class="flex flex-col gap-2.5 flex-1">
+          <!-- Item Name -->
+          <div class="flex flex-col gap-0.5">
+            <label
+              for="req-name"
+              class="text-[11px] font-bold uppercase tracking-widest text-stone-500"
+            >
+              Item Name
+            </label>
+            <input
+              type="text"
+              id="req-name"
+              placeholder="Book's title or stationery name"
+              class="border border-stone-300 rounded px-2.5 py-1.5 text-[13px] text-stone-900 bg-white outline-none focus:border-stone-500 transition-colors"
+            />
+          </div>
+
+          <!-- Quantity -->
+          <div class="flex flex-col gap-0.5">
+            <label
+              for="req-qty"
+              class="text-[11px] font-bold uppercase tracking-widest text-stone-500"
+            >
+              Quantity
+            </label>
+            <input
+              type="number"
+              id="req-qty"
+              placeholder="Amount of item"
+              min="1"
+              class="border border-stone-300 rounded px-2.5 py-1.5 text-[13px] text-stone-900 bg-white outline-none focus:border-stone-500 transition-colors"
+            />
+          </div>
+
+          <!-- Details -->
+          <div class="flex flex-col gap-0.5">
+            <label
+              for="req-details"
+              class="text-[11px] font-bold uppercase tracking-widest text-stone-500"
+            >
+              Details
+            </label>
+            <input
+              type="text"
+              id="req-details"
+              placeholder="Specific edition or type"
+              class="border border-stone-300 rounded px-2.5 py-1.5 text-[13px] text-stone-900 bg-white outline-none focus:border-stone-500 transition-colors"
+            />
+          </div>
+
+          <!-- Image -->
+          <div class="flex flex-col gap-0.5">
+            <label
+              class="text-[11px] font-bold uppercase tracking-widest text-stone-500"
+            >
+              Image
+              <span class="font-normal normal-case tracking-normal"
+                >(optional)</span
+              >
+            </label>
+            <div
+              class="flex items-center border border-stone-300 rounded overflow-hidden bg-white"
+            >
+              <span
+                id="file-name-display"
+                class="flex-1 px-2.5 py-1.5 text-[12px] text-stone-400 truncate"
+              >
+                Attach Image
+              </span>
+              <input
+                type="file"
+                id="req-image"
+                accept="image/*"
+                onchange="updateFileName(this)"
+                class="hidden"
+              />
+              <label
+                for="req-image"
+                class="bg-stone-600 hover:bg-stone-800 text-white text-[11px] font-bold uppercase tracking-wide px-3.5 py-2 cursor-pointer whitespace-nowrap transition-colors"
+              >
+                Choose File
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button
+          id="modal-submit-btn"
+          onclick="submitRequest()"
+          class="mt-auto w-full bg-stone-800 hover:bg-orange-500 active:scale-[0.98] text-white text-[13px] font-extrabold uppercase tracking-widest py-2.5 rounded border-none cursor-pointer transition-colors"
+        >
+          Request
+        </button>
+      </div>
+    </div>
+
+    <script>
+      /* ── Modal open / close ─────────────────────── */
+      function openRequestModal() {
+        const el = document.getElementById("request-modal-backdrop");
+        el.classList.remove("hidden");
+        el.classList.add("flex");
+      }
+
+      function closeRequestModal() {
+        const el = document.getElementById("request-modal-backdrop");
+        el.classList.add("hidden");
+        el.classList.remove("flex");
+      }
+
+      function handleBackdropClick(e) {
+        // close if user clicks the dark backdrop (not the modal itself)
+        if (e.target === document.getElementById("request-modal-backdrop")) {
+          closeRequestModal();
+        }
+      }
+
+      // Close on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeRequestModal();
+      });
+
+      /* ── File name display ──────────────────────── */
+      function updateFileName(input) {
+        const display = document.getElementById("file-name-display");
+        display.textContent = input.files.length
+          ? input.files[0].name
+          : "Attach Image";
+      }
+
+      /* ── Submit ─────────────────────────────────── */
+      function submitRequest() {
+        const name = document.getElementById("req-name").value.trim();
+        const qty = document.getElementById("req-qty").value.trim();
+        const details = document.getElementById("req-details").value.trim();
+        const file = document.getElementById("req-image").files[0];
+
+        if (!name) {
+          document.getElementById("req-name").focus();
+          document.getElementById("req-name").style.borderColor = "#f97316";
+          return;
+        }
+        // Reset border on valid input
+        document.getElementById("req-name").style.borderColor = "";
+
+        // Build query params and navigate to request.html
+        const params = new URLSearchParams();
+        if (name) params.set("item", name);
+        if (qty) params.set("qty", qty);
+        if (details) params.set("details", details);
+        // Note: file cannot be passed via URL — handle on request.html with FormData if needed
+
+        window.location.href = "request.html?" + params.toString();
+      }
+    </script>
+
     <script src="translations.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
