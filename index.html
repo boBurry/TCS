@@ -89,6 +89,7 @@
         #request-modal {
           animation: modalIn 0.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
         @keyframes modalIn {
           from {
             opacity: 0;
@@ -133,6 +134,7 @@
               deals and quality.
             </p>
             <button
+              data-i18n="req_modal_title"
               onclick="openRequestModal()"
               class="bg-stone-800 hover:bg-orange-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 my-5 rounded transition-colors"
             >
@@ -426,11 +428,11 @@
 
         <!-- Header -->
         <div class="mb-4">
-          <h2 class="text-lg font-black text-stone-900 tracking-tight mb-0.5">
+          <h2 data-i18n="req_modal_title" class="text-lg font-black text-stone-900 tracking-tight mb-0.5">
             Request Item
           </h2>
           <p
-            class="text-[11px] text-stone-400 font-medium leading-snug max-w-[280px]"
+            data-i18n="req_modal_desc" class="text-[11px] text-stone-400 font-medium leading-snug max-w-[280px]"
           >
             Looking for something not listed? Send a request and we'll deliver
             it for you.
@@ -442,12 +444,14 @@
           <!-- Item Name -->
           <div class="flex flex-col gap-0.5">
             <label
+              data-i18n="req_label_name"
               for="req-name"
               class="text-[11px] font-bold uppercase tracking-widest text-stone-500"
             >
               Item Name
             </label>
             <input
+              data-i18n="req_ph_name"
               type="text"
               id="req-name"
               placeholder="Book's title or stationery name"
@@ -458,12 +462,14 @@
           <!-- Quantity -->
           <div class="flex flex-col gap-0.5">
             <label
+              data-i18n="req_label_qty"
               for="req-qty"
               class="text-[11px] font-bold uppercase tracking-widest text-stone-500"
             >
               Quantity
             </label>
             <input
+              data-i18n="req_ph_qty"
               type="number"
               id="req-qty"
               placeholder="Amount of item"
@@ -475,12 +481,14 @@
           <!-- Details -->
           <div class="flex flex-col gap-0.5">
             <label
+              data-i18n="req_label_details"
               for="req-details"
               class="text-[11px] font-bold uppercase tracking-widest text-stone-500"
             >
               Details
             </label>
             <input
+              data-i18n="req_ph_details"
               type="text"
               id="req-details"
               placeholder="Specific edition or type"
@@ -491,6 +499,7 @@
           <!-- Image -->
           <div class="flex flex-col gap-0.5">
             <label
+              data-i18n="req_label_image"
               class="text-[11px] font-bold uppercase tracking-widest text-stone-500"
             >
               Image
@@ -502,6 +511,7 @@
               class="flex items-center border border-stone-300 rounded overflow-hidden bg-white"
             >
               <span
+                data-i18n="req_file_attach"
                 id="file-name-display"
                 class="flex-1 px-2.5 py-1.5 text-[12px] text-stone-400 truncate"
               >
@@ -515,6 +525,7 @@
                 class="hidden"
               />
               <label
+                data-i18n="req_file_choose"
                 for="req-image"
                 class="bg-stone-600 hover:bg-stone-800 text-white text-[11px] font-bold uppercase tracking-wide px-3.5 py-2 cursor-pointer whitespace-nowrap transition-colors"
               >
@@ -526,6 +537,7 @@
 
         <!-- Submit -->
         <button
+          data-i18n="req_btn_submit"
           id="modal-submit-btn"
           onclick="submitRequest()"
           class="mt-auto w-full bg-stone-800 hover:bg-orange-500 active:scale-[0.98] text-white text-[13px] font-extrabold uppercase tracking-widest py-2.5 rounded border-none cursor-pointer transition-colors"
@@ -623,7 +635,7 @@
           <div class="bg-white rounded-lg p-4 flex flex-col gap-3 flex-shrink-0 w-56">
             <div class="relative bg-stone-50 rounded flex items-center justify-center" style="height:144px;">
               <img src="${r.cover}" alt="${r.title}" class="h-full w-full object-contain rounded shadow" />
-              <span class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded">Used</span>
+              <span data-i18n="label_used" class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded">Used</span>
             </div>
             <div>
               <p class="font-bold text-stone-800 text-sm leading-snug">${r.title}</p>

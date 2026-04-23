@@ -159,6 +159,22 @@ window.TRANSLATIONS = {
     profile_location: "Location",
     profile_recent_orders: "Recent Orders",
 
+    // ── Request page ──────────────────────────────────────────────────────────
+    
+    req_modal_title: "Request Item",
+    req_modal_desc:
+      "Looking for something not listed? Send a request and we'll deliver it for you.",
+    req_label_name: "Item Name",
+    req_ph_name: "Book's title or stationery name",
+    req_label_qty: "Quantity",
+    req_ph_qty: "Amount of item",
+    req_label_details: "Details",
+    req_ph_details: "Specific edition or type",
+    req_label_image: "Image (optional)",
+    req_file_attach: "Attach Image",
+    req_file_choose: "Choose File",
+    req_btn_submit: "Request",
+
     // ── Condition labels ──────────────────────────────────────────────────────
     cond_like_new: "Like New",
     cond_good: "Good",
@@ -333,6 +349,20 @@ window.TRANSLATIONS = {
     profile_phone: "លេខទូរស័ព្ទ",
     profile_location: "ទីតាំង",
     profile_recent_orders: "ការបញ្ជាទិញថ្មីៗ",
+
+    // ── Request page ──────────────────────────────────────────────────────────
+    req_modal_title: "ស្នើសុំទំនិញ",
+    req_modal_desc: "កំពុងស្វែងរករបស់ដែលមិនមាននៅទីនេះមែនទេ? ផ្ញើសំណើមក",
+    req_label_name: "ឈ្មោះទំនិញ",
+    req_ph_name: "ចំណងជើងសៀវភៅ ឬឈ្មោះសម្ភារៈ",
+    req_label_qty: "បរិមាណ",
+    req_ph_qty: "ចំនួនទំនិញ",
+    req_label_details: "ព័ត៌មានលម្អិត",
+    req_ph_details: "ការបោះពុម្ព ឬប្រភេទជាក់លាក់",
+    req_label_image: "រូបភាព (ជម្រើស)",
+    req_file_attach: "ភ្ជាប់រូបភាព",
+    req_file_choose: "ជ្រើសរើសឯកសារ",
+    req_btn_submit: "ស្នើសុំ",
 
     // ── Condition labels ──────────────────────────────────────────────────────
     cond_like_new: "ដូចថ្មី",
