@@ -1,371 +1,373 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Detail — TCS</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail — TCS</title>
 
-    <script>
-      tailwind.config = {
-        theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } }
-      };
-    </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-      body { font-family: "Inter", sans-serif; }
-      html { scroll-behavior: smooth; }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Siemreap&display=swap" rel="stylesheet" />
 
-      /* Toast */
-      #toast {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-      }
-      #toast.show {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } }
+    };
+  </script>
 
-      /* Badge pill */
-      .condition-like-new  { background: #d1fae5; color: #065f46; }
-      .condition-good      { background: #dbeafe; color: #1e40af; }
-      .condition-fair      { background: #fef9c3; color: #92400e; }
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
 
-      .qty-btn:hover { background: #292524; color: #fff; }
-    </style>
-  </head>
+    body {
+      font-family: "Inter", sans-serif;
+    }
 
-  <body class="bg-stone-50 text-stone-900 antialiased">
-    <div id="header"></div>
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <!-- Breadcrumb -->
-    <div class="mx-auto max-w-7xl px-6 pt-6 pb-2">
-      <nav class="flex items-center gap-2 text-xs text-stone-400 font-medium uppercase tracking-widest">
-        <a href="index.html" class="hover:text-stone-700 transition-colors">Home</a>
-        <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
-        <span id="breadcrumb-cat" class="hover:text-stone-700 transition-colors cursor-pointer"></span>
-        <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
-        <span id="breadcrumb-title" class="text-stone-600 truncate max-w-xs"></span>
-      </nav>
+    #toast {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #toast.show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .condition-like-new {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .condition-good {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .condition-fair {
+      background: #fef9c3;
+      color: #92400e;
+    }
+
+    .qty-btn:hover {
+      background: #292524;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 antialiased">
+  <div id="header"></div>
+
+  <div class="mx-auto max-w-7xl px-6 pt-6 pb-2">
+    <nav class="flex items-center gap-2 text-xs text-stone-400 font-medium uppercase tracking-widest">
+      <a href="index.html" class="hover:text-stone-700 transition-colors" data-i18n="nav_home">Home</a>
+      <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
+      <span id="breadcrumb-cat" class="hover:text-stone-700 transition-colors cursor-pointer"></span>
+      <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
+      <span id="breadcrumb-title" class="text-stone-600 truncate max-w-xs"></span>
+    </nav>
+  </div>
+
+  <main class="mx-auto max-w-7xl px-6 py-8">
+    <div id="skeleton" class="grid grid-cols-1 md:grid-cols-2 gap-12 animate-pulse">
+      <div class="bg-stone-200 rounded-xl h-96"></div>
+      <div class="flex flex-col gap-4">
+        <div class="h-4 bg-stone-200 rounded w-24"></div>
+        <div class="h-8 bg-stone-200 rounded w-3/4"></div>
+        <div class="h-6 bg-stone-200 rounded w-1/3"></div>
+        <div class="h-32 bg-stone-200 rounded"></div>
+        <div class="h-12 bg-stone-200 rounded w-1/2"></div>
+      </div>
     </div>
 
-    <!-- Main -->
-    <main class="mx-auto max-w-7xl px-6 py-8">
-      <!-- Loading skeleton -->
-      <div id="skeleton" class="grid grid-cols-1 md:grid-cols-2 gap-12 animate-pulse">
-        <div class="bg-stone-200 rounded-xl h-96"></div>
-        <div class="flex flex-col gap-4">
-          <div class="h-4 bg-stone-200 rounded w-24"></div>
-          <div class="h-8 bg-stone-200 rounded w-3/4"></div>
-          <div class="h-6 bg-stone-200 rounded w-1/3"></div>
-          <div class="h-32 bg-stone-200 rounded"></div>
-          <div class="h-12 bg-stone-200 rounded w-1/2"></div>
+    <div id="product-content" class="hidden grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="flex flex-col gap-4">
+        <div class="bg-white border border-stone-200 rounded-2xl flex items-center justify-center p-10 shadow-sm"
+          style="min-height: 380px;">
+          <img id="product-img" src="" alt="" class="max-h-80 object-contain drop-shadow-lg" />
+        </div>
+        <div id="secondhand-badges" class="hidden flex items-center gap-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-stone-500"
+            data-i18n="pd_condition_label">Condition:</span>
+          <span id="condition-badge" class="text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-stone-500" data-i18n="pd_vs_original">vs.
+            Original:</span>
+          <span id="original-price-display" class="text-stone-400 line-through text-sm font-semibold"></span>
         </div>
       </div>
 
-      <!-- Product content (hidden until loaded) -->
-      <div id="product-content" class="hidden grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center gap-2">
+          <span id="cat-tag"
+            class="inline-block border border-stone-300 text-stone-500 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded"></span>
+          <span id="used-tag"
+            class="hidden bg-orange-100 text-orange-600 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded"
+            data-i18n="label_used">Used</span>
+        </div>
 
-        <!-- Left: Image -->
-        <div class="flex flex-col gap-4">
-          <div class="bg-white border border-stone-200 rounded-2xl flex items-center justify-center p-10 shadow-sm" style="min-height: 380px;">
-            <img id="product-img" src="" alt="" class="max-h-80 object-contain drop-shadow-lg" />
+        <div>
+          <h1 id="product-title" class="text-3xl font-black text-stone-800 leading-tight mb-3"></h1>
+          <p id="product-price" class="text-3xl font-black text-orange-500"></p>
+        </div>
+
+        <div class="border-t border-stone-200 pt-5">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-3" data-i18n="pd_about">About this
+            item</h3>
+          <p id="product-desc" class="text-stone-600 text-sm leading-relaxed"></p>
+        </div>
+
+        <div class="border-t border-stone-200 pt-5 flex flex-col gap-4">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-stone-500"
+              data-i18n="pd_quantity">Quantity</span>
+            <div class="flex items-center border border-stone-300 rounded-lg overflow-hidden">
+              <button onclick="changeQty(-1)"
+                class="qty-btn w-10 h-10 flex items-center justify-center text-stone-600 transition-colors text-lg font-bold">−</button>
+              <span id="qty-display" class="w-12 text-center font-bold text-stone-800 text-base">1</span>
+              <button onclick="changeQty(1)"
+                class="qty-btn w-10 h-10 flex items-center justify-center text-stone-600 transition-colors text-lg font-bold">+</button>
+            </div>
           </div>
-          <!-- Secondhand badge row (only shown for secondhand) -->
-          <div id="secondhand-badges" class="hidden flex items-center gap-3">
-            <span class="text-xs font-bold uppercase tracking-widest text-stone-500">Condition:</span>
-            <span id="condition-badge" class="text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full"></span>
-            <span class="text-xs font-bold uppercase tracking-widest text-stone-500">vs. Original:</span>
-            <span id="original-price-display" class="text-stone-400 line-through text-sm font-semibold"></span>
+
+          <div class="flex gap-3 flex-wrap">
+            <button onclick="addToCart()"
+              class="flex-1 min-w-[160px] bg-orange-400 hover:bg-orange-500 active:scale-95 text-white text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-lg transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined" style="font-size:18px">shopping_cart</span>
+              <span data-i18n="pd_add_to_cart">Add to Cart</span>
+            </button>
+            <a href="cart.html"
+              class="flex items-center justify-center border-2 border-stone-300 hover:border-stone-800 text-stone-700 hover:text-stone-900 text-sm font-bold uppercase tracking-widest px-5 py-3 rounded-lg transition-all gap-2">
+              <span class="material-symbols-outlined" style="font-size:18px">shopping_bag</span>
+              <span data-i18n="pd_view_cart">View Cart</span>
+            </a>
           </div>
         </div>
 
-        <!-- Right: Details -->
-        <div class="flex flex-col gap-6">
-
-          <!-- Category tag -->
-          <div class="flex items-center gap-2">
-            <span id="cat-tag" class="inline-block border border-stone-300 text-stone-500 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded"></span>
-            <span id="used-tag" class="hidden bg-orange-100 text-orange-600 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded">Used</span>
-          </div>
-
-          <!-- Title & Price -->
+        <div class="border-t border-stone-200 pt-5 grid grid-cols-2 gap-4 text-sm">
           <div>
-            <h1 id="product-title" class="text-3xl font-black text-stone-800 leading-tight mb-3"></h1>
-            <p id="product-price" class="text-3xl font-black text-orange-500"></p>
+            <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1" data-i18n="pd_meta_category">
+              Category</p>
+            <p id="meta-cat" class="font-semibold text-stone-700 capitalize"></p>
           </div>
-
-          <!-- Description -->
-          <div class="border-t border-stone-200 pt-5">
-            <h3 class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-3">About this item</h3>
-            <p id="product-desc" class="text-stone-600 text-sm leading-relaxed"></p>
+          <div id="meta-condition-wrap" class="hidden">
+            <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1" data-i18n="pd_meta_condition">
+              Condition</p>
+            <p id="meta-condition" class="font-semibold text-stone-700 capitalize"></p>
           </div>
-
-          <!-- Quantity + Add to Cart -->
-          <div class="border-t border-stone-200 pt-5 flex flex-col gap-4">
-            <div class="flex items-center gap-4">
-              <span class="text-xs font-bold uppercase tracking-widest text-stone-500">Quantity</span>
-              <div class="flex items-center border border-stone-300 rounded-lg overflow-hidden">
-                <button onclick="changeQty(-1)" class="qty-btn w-10 h-10 flex items-center justify-center text-stone-600 transition-colors text-lg font-bold">−</button>
-                <span id="qty-display" class="w-12 text-center font-bold text-stone-800 text-base">1</span>
-                <button onclick="changeQty(1)" class="qty-btn w-10 h-10 flex items-center justify-center text-stone-600 transition-colors text-lg font-bold">+</button>
-              </div>
-            </div>
-
-            <div class="flex gap-3 flex-wrap">
-              <button onclick="addToCart()" class="flex-1 min-w-[160px] bg-orange-400 hover:bg-orange-500 active:scale-95 text-white text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-lg transition-all flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined" style="font-size:18px">shopping_cart</span>
-                Add to Cart
-              </button>
-              <a href="cart.html" class="flex items-center justify-center border-2 border-stone-300 hover:border-stone-800 text-stone-700 hover:text-stone-900 text-sm font-bold uppercase tracking-widest px-5 py-3 rounded-lg transition-all gap-2">
-                <span class="material-symbols-outlined" style="font-size:18px">shopping_bag</span>
-                View Cart
-              </a>
-            </div>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1" data-i18n="pd_meta_availability">
+              Availability</p>
+            <p class="font-semibold text-green-600" data-i18n="pd_in_stock">In Stock</p>
           </div>
-
-          <!-- Meta info -->
-          <div class="border-t border-stone-200 pt-5 grid grid-cols-2 gap-4 text-sm">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Category</p>
-              <p id="meta-cat" class="font-semibold text-stone-700 capitalize"></p>
-            </div>
-            <div id="meta-condition-wrap" class="hidden">
-              <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Condition</p>
-              <p id="meta-condition" class="font-semibold text-stone-700 capitalize"></p>
-            </div>
-            <div>
-              <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Availability</p>
-              <p class="font-semibold text-green-600">In Stock</p>
-            </div>
-            <div>
-              <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Shipping</p>
-              <p class="font-semibold text-stone-700">Free on campus</p>
-            </div>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1" data-i18n="pd_meta_shipping">
+              Shipping</p>
+            <p class="font-semibold text-stone-700" data-i18n="pd_free_shipping">Free on campus</p>
           </div>
         </div>
       </div>
-
-      <!-- Related Products -->
-      <section id="related-section" class="hidden mt-16 border-t border-stone-200 pt-10">
-        <h2 class="flex items-center gap-2 text-xl font-black text-stone-800 mb-6">
-          <span class="material-symbols-outlined text-stone-600" style="font-size:22px">apps</span>
-          Related Items
-        </h2>
-        <div id="related-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"></div>
-      </section>
-    </main>
-
-    <!-- Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-stone-900 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 opacity-0 pointer-events-none z-50" style="transform: translateY(12px)">
-      <span class="material-symbols-outlined text-orange-400" style="font-size:18px">check_circle</span>
-      <span id="toast-msg">Added to cart!</span>
     </div>
 
-    <div id="footer"></div>
+    <section id="related-section" class="hidden mt-16 border-t border-stone-200 pt-10">
+      <h2 class="flex items-center gap-2 text-xl font-black text-stone-800 mb-6">
+        <span class="material-symbols-outlined text-stone-600" style="font-size:22px">apps</span>
+        <span data-i18n="pd_related">Related Items</span>
+      </h2>
+      <div id="related-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+    </section>
+  </main>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+  <div id="toast"
+    class="fixed bottom-6 right-6 bg-stone-900 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 opacity-0 pointer-events-none z-50"
+    style="transform: translateY(12px)">
+    <span class="material-symbols-outlined text-orange-400" style="font-size:18px">check_circle</span>
+    <span id="toast-msg">Added to cart!</span>
+  </div>
 
-    <script>
-      // ── Cart helpers ──────────────────────────────────────────────────────
-      function getCart() {
-        return JSON.parse(localStorage.getItem("tcs_cart") || "[]");
+  <div id="footer"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    function getCart() { return JSON.parse(localStorage.getItem("tcs_cart") || "[]"); }
+    function saveCart(cart) { localStorage.setItem("tcs_cart", JSON.stringify(cart)); }
+
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+    const id = parseInt(params.get("id"));
+
+    let product = null;
+    let qty = 1;
+
+    // Translation key maps
+    const CAT_KEYS = {
+      books: "cat_book", supplies: "cat_supply", secondhand: "nav_secondhand",
+      cs: "cat_cs", maths: "cat_maths", science: "cat_science",
+      calculator: "cat_calculator", paper: "cat_paper", notebook: "cat_notebook",
+      ruler: "cat_ruler", pen: "cat_pen", stationery: "cat_stationery"
+    };
+
+    function changeQty(delta) {
+      qty = Math.max(1, qty + delta);
+      document.getElementById("qty-display").textContent = qty;
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toast-msg").textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2500);
+    }
+
+    function addToCart() {
+      if (!product) return;
+      const cart = getCart();
+      const key = `${product._type}-${product._id}`;
+      const existing = cart.find(i => i.key === key);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({
+          key, type: product._type, id: product._id, title: product.title,
+          cover: product.cover || product.img, price: product._price,
+          category: product._category, qty
+        });
       }
-      function saveCart(cart) {
-        localStorage.setItem("tcs_cart", JSON.stringify(cart));
+      saveCart(cart);
+      const translatedToastMsg = window.i18n ? window.i18n.t("pd_toast_added") : "added to cart!";
+      showToast(`${product.title} ${translatedToastMsg}`);
+      updateCartBadge();
+    }
+
+    function updateCartBadge() {
+      const cart = getCart();
+      const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+      const badge = document.getElementById("cart-badge");
+      if (badge) {
+        badge.textContent = totalQty;
+        badge.classList.toggle("hidden", totalQty === 0);
       }
+    }
 
-      // ── Parse URL params ──────────────────────────────────────────────────
-      const params = new URLSearchParams(window.location.search);
-      const type = params.get("type"); // "book" | "supply" | "secondhand"
-      const id   = parseInt(params.get("id"));
-
-      let product = null;
-      let qty = 1;
-
-      function changeQty(delta) {
-        qty = Math.max(1, qty + delta);
-        document.getElementById("qty-display").textContent = qty;
+    function loadProduct() {
+      if (type === "book") {
+        const b = BOOKS.find(x => x.id === id);
+        if (!b) return notFound();
+        product = { ...b, _type: "book", _id: b.id, _price: b.price, _category: b.category, cover: b.cover };
+        renderProduct({ title: b.title, img: b.cover, price: `$${b.price.toFixed(2)} USD`, category: b.category });
+        renderRelated(BOOKS.filter(x => x.category === b.category && x.id !== b.id).slice(0, 5), "book");
       }
-
-      function showToast(msg) {
-        const toast = document.getElementById("toast");
-        document.getElementById("toast-msg").textContent = msg;
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2500);
+      else if (type === "supply") {
+        const s = SUPPLIES.find(x => x.id === id);
+        if (!s) return notFound();
+        product = { ...s, _type: "supply", _id: s.id, _price: s.price, _category: s.category, cover: s.img };
+        renderProduct({ title: s.title, img: s.img, price: `$${s.price.toFixed(2)} USD`, category: s.category });
+        renderRelated(SUPPLIES.filter(x => x.category === s.category && x.id !== s.id).slice(0, 5), "supply");
       }
+      else if (type === "secondhand") {
+        const entry = SECONDHAND.find(x => x.id === id);
+        if (!entry) return notFound();
+        const resolved = resolveSecondhand(entry);
+        if (!resolved) return notFound();
+        product = { ...resolved, _type: "secondhand", _id: entry.id, _price: resolved.salePrice, _category: resolved.category, cover: resolved.cover };
 
-      function addToCart() {
-        if (!product) return;
-        const cart = getCart();
-        const key = `${product._type}-${product._id}`;
-        const existing = cart.find(i => i.key === key);
-        if (existing) {
-          existing.qty += qty;
-        } else {
-          cart.push({
-            key,
-            type: product._type,
-            id: product._id,
-            title: product.title,
-            cover: product.cover || product.img,
-            price: product._price,
-            category: product._category,
-            qty
-          });
-        }
-        saveCart(cart);
-        showToast(`${product.title} added to cart!`);
-        // Update cart count in header if element exists
-        updateCartBadge();
+        let subCat = "secondhand";
+        if (entry.bookId) subCat = (BOOKS.find(b => b.id === entry.bookId) || {}).category;
+        else if (entry.supplyId) subCat = (SUPPLIES.find(s => s.id === entry.supplyId) || {}).category;
+
+        renderProduct({
+          title: resolved.title, img: resolved.cover, price: `$${resolved.salePrice.toFixed(2)} USD`,
+          category: resolved.category, subCat: subCat, isSecondhand: true,
+          originalPrice: resolved.originalPrice, condition: entry.condition,
+        });
       }
+      else { notFound(); }
+    }
 
-      function updateCartBadge() {
-        const cart = getCart();
-        const totalQty = cart.reduce((s, i) => s + i.qty, 0);
-        const badge = document.getElementById("cart-badge");
-        if (badge) {
-          badge.textContent = totalQty;
-          badge.classList.toggle("hidden", totalQty === 0);
-        }
-      }
+    function renderProduct({ title, img, price, category, subCat, isSecondhand, originalPrice, condition }) {
+      document.title = `${title} — TCS`;
+      document.getElementById("breadcrumb-title").textContent = title;
+      document.getElementById("product-img").src = img;
+      document.getElementById("product-img").alt = title;
+      document.getElementById("product-title").textContent = title;
+      document.getElementById("product-price").textContent = price;
 
-      // ── Descriptions (generated) ──────────────────────────────────────────
-      const DESC = {
-        maths: "A comprehensive mathematics textbook covering core concepts with clear explanations, worked examples, and practice problems. Ideal for university-level study.",
-        cs: "A well-structured computer science text packed with theory, real-world examples, and programming exercises to build solid foundations.",
-        science: "An authoritative science textbook with detailed explanations, diagrams, lab exercises, and review questions for higher-education learners.",
-        calculator: "A reliable scientific calculator designed for engineering and science students. Supports complex equations, statistics, and more.",
-        paper: "High-quality paper suited for academic use, printing, and note-taking. Smooth surface compatible with all standard pens and printers.",
-        notebook: "Durable notebook with premium lined pages. Perfect for lectures, study notes, and daily academic use.",
-        ruler: "Precision measurement tool made from durable materials. Essential for technical drawing and accurate measurements.",
-        pen: "Smooth-writing instrument for everyday use. Designed for comfort during long study and writing sessions.",
-        stationery: "A practical stationery item to keep your desk and studies organised. Built for student life.",
-      };
+      // Apply dynamic translations
+      const catKey = CAT_KEYS[category] || "cat_" + category;
+      const descKey = subCat ? "desc_" + subCat : "desc_" + category;
 
-      function getDesc(category) {
-        return DESC[category] || "A quality academic product from Techno Campus Store, curated for university students.";
-      }
+      document.getElementById("breadcrumb-cat").setAttribute("data-i18n", catKey);
+      document.getElementById("cat-tag").setAttribute("data-i18n", catKey);
+      document.getElementById("meta-cat").setAttribute("data-i18n", catKey);
+      document.getElementById("product-desc").setAttribute("data-i18n", descKey);
 
-      // ── Load product ──────────────────────────────────────────────────────
-      function loadProduct() {
-        if (type === "book") {
-          const b = BOOKS.find(x => x.id === id);
-          if (!b) return notFound();
-          product = { ...b, _type: "book", _id: b.id, _price: b.price, _category: b.category, cover: b.cover };
-          renderProduct({
-            title: b.title,
-            img: b.cover,
-            price: `$${b.price.toFixed(2)} USD`,
-            catTag: b.category.toUpperCase(),
-            desc: getDesc(b.category),
-            metaCat: b.category,
-          });
-          renderRelated(BOOKS.filter(x => x.category === b.category && x.id !== b.id).slice(0, 5), "book");
-        }
-        else if (type === "supply") {
-          const s = SUPPLIES.find(x => x.id === id);
-          if (!s) return notFound();
-          product = { ...s, _type: "supply", _id: s.id, _price: s.price, _category: s.category, cover: s.img };
-          renderProduct({
-            title: s.title,
-            img: s.img,
-            price: `$${s.price.toFixed(2)} USD`,
-            catTag: s.category.toUpperCase(),
-            desc: getDesc(s.category),
-            metaCat: s.category,
-          });
-          renderRelated(SUPPLIES.filter(x => x.category === s.category && x.id !== s.id).slice(0, 5), "supply");
-        }
-        else if (type === "secondhand") {
-          const entry = SECONDHAND.find(x => x.id === id);
-          if (!entry) return notFound();
-          const resolved = resolveSecondhand(entry);
-          if (!resolved) return notFound();
-          product = { ...resolved, _type: "secondhand", _id: entry.id, _price: resolved.salePrice, _category: resolved.category, cover: resolved.cover };
-          renderProduct({
-            title: resolved.title,
-            img: resolved.cover,
-            price: `$${resolved.salePrice.toFixed(2)} USD`,
-            catTag: resolved.category.toUpperCase(),
-            desc: getDesc(entry.bookId ? (BOOKS.find(b=>b.id===entry.bookId)||{}).category : (SUPPLIES.find(s=>s.id===entry.supplyId)||{}).category),
-            metaCat: resolved.category,
-            isSecondhand: true,
-            originalPrice: resolved.originalPrice,
-            condition: entry.condition,
-          });
-        }
-        else {
-          notFound();
-        }
-      }
+      if (isSecondhand) {
+        document.getElementById("used-tag").classList.remove("hidden");
+        document.getElementById("secondhand-badges").classList.remove("hidden");
+        document.getElementById("secondhand-badges").classList.add("flex");
+        document.getElementById("original-price-display").textContent = `$${originalPrice.toFixed(2)}`;
 
-      function renderProduct({ title, img, price, catTag, desc, metaCat, isSecondhand, originalPrice, condition }) {
-        document.title = `${title} — TCS`;
-        document.getElementById("breadcrumb-cat").textContent = catTag;
-        document.getElementById("breadcrumb-title").textContent = title;
+        const condKey = "cond_" + condition.replace("-", "_");
+        const condBadge = document.getElementById("condition-badge");
+        condBadge.setAttribute("data-i18n", condKey);
+        condBadge.className = `text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full condition-${condition}`;
 
-        document.getElementById("product-img").src = img;
-        document.getElementById("product-img").alt = title;
-        document.getElementById("product-title").textContent = title;
-        document.getElementById("product-price").textContent = price;
-        document.getElementById("product-desc").textContent = desc;
-        document.getElementById("cat-tag").textContent = catTag;
-        document.getElementById("meta-cat").textContent = metaCat;
-
-        if (isSecondhand) {
-          document.getElementById("used-tag").classList.remove("hidden");
-          document.getElementById("secondhand-badges").classList.remove("hidden");
-          document.getElementById("secondhand-badges").classList.add("flex");
-          document.getElementById("original-price-display").textContent = `$${originalPrice.toFixed(2)}`;
-          const condBadge = document.getElementById("condition-badge");
-          condBadge.textContent = condition.replace("-", " ");
-          condBadge.className = `text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full condition-${condition}`;
-          document.getElementById("meta-condition-wrap").classList.remove("hidden");
-          document.getElementById("meta-condition").textContent = condition.replace("-", " ");
-        }
-
-        document.getElementById("skeleton").classList.add("hidden");
-        document.getElementById("product-content").classList.remove("hidden");
-        document.getElementById("product-content").classList.add("grid");
-        updateCartBadge();
+        document.getElementById("meta-condition-wrap").classList.remove("hidden");
+        document.getElementById("meta-condition").setAttribute("data-i18n", condKey);
       }
 
-      function renderRelated(items, itemType) {
-        if (!items.length) return;
-        document.getElementById("related-section").classList.remove("hidden");
-        document.getElementById("related-grid").innerHTML = items.map(item => {
-          const imgSrc = item.cover || item.img;
-          const price = item.price;
-          const relId = item.id;
-          return `
-            <a href="product-detail.html?type=${itemType}&id=${relId}" class="group bg-white border border-stone-200 rounded-xl p-4 flex flex-col gap-3 hover:shadow-md hover:border-stone-400 transition-all cursor-pointer">
+      document.getElementById("skeleton").classList.add("hidden");
+      document.getElementById("product-content").classList.remove("hidden");
+      document.getElementById("product-content").classList.add("grid");
+      updateCartBadge();
+
+      if (window.i18n && window.i18n.apply) window.i18n.apply();
+    }
+
+    function renderRelated(items, itemType) {
+      if (!items.length) return;
+      document.getElementById("related-section").classList.remove("hidden");
+      document.getElementById("related-grid").innerHTML = items.map(item => {
+        const imgSrc = item.cover || item.img;
+        const safeTitle = item.title.replace(/'/g, "\\'");
+        return `
+            <a href="product-detail.html?type=${itemType}&id=${item.id}" class="group bg-white border border-stone-200 rounded-xl p-4 flex flex-col gap-3 hover:shadow-md hover:border-stone-400 transition-all cursor-pointer">
               <div class="bg-stone-50 rounded-lg flex items-center justify-center" style="height:120px">
-                <img src="${imgSrc}" alt="${item.title}" class="h-full w-full object-contain rounded" />
+                <img src="${imgSrc}" alt="${safeTitle}" class="h-full w-full object-contain rounded" />
               </div>
               <p class="font-bold text-stone-800 text-xs leading-snug group-hover:text-orange-500 transition-colors">${item.title}</p>
-              <p class="text-orange-500 font-black text-sm">$${price.toFixed(2)}</p>
+              <p class="text-orange-500 font-black text-sm">$${item.price.toFixed(2)}</p>
             </a>`;
-        }).join("");
-      }
+      }).join("");
 
-      function notFound() {
-        document.getElementById("skeleton").innerHTML = `
+      if (window.i18n && window.i18n.apply) window.i18n.apply();
+    }
+
+    function notFound() {
+      document.getElementById("skeleton").innerHTML = `
           <div class="col-span-2 py-24 text-center">
             <span class="material-symbols-outlined text-stone-300" style="font-size:64px">search_off</span>
-            <p class="text-stone-500 font-bold mt-4">Product not found.</p>
-            <a href="index.html" class="mt-4 inline-block text-orange-500 font-bold hover:underline">← Back to Home</a>
+            <p class="text-stone-500 font-bold mt-4" data-i18n="pd_not_found">Product not found.</p>
+            <a href="index.html" class="mt-4 inline-block text-orange-500 font-bold hover:underline" data-i18n="pd_back_home">← Back to Home</a>
           </div>`;
-      }
+      if (window.i18n && window.i18n.apply) window.i18n.apply();
+    }
 
-      loadProduct();
-    </script>
-  </body>
+    loadProduct();
+  </script>
+</body>
+
 </html>

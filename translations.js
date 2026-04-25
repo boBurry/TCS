@@ -160,7 +160,7 @@ window.TRANSLATIONS = {
     profile_recent_orders: "Recent Orders",
 
     // ── Request page ──────────────────────────────────────────────────────────
-    
+
     req_modal_title: "Request Item",
     req_modal_desc:
       "Looking for something not listed? Send a request and we'll deliver it for you.",
@@ -174,6 +174,101 @@ window.TRANSLATIONS = {
     req_file_attach: "Attach Image",
     req_file_choose: "Choose File",
     req_btn_submit: "Request",
+
+    // ── Cart Page ─────────────────────────────────────────────────────────────
+    cart_title: "Shopping Cart",
+    cart_empty_title: "Your cart is empty",
+    cart_empty_desc: "Browse our collection and add items you need.",
+    cart_start_shopping: "Start Shopping",
+    cart_summary_title: "Order Summary",
+    cart_subtotal: "Subtotal",
+    cart_total: "Total",
+    cart_checkout_btn: "Proceed to Checkout",
+    cart_continue_shopping: "Continue Shopping",
+    cart_secure_checkout: "Secure checkout",
+    cart_recommendation: "You might also need",
+    cart_add_to_cart: "+ Add to Cart",
+    cart_clear_prompt: "Clear all items from your cart?",
+    cart_cleared_toast: "Cart cleared.",
+    cart_added_toast: "added!",
+
+    // ── Checkout Page ─────────────────────────────────────────────────────────
+    co_back_to_cart: "Back to Cart",
+    co_title: "Checkout",
+    co_step_cart: "Cart",
+    co_step_payment: "Payment",
+    co_step_done: "Done",
+    co_empty_title: "Nothing to checkout",
+    co_empty_desc: "Add items to your cart first.",
+    co_order_items: "Order Items",
+    co_th_product: "Product",
+    co_th_qty: "Quantity",
+    co_th_total: "Total",
+    co_payment_method: "Payment Method",
+    co_pay_bank: "Pay through Bank",
+    co_pay_bank_desc: "ABA / ACLEDA / Wing transfer via QR",
+    co_pay_arrival: "Pay on Arrival",
+    co_pay_arrival_desc: "Cash when you pick up your order at the store",
+    co_qr_scan_info: "Scan with any banking app to pay",
+    co_acc_name: "Account Name",
+    co_bank_name: "Bank",
+    co_amount_to_pay: "Amount to Pay",
+    co_qr_notice:
+      "After payment, show your transaction slip at the store to collect your order.",
+    co_arrival_title: "Pick up at TCS Campus Store",
+    co_arrival_notice:
+      "Your order will be reserved for 24 hours. Pay cash when you arrive to collect your items.",
+    co_note_label: "Order Note (optional)",
+    co_note_placeholder: "Any special requests or notes for your order…",
+    co_summary_items: "Items",
+    co_confirm_btn: "Confirm Payment",
+    co_btn_processing: "Processing…",
+    co_success_title: "Order Placed!",
+    co_success_subtitle: "Your order has been confirmed.",
+    co_success_bank_msg:
+      "Please show your ABA transfer slip when collecting your items at the store.",
+    co_success_arrival_msg:
+      "Pay with cash when you arrive at the TCS Campus Store to collect your order.",
+
+    // ── Product Detail Page ──────────────────────────────────────────────────
+    pd_about: "About this item",
+    pd_quantity: "Quantity",
+    pd_add_to_cart: "Add to Cart",
+    pd_view_cart: "View Cart",
+    pd_meta_category: "Category",
+    pd_meta_condition: "Condition",
+    pd_meta_availability: "Availability",
+    pd_meta_shipping: "Shipping",
+    pd_in_stock: "In Stock",
+    pd_free_shipping: "Free on campus",
+    pd_related: "Related Items",
+    pd_condition_label: "Condition:",
+    pd_vs_original: "vs. Original:",
+    pd_not_found: "Product not found.",
+    pd_back_home: "← Back to Home",
+    pd_toast_added: "added to cart!",
+
+    // Dynamic Descriptions
+    desc_maths:
+      "A comprehensive mathematics textbook covering core concepts with clear explanations, worked examples, and practice problems. Ideal for university-level study.",
+    desc_cs:
+      "A well-structured computer science text packed with theory, real-world examples, and programming exercises to build solid foundations.",
+    desc_science:
+      "An authoritative science textbook with detailed explanations, diagrams, lab exercises, and review questions for higher-education learners.",
+    desc_calculator:
+      "A reliable scientific calculator designed for engineering and science students. Supports complex equations, statistics, and more.",
+    desc_paper:
+      "High-quality paper suited for academic use, printing, and note-taking. Smooth surface compatible with all standard pens and printers.",
+    desc_notebook:
+      "Durable notebook with premium lined pages. Perfect for lectures, study notes, and daily academic use.",
+    desc_ruler:
+      "Precision measurement tool made from durable materials. Essential for technical drawing and accurate measurements.",
+    desc_pen:
+      "Smooth-writing instrument for everyday use. Designed for comfort during long study and writing sessions.",
+    desc_stationery:
+      "A practical stationery item to keep your desk and studies organised. Built for student life.",
+    desc_default:
+      "A quality academic product from Techno Campus Store, curated for university students.",
 
     // ── Condition labels ──────────────────────────────────────────────────────
     cond_like_new: "Like New",
@@ -363,6 +458,102 @@ window.TRANSLATIONS = {
     req_file_attach: "ភ្ជាប់រូបភាព",
     req_file_choose: "ជ្រើសរើសឯកសារ",
     req_btn_submit: "ស្នើសុំ",
+
+    // ── Cart Page ─────────────────────────────────────────────────────────────
+    cart_title: "កន្ត្រកទំនិញ",
+    cart_empty_title: "កន្ត្រករបស់អ្នកទទេ",
+    cart_empty_desc:
+      "ស្វែងរកទំនិញរបស់ហាងយើងខ្ញុំ និងបញ្ចូលទំនិញដែលអ្នកត្រូវការ។",
+    cart_start_shopping: "ចាប់ផ្តើមទិញទំនិញ",
+    cart_summary_title: "សេចក្តីសង្ខេបការបញ្ជាទិញ",
+    cart_subtotal: "សរុបដោយផ្នែក",
+    cart_total: "សរុប",
+    cart_checkout_btn: "បន្តទៅការទូទាត់",
+    cart_continue_shopping: "បន្តការទិញទំនិញ",
+    cart_secure_checkout: "ការទូទាត់ប្រកបដោយសុវត្ថិភាព",
+    cart_recommendation: "អ្នកក៏ប្រហែលជាត្រូវការផងដែរ",
+    cart_add_to_cart: "+ បញ្ចូលកន្ត្រក",
+    cart_clear_prompt: "តើអ្នកចង់លុបទំនិញទាំងអស់ចេញពីកន្ត្រកឬ?",
+    cart_cleared_toast: "បានសម្អាតកន្ត្រក។",
+    cart_added_toast: "បានបញ្ចូល!",
+
+    // ── Checkout Page ─────────────────────────────────────────────────────────
+    co_back_to_cart: "ត្រឡប់ទៅកន្ត្រកវិញ",
+    co_title: "ការទូទាត់ប្រាក់",
+    co_step_cart: "កន្ត្រក",
+    co_step_payment: "ការបង់ប្រាក់",
+    co_step_done: "រួចរាល់",
+    co_empty_title: "គ្មានអ្វីត្រូវទូទាត់ទេ",
+    co_empty_desc: "សូមបន្ថែមទំនិញទៅក្នុងកន្ត្រករបស់អ្នកជាមុនសិន។",
+    co_order_items: "ទំនិញដែលបានបញ្ជាទិញ",
+    co_th_product: "ផលិតផល",
+    co_th_qty: "បរិមាណ",
+    co_th_total: "សរុប",
+    co_payment_method: "វិធីសាស្រ្តបង់ប្រាក់",
+    co_pay_bank: "បង់តាមធនាគារ",
+    co_pay_bank_desc: "វេរប្រាក់ ABA / ACLEDA / Wing តាមរយៈ QR",
+    co_pay_arrival: "បង់ប្រាក់ពេលទទួលទំនិញ",
+    co_pay_arrival_desc: "បង់សាច់ប្រាក់ពេលអ្នកមកទទួលការបញ្ជាទិញនៅហាង",
+    co_qr_scan_info: "ស្កេនជាមួយកម្មវិធីធនាគារណាមួយដើម្បីបង់ប្រាក់",
+    co_acc_name: "ឈ្មោះគណនី",
+    co_bank_name: "ធនាគារ",
+    co_amount_to_pay: "ចំនួនប្រាក់ត្រូវបង់",
+    co_qr_notice:
+      "បន្ទាប់ពីការបង់ប្រាក់ សូមបង្ហាញវិក័យប័ត្ររបស់អ្នកនៅហាងដើម្បីយកទំនិញ។",
+    co_arrival_title: "ទទួលនៅហាង TCS Campus",
+    co_arrival_notice:
+      "ការបញ្ជាទិញរបស់អ្នកនឹងត្រូវរក្សាទុកក្នុងរយៈពេល ២៤ ម៉ោង។ បង់សាច់ប្រាក់ពេលអ្នកមកដល់ដើម្បីទទួលទំនិញរបស់អ្នក។",
+    co_note_label: "ចំណាំការបញ្ជាទិញ (ជម្រើស)",
+    co_note_placeholder: "សំណើពិសេស ឬចំណាំសម្រាប់ការបញ្ជាទិញរបស់អ្នក…",
+    co_summary_items: "ទំនិញ",
+    co_confirm_btn: "បញ្ជាក់ការបង់ប្រាក់",
+    co_btn_processing: "កំពុងដំណើរការ…",
+    co_success_title: "បានដាក់ការបញ្ជាទិញ!",
+    co_success_subtitle: "ការបញ្ជាទិញរបស់អ្នកត្រូវបានបញ្ជាក់។",
+    co_success_bank_msg:
+      "សូមបង្ហាញវិក័យប័ត្រផ្ទេរប្រាក់ ABA របស់អ្នកនៅពេលប្រមូលទំនិញនៅហាង។",
+    co_success_arrival_msg:
+      "បង់ប្រាក់ជាសាច់ប្រាក់នៅពេលអ្នកមកដល់ហាង TCS ដើម្បីយកទំនិញរបស់អ្នក។",
+
+    // ── Product Detail Page ──────────────────────────────────────────────────
+    pd_about: "អំពីទំនិញនេះ",
+    pd_quantity: "បរិមាណ",
+    pd_add_to_cart: "បញ្ជូលទៅកន្ត្រក",
+    pd_view_cart: "មើលកន្ត្រក",
+    pd_meta_category: "ប្រភេទ",
+    pd_meta_condition: "ស្ថានភាព",
+    pd_meta_availability: "ភាពមានស្តុក",
+    pd_meta_shipping: "ការដឹកជញ្ជូន",
+    pd_in_stock: "មានស្តុក",
+    pd_free_shipping: "ដឹកជញ្ជូនឥតគិតថ្លៃក្នុងសាលា",
+    pd_related: "ទំនិញពាក់ព័ន្ធ",
+    pd_condition_label: "ស្ថានភាព:",
+    pd_vs_original: "ធៀបនឹងតម្លៃដើម:",
+    pd_not_found: "រកមិនឃើញទំនិញទេ។",
+    pd_back_home: "← ត្រឡប់ទៅទំព័រដើម",
+    pd_toast_added: "បានបញ្ចូលទៅកន្ត្រក!",
+
+    // Dynamic Descriptions
+    desc_maths:
+      "សៀវភៅគណិតវិទ្យាដ៏ទូលំទូលាយដែលគ្របដណ្តប់លើគំនិតស្នូល ជាមួយការពន្យល់ច្បាស់លាស់ ឧទាហរណ៍ និងលំហាត់។ ស័ក្តិសមសម្រាប់ការសិក្សាកម្រិតសាកលវិទ្យាល័យ។",
+    desc_cs:
+      "សៀវភៅកុំព្យូទ័រដែលរៀបចំឡើងយ៉ាងល្អ មានទ្រឹស្តី ឧទាហរណ៍ជាក់ស្តែង និងលំហាត់សរសេរកូដដើម្បីកសាងមូលដ្ឋានគ្រឹះរឹងមាំ។",
+    desc_science:
+      "សៀវភៅវិទ្យាសាស្ត្រដែលអាចទុកចិត្តបានជាមួយការពន្យល់លម្អិត ដ្យាក្រាម ការអនុវត្តមន្ទីរពិសោធន៍ និងសំណួររំលឹកសម្រាប់ការសិក្សាថ្នាក់ឧត្តម។",
+    desc_calculator:
+      "ម៉ាស៊ីនគិតលេខវិទ្យាសាស្ត្រដែលអាចជឿទុកចិត្តបាន សម្រាប់និស្សិតវិស្វកម្ម និងវិទ្យាសាស្ត្រ។ គាំទ្រសមីការស្មុគស្មាញ ស្ថិតិ និងច្រើនទៀត។",
+    desc_paper:
+      "ក្រដាសគុណភាពខ្ពស់ស័ក្តិសមសម្រាប់ការប្រើប្រាស់ក្នុងការសិក្សា ការបោះពុម្ព និងការកត់ត្រា។",
+    desc_notebook:
+      "សៀវភៅកត់ត្រាធន់ប្រើប្រាស់បានយូរជាមួយក្រដាសមានបន្ទាត់គុណភាពខ្ពស់។ ល្អឥតខ្ចោះសម្រាប់ការរៀនសូត្រ និងការប្រើប្រាស់ប្រចាំថ្ងៃ។",
+    desc_ruler:
+      "ឧបករណ៍វាស់វែងច្បាស់លាស់ធ្វើពីវត្ថុធាតុដើមធន់។ ចាំបាច់សម្រាប់ការគំនូរបច្ចេកទេស។",
+    desc_pen:
+      "ប៊ិចសរសេររលូនសម្រាប់ការប្រើប្រាស់ប្រចាំថ្ងៃ។ រចនាឡើងដើម្បីផ្តល់ភាពងាយស្រួលសម្រាប់ការសិក្សា និងសរសេរយូរ។",
+    desc_stationery:
+      "សម្ភារៈសិក្សាដ៏មានប្រយោជន៍ដើម្បីរក្សាតុរបស់អ្នកឲ្យមានសណ្តាប់ធ្នាប់។",
+    desc_default:
+      "ផលិតផលសិក្សាដែលមានគុណភាពពី Techno Campus Store រៀបចំជាពិសេសសម្រាប់និស្សិតសាកលវិទ្យាល័យ។",
 
     // ── Condition labels ──────────────────────────────────────────────────────
     cond_like_new: "ដូចថ្មី",
