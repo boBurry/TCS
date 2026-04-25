@@ -1,463 +1,532 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout — TCS</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — TCS</title>
 
-    <script>
-      tailwind.config = {
-        theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } }
-      };
-    </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Siemreap&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } }
+    };
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .step-connector {
+      flex: 1;
+      height: 2px;
+      background: #e7e5e4;
+    }
+
+    .step-connector.done {
+      background: #fb923c;
+    }
+
+    .pay-method {
+      border: 2px solid #e7e5e4;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .pay-method:hover {
+      border-color: #a8a29e;
+    }
+
+    .pay-method.selected {
+      border-color: #fb923c;
+      background: #fff7ed;
+      box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.12);
+    }
+
+    .pay-method .radio-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #d6d3d1;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.15s;
+    }
+
+    .pay-method.selected .radio-dot {
+      border-color: #fb923c;
+    }
+
+    .pay-method.selected .radio-dot::after {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #fb923c;
+      display: block;
+    }
+
+    #qr-panel {
+      transition: max-height 0.35s ease, opacity 0.25s ease;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+    }
+
+    #qr-panel.open {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    .order-row {
+      transition: background 0.12s;
+    }
+
+    .order-row:hover {
+      background: #fafaf9;
+    }
+
+    .qty-btn {
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .qty-btn:hover {
+      background: #1c1917;
+      color: #fff;
+    }
+
+    #toast {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #toast.show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    @keyframes pulse-orange {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.4);
       }
-      body { font-family: "Inter", sans-serif; }
-      html { scroll-behavior: smooth; }
 
-      /* Step indicator */
-      .step-connector { flex: 1; height: 2px; background: #e7e5e4; }
-      .step-connector.done { background: #fb923c; }
-
-      /* Payment method cards */
-      .pay-method {
-        border: 2px solid #e7e5e4;
-        border-radius: 12px;
-        padding: 1rem 1.25rem;
-        cursor: pointer;
-        transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+      50% {
+        box-shadow: 0 0 0 8px rgba(251, 146, 60, 0);
       }
-      .pay-method:hover { border-color: #a8a29e; }
-      .pay-method.selected {
-        border-color: #fb923c;
-        background: #fff7ed;
-        box-shadow: 0 0 0 3px rgba(251,146,60,0.12);
-      }
-      .pay-method .radio-dot {
-        width: 18px; height: 18px;
-        border-radius: 50%;
-        border: 2px solid #d6d3d1;
-        flex-shrink: 0;
-        display: flex; align-items: center; justify-content: center;
-        transition: border-color 0.15s;
-      }
-      .pay-method.selected .radio-dot { border-color: #fb923c; }
-      .pay-method.selected .radio-dot::after {
-        content: "";
-        width: 9px; height: 9px;
-        border-radius: 50%;
-        background: #fb923c;
-        display: block;
-      }
+    }
 
-      /* QR panel */
-      #qr-panel {
-        transition: max-height 0.35s ease, opacity 0.25s ease;
-        overflow: hidden;
-        max-height: 0;
-        opacity: 0;
-      }
-      #qr-panel.open { max-height: 600px; opacity: 1; }
+    #confirm-btn:not(:disabled):hover {
+      animation: pulse-orange 1s ease infinite;
+    }
 
-      /* Item row hover */
-      .order-row { transition: background 0.12s; }
-      .order-row:hover { background: #fafaf9; }
+    #success-overlay {
+      transition: opacity 0.4s ease;
+    }
 
-      /* qty btn */
-      .qty-btn { transition: background 0.15s, color 0.15s; }
-      .qty-btn:hover { background: #1c1917; color: #fff; }
+    .badge-calculator {
+      background: #ede9fe;
+      color: #7c3aed;
+    }
 
-      /* Toast */
-      #toast { transition: opacity 0.3s ease, transform 0.3s ease; }
-      #toast.show { opacity: 1 !important; transform: translateY(0) !important; }
+    .badge-notebook,
+    .badge-paper {
+      background: #ffedd5;
+      color: #c2410c;
+    }
 
-      /* Confirm pulse */
-      @keyframes pulse-orange {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(251,146,60,0.4); }
-        50%       { box-shadow: 0 0 0 8px rgba(251,146,60,0); }
-      }
-      #confirm-btn:not(:disabled):hover { animation: pulse-orange 1s ease infinite; }
+    .badge-cs {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
 
-      /* Success overlay */
-      #success-overlay {
-        transition: opacity 0.4s ease;
-      }
+    .badge-maths {
+      background: #dcfce7;
+      color: #15803d;
+    }
 
-      /* Category badge colors */
-      .badge-calculator  { background: #ede9fe; color: #7c3aed; }
-      .badge-notebook,
-      .badge-paper       { background: #ffedd5; color: #c2410c; }
-      .badge-cs          { background: #dbeafe; color: #1d4ed8; }
-      .badge-maths       { background: #dcfce7; color: #15803d; }
-      .badge-science     { background: #fce7f3; color: #be185d; }
-      .badge-pen,
-      .badge-stationery  { background: #fef9c3; color: #a16207; }
-      .badge-ruler       { background: #f0fdf4; color: #166534; }
-      .badge-books       { background: #f1f5f9; color: #475569; }
-      .badge-default     { background: #f5f5f4; color: #57534e; }
-    </style>
-  </head>
+    .badge-science {
+      background: #fce7f3;
+      color: #be185d;
+    }
 
-  <body class="bg-stone-50 text-stone-900 antialiased">
-    <div id="header"></div>
+    .badge-pen,
+    .badge-stationery {
+      background: #fef9c3;
+      color: #a16207;
+    }
 
-    <main class="mx-auto max-w-7xl px-6 py-10">
+    .badge-ruler {
+      background: #f0fdf4;
+      color: #166534;
+    }
 
-      <!-- Back link -->
-      <a href="cart.html" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-700 transition-colors mb-8">
-        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
-        Back to Cart
+    .badge-books {
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .badge-default {
+      background: #f5f5f4;
+      color: #57534e;
+    }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 antialiased">
+  <div id="header"></div>
+
+  <main class="mx-auto max-w-7xl px-6 py-10">
+
+    <a href="cart.html"
+      class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-700 transition-colors mb-8">
+      <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+      <span data-i18n="co_back_to_cart">Back to Cart</span>
+    </a>
+
+    <h1 class="text-3xl font-black text-stone-800 mb-2 flex items-center gap-3">
+      <span class="material-symbols-outlined text-stone-600" style="font-size:32px">receipt_long</span>
+      <span data-i18n="co_title">Checkout</span>
+    </h1>
+
+    <div class="flex items-center gap-0 mb-10 mt-5 max-w-xs">
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-7 h-7 rounded-full bg-orange-400 flex items-center justify-center">
+          <span class="material-symbols-outlined text-white" style="font-size:14px">shopping_cart</span>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-orange-400"
+          data-i18n="co_step_cart">Cart</span>
+      </div>
+      <div class="step-connector done mx-1 mb-5"></div>
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-7 h-7 rounded-full bg-orange-400 flex items-center justify-center">
+          <span class="material-symbols-outlined text-white" style="font-size:14px">payments</span>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-orange-400"
+          data-i18n="co_step_payment">Payment</span>
+      </div>
+      <div class="step-connector mx-1 mb-5"></div>
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-7 h-7 rounded-full bg-stone-200 flex items-center justify-center">
+          <span class="material-symbols-outlined text-stone-400" style="font-size:14px">check_circle</span>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-stone-400"
+          data-i18n="co_step_done">Done</span>
+      </div>
+    </div>
+
+    <div id="empty-notice" class="hidden flex flex-col items-center justify-center py-28 text-center">
+      <span class="material-symbols-outlined text-stone-300 mb-5" style="font-size:80px">shopping_cart</span>
+      <h2 class="text-2xl font-black text-stone-700 mb-2" data-i18n="co_empty_title">Nothing to checkout</h2>
+      <p class="text-stone-400 text-sm mb-8" data-i18n="co_empty_desc">Add items to your cart first.</p>
+      <a href="index.html"
+        class="bg-orange-400 hover:bg-orange-500 text-white text-sm font-bold uppercase tracking-widest px-8 py-3 rounded-lg transition-colors"
+        data-i18n="cart_start_shopping">
+        Start Shopping
       </a>
-
-      <!-- Page title -->
-      <h1 class="text-3xl font-black text-stone-800 mb-2 flex items-center gap-3">
-        <span class="material-symbols-outlined text-stone-600" style="font-size:32px">receipt_long</span>
-        Checkout
-      </h1>
-
-      <!-- Step indicator -->
-      <div class="flex items-center gap-0 mb-10 mt-5 max-w-xs">
-        <div class="flex flex-col items-center gap-1">
-          <div class="w-7 h-7 rounded-full bg-orange-400 flex items-center justify-center">
-            <span class="material-symbols-outlined text-white" style="font-size:14px">shopping_cart</span>
-          </div>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-orange-400">Cart</span>
-        </div>
-        <div class="step-connector done mx-1 mb-5"></div>
-        <div class="flex flex-col items-center gap-1">
-          <div class="w-7 h-7 rounded-full bg-orange-400 flex items-center justify-center">
-            <span class="material-symbols-outlined text-white" style="font-size:14px">payments</span>
-          </div>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-orange-400">Payment</span>
-        </div>
-        <div class="step-connector mx-1 mb-5"></div>
-        <div class="flex flex-col items-center gap-1">
-          <div class="w-7 h-7 rounded-full bg-stone-200 flex items-center justify-center">
-            <span class="material-symbols-outlined text-stone-400" style="font-size:14px">check_circle</span>
-          </div>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Done</span>
-        </div>
-      </div>
-
-      <!-- Empty redirect notice -->
-      <div id="empty-notice" class="hidden flex flex-col items-center justify-center py-28 text-center">
-        <span class="material-symbols-outlined text-stone-300 mb-5" style="font-size:80px">shopping_cart</span>
-        <h2 class="text-2xl font-black text-stone-700 mb-2">Nothing to checkout</h2>
-        <p class="text-stone-400 text-sm mb-8">Add items to your cart first.</p>
-        <a href="index.html" class="bg-orange-400 hover:bg-orange-500 text-white text-sm font-bold uppercase tracking-widest px-8 py-3 rounded-lg transition-colors">
-          Start Shopping
-        </a>
-      </div>
-
-      <!-- Checkout layout -->
-      <div id="checkout-layout" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-
-        <!-- LEFT: Order items + Payment -->
-        <div class="lg:col-span-2 flex flex-col gap-6">
-
-          <!-- Order Items Card -->
-          <div class="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
-            <div class="flex items-center justify-between px-6 py-4 border-b border-stone-100">
-              <h2 class="text-base font-black text-stone-800 flex items-center gap-2">
-                <span class="material-symbols-outlined text-stone-400" style="font-size:18px">inventory_2</span>
-                Order Items
-              </h2>
-              <span id="checkout-item-count" class="text-xs font-bold text-stone-400"></span>
-            </div>
-
-            <!-- Table header -->
-            <div class="grid grid-cols-12 px-6 py-2.5 border-b border-stone-100 bg-stone-50 text-[10px] font-bold uppercase tracking-widest text-stone-400">
-              <div class="col-span-6">Product</div>
-              <div class="col-span-3 text-center">Quantity</div>
-              <div class="col-span-3 text-right">Total</div>
-            </div>
-
-            <!-- Items injected here -->
-            <div id="checkout-items" class="divide-y divide-stone-100"></div>
-
-            <!-- Totals -->
-            <div class="px-6 py-5 border-t border-stone-200 bg-stone-50 space-y-2.5">
-              <div class="flex justify-between items-center text-sm">
-                <span class="text-stone-500 font-medium">Sub Total</span>
-                <span id="co-subtotal" class="font-bold text-stone-800"></span>
-              </div>
-              <div class="flex justify-between items-center pt-3 border-t border-stone-200">
-                <span class="font-black text-stone-800">Total</span>
-                <span id="co-total" class="text-2xl font-black text-orange-500"></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Payment Method Card -->
-          <div class="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
-            <div class="px-6 py-4 border-b border-stone-100">
-              <h2 class="text-base font-black text-stone-800 flex items-center gap-2">
-                <span class="material-symbols-outlined text-stone-400" style="font-size:18px">credit_card</span>
-                Payment Method
-              </h2>
-            </div>
-
-            <div class="p-6 flex flex-col gap-3">
-              <!-- Pay through Bank -->
-              <div class="pay-method selected" id="method-bank" onclick="selectMethod('bank')">
-                <div class="radio-dot"></div>
-                <div class="flex-1">
-                  <p class="font-bold text-stone-800 text-sm">Pay through Bank</p>
-                  <p class="text-xs text-stone-400 mt-0.5">ABA / ACLEDA / Wing transfer via QR</p>
-                </div>
-                <div class="flex items-center gap-2">
-                  <div class="h-7 w-10 bg-stone-100 rounded flex items-center justify-center">
-                    <span class="material-symbols-outlined text-stone-500" style="font-size:16px">qr_code_2</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Pay on Arrival -->
-              <div class="pay-method" id="method-arrival" onclick="selectMethod('arrival')">
-                <div class="radio-dot"></div>
-                <div class="flex-1">
-                  <p class="font-bold text-stone-800 text-sm">Pay on Arrival</p>
-                  <p class="text-xs text-stone-400 mt-0.5">Cash when you pick up your order at the store</p>
-                </div>
-                <div class="flex items-center gap-2">
-                  <div class="h-7 w-10 bg-stone-100 rounded flex items-center justify-center">
-                    <span class="material-symbols-outlined text-stone-500" style="font-size:16px">payments</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- QR panel (bank only) -->
-            <div id="qr-panel" class="open">
-              <div class="border-t border-stone-100 px-6 py-6">
-                <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-5 flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-stone-300" style="font-size:14px">info</span>
-                  Scan with any banking app to pay
-                </p>
-                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                  <!-- QR Code (generated via qr-server) -->
-                  <div class="flex-shrink-0 bg-white border-2 border-stone-200 rounded-2xl p-3 shadow-sm">
-                    <img id="qr-img" src="" alt="TCS ABA QR Code" class="w-44 h-44 object-contain rounded-lg" />
-                  </div>
-                  <div class="flex flex-col justify-center gap-3">
-                    <div>
-                      <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Account Name</p>
-                      <p class="font-black text-stone-800 text-base">TCS Store</p>
-                    </div>
-                    <div>
-                      <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Bank</p>
-                      <p class="font-bold text-stone-700 text-sm">ABA Bank</p>
-                    </div>
-                    <div>
-                      <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Amount to Pay</p>
-                      <p id="qr-amount" class="font-black text-orange-500 text-xl"></p>
-                    </div>
-                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 mt-1">
-                      <p class="text-xs text-amber-700 font-medium leading-relaxed">
-                        After payment, show your transaction slip at the store to collect your order.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pay on Arrival info panel -->
-            <div id="arrival-panel" class="hidden border-t border-stone-100 px-6 py-6">
-              <div class="bg-stone-50 border border-stone-200 rounded-xl p-4 flex items-start gap-3">
-                <span class="material-symbols-outlined text-stone-400 flex-shrink-0 mt-0.5" style="font-size:20px">store</span>
-                <div>
-                  <p class="font-bold text-stone-800 text-sm mb-1">Pick up at TCS Campus Store</p>
-                  <p class="text-xs text-stone-500 leading-relaxed">Your order will be reserved for 24 hours. Pay cash when you arrive to collect your items.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Note field -->
-          <div class="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm">
-            <label class="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-3 flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-stone-300" style="font-size:14px">edit_note</span>
-              Order Note (optional)
-            </label>
-            <textarea id="order-note" rows="3" placeholder="Any special requests or notes for your order…"
-              class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm text-stone-700 placeholder:text-stone-300 focus:outline-none focus:border-orange-300 resize-none transition-colors"></textarea>
-          </div>
-        </div>
-
-        <!-- RIGHT: Summary sticky -->
-        <div class="lg:col-span-1">
-          <div class="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm sticky top-6">
-            <h2 class="text-lg font-black text-stone-800 mb-6">Order Summary</h2>
-
-            <div class="flex flex-col gap-3 text-sm">
-              <div class="flex justify-between items-center">
-                <span class="text-stone-500">Items</span>
-                <span id="s-items" class="font-bold text-stone-800"></span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-stone-500">Subtotal</span>
-                <span id="s-subtotal" class="font-bold text-stone-800"></span>
-              </div>
-            </div>
-
-            <div class="border-t border-stone-200 mt-5 pt-5 flex justify-between items-center">
-              <span class="text-base font-black text-stone-800">Total</span>
-              <span id="s-total" class="text-2xl font-black text-orange-500"></span>
-            </div>
-
-            <!-- Payment method badge -->
-            <div id="s-method-badge" class="mt-4 flex items-center gap-2 bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5">
-              <span class="material-symbols-outlined text-stone-400" style="font-size:16px">qr_code_2</span>
-              <span id="s-method-label" class="text-xs font-bold text-stone-600 uppercase tracking-widest">Pay through Bank</span>
-            </div>
-
-            <button id="confirm-btn" onclick="confirmOrder()"
-              class="mt-5 w-full bg-orange-400 hover:bg-orange-500 active:scale-95 text-white font-bold uppercase tracking-widest text-sm py-3.5 rounded-xl transition-all flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined" style="font-size:18px">check_circle</span>
-              Confirm Payment
-            </button>
-
-            <a href="cart.html" class="mt-3 block text-center text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-700 transition-colors py-2">
-              ← Back to Cart
-            </a>
-
-            <div class="mt-5 pt-4 border-t border-stone-100 flex items-center justify-center gap-1 text-stone-400 text-xs">
-              <span class="material-symbols-outlined" style="font-size:14px">lock</span>
-              Secure checkout
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-stone-900 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 opacity-0 pointer-events-none z-50" style="transform: translateY(12px)">
-      <span class="material-symbols-outlined text-orange-400" style="font-size:18px">check_circle</span>
-      <span id="toast-msg">Done!</span>
     </div>
 
-    <!-- Success Overlay -->
-    <div id="success-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-white/90 backdrop-blur-sm pointer-events-none opacity-0">
-      <div class="text-center px-8">
-        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <span class="material-symbols-outlined text-orange-400" style="font-size:40px;font-variation-settings:'FILL' 1">check_circle</span>
+    <div id="checkout-layout" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+      <div class="lg:col-span-2 flex flex-col gap-6">
+
+        <div class="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-stone-100">
+            <h2 class="text-base font-black text-stone-800 flex items-center gap-2">
+              <span class="material-symbols-outlined text-stone-400" style="font-size:18px">inventory_2</span>
+              <span data-i18n="co_order_items">Order Items</span>
+            </h2>
+            <span id="checkout-item-count" class="text-xs font-bold text-stone-400"></span>
+          </div>
+
+          <div
+            class="grid grid-cols-12 px-6 py-2.5 border-b border-stone-100 bg-stone-50 text-[10px] font-bold uppercase tracking-widest text-stone-400">
+            <div class="col-span-6" data-i18n="co_th_product">Product</div>
+            <div class="col-span-3 text-center" data-i18n="co_th_qty">Quantity</div>
+            <div class="col-span-3 text-right" data-i18n="co_th_total">Total</div>
+          </div>
+
+          <div id="checkout-items" class="divide-y divide-stone-100"></div>
+
+          <div class="px-6 py-5 border-t border-stone-200 bg-stone-50 space-y-2.5">
+            <div class="flex justify-between items-center text-sm">
+              <span class="text-stone-500 font-medium" data-i18n="cart_subtotal">Sub Total</span>
+              <span id="co-subtotal" class="font-bold text-stone-800"></span>
+            </div>
+            <div class="flex justify-between items-center pt-3 border-t border-stone-200">
+              <span class="font-black text-stone-800" data-i18n="cart_total">Total</span>
+              <span id="co-total" class="text-2xl font-black text-orange-500"></span>
+            </div>
+          </div>
         </div>
-        <h2 class="text-3xl font-black text-stone-800 mb-2">Order Placed!</h2>
-        <p class="text-stone-500 text-sm mb-2">Your order has been confirmed.</p>
-        <p id="success-method-msg" class="text-stone-400 text-xs mb-8 max-w-xs mx-auto leading-relaxed"></p>
-        <a href="index.html" class="inline-block bg-orange-400 hover:bg-orange-500 text-white font-bold uppercase tracking-widest text-xs px-8 py-3 rounded-xl transition-colors">
-          Continue Shopping
-        </a>
+
+        <div class="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="px-6 py-4 border-b border-stone-100">
+            <h2 class="text-base font-black text-stone-800 flex items-center gap-2">
+              <span class="material-symbols-outlined text-stone-400" style="font-size:18px">credit_card</span>
+              <span data-i18n="co_payment_method">Payment Method</span>
+            </h2>
+          </div>
+
+          <div class="p-6 flex flex-col gap-3">
+            <div class="pay-method selected" id="method-bank" onclick="selectMethod('bank')">
+              <div class="radio-dot"></div>
+              <div class="flex-1">
+                <p class="font-bold text-stone-800 text-sm" data-i18n="co_pay_bank">Pay through Bank</p>
+                <p class="text-xs text-stone-400 mt-0.5" data-i18n="co_pay_bank_desc">ABA / ACLEDA / Wing transfer via
+                  QR</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-7 w-10 bg-stone-100 rounded flex items-center justify-center">
+                  <span class="material-symbols-outlined text-stone-500" style="font-size:16px">qr_code_2</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pay-method" id="method-arrival" onclick="selectMethod('arrival')">
+              <div class="radio-dot"></div>
+              <div class="flex-1">
+                <p class="font-bold text-stone-800 text-sm" data-i18n="co_pay_arrival">Pay on Arrival</p>
+                <p class="text-xs text-stone-400 mt-0.5" data-i18n="co_pay_arrival_desc">Cash when you pick up your
+                  order at the store</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-7 w-10 bg-stone-100 rounded flex items-center justify-center">
+                  <span class="material-symbols-outlined text-stone-500" style="font-size:16px">payments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="qr-panel" class="open">
+            <div class="border-t border-stone-100 px-6 py-6">
+              <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-5 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-stone-300" style="font-size:14px">info</span>
+                <span data-i18n="co_qr_scan_info">Scan with any banking app to pay</span>
+              </p>
+              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                <div class="flex-shrink-0 bg-white border-2 border-stone-200 rounded-2xl p-3 shadow-sm">
+                  <img id="qr-img" src="" alt="TCS ABA QR Code" class="w-44 h-44 object-contain rounded-lg" />
+                </div>
+                <div class="flex flex-col justify-center gap-3">
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1" data-i18n="co_acc_name">
+                      Account Name</p>
+                    <p class="font-black text-stone-800 text-base">TCS Store</p>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1" data-i18n="co_bank_name">
+                      Bank</p>
+                    <p class="font-bold text-stone-700 text-sm">ABA Bank</p>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1"
+                      data-i18n="co_amount_to_pay">Amount to Pay</p>
+                    <p id="qr-amount" class="font-black text-orange-500 text-xl"></p>
+                  </div>
+                  <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 mt-1">
+                    <p class="text-xs text-amber-700 font-medium leading-relaxed" data-i18n="co_qr_notice">
+                      After payment, show your transaction slip at the store to collect your order.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="arrival-panel" class="hidden border-t border-stone-100 px-6 py-6">
+            <div class="bg-stone-50 border border-stone-200 rounded-xl p-4 flex items-start gap-3">
+              <span class="material-symbols-outlined text-stone-400 flex-shrink-0 mt-0.5"
+                style="font-size:20px">store</span>
+              <div>
+                <p class="font-bold text-stone-800 text-sm mb-1" data-i18n="co_arrival_title">Pick up at TCS Campus
+                  Store</p>
+                <p class="text-xs text-stone-500 leading-relaxed" data-i18n="co_arrival_notice">Your order will be
+                  reserved for 24 hours. Pay cash when you arrive to collect your items.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm">
+          <label
+            class="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-3 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-stone-300" style="font-size:14px">edit_note</span>
+            <span data-i18n="co_note_label">Order Note (optional)</span>
+          </label>
+          <textarea id="order-note" rows="3" data-i18n-placeholder="co_note_placeholder"
+            placeholder="Any special requests or notes for your order…"
+            class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm text-stone-700 placeholder:text-stone-300 focus:outline-none focus:border-orange-300 resize-none transition-colors"></textarea>
+        </div>
+      </div>
+
+      <div class="lg:col-span-1">
+        <div class="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm sticky top-6">
+          <h2 class="text-lg font-black text-stone-800 mb-6" data-i18n="cart_summary_title">Order Summary</h2>
+
+          <div class="flex flex-col gap-3 text-sm">
+            <div class="flex justify-between items-center">
+              <span class="text-stone-500" data-i18n="co_summary_items">Items</span>
+              <span id="s-items" class="font-bold text-stone-800"></span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-stone-500" data-i18n="cart_subtotal">Subtotal</span>
+              <span id="s-subtotal" class="font-bold text-stone-800"></span>
+            </div>
+          </div>
+
+          <div class="border-t border-stone-200 mt-5 pt-5 flex justify-between items-center">
+            <span class="text-base font-black text-stone-800" data-i18n="cart_total">Total</span>
+            <span id="s-total" class="text-2xl font-black text-orange-500"></span>
+          </div>
+
+          <div id="s-method-badge"
+            class="mt-4 flex items-center gap-2 bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5">
+            <span class="material-symbols-outlined text-stone-400" style="font-size:16px">qr_code_2</span>
+            <span id="s-method-label" class="text-xs font-bold text-stone-600 uppercase tracking-widest"
+              data-i18n="co_pay_bank">Pay through Bank</span>
+          </div>
+
+          <button id="confirm-btn" onclick="confirmOrder()"
+            class="mt-5 w-full bg-orange-400 hover:bg-orange-500 active:scale-95 text-white font-bold uppercase tracking-widest text-sm py-3.5 rounded-xl transition-all flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined" style="font-size:18px">check_circle</span>
+            <span id="confirm-btn-text" data-i18n="co_confirm_btn">Confirm Payment</span>
+          </button>
+
+          <a href="cart.html"
+            class="mt-3 block text-center text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-700 transition-colors py-2">
+            ← <span data-i18n="co_back_to_cart">Back to Cart</span>
+          </a>
+
+          <div
+            class="mt-5 pt-4 border-t border-stone-100 flex items-center justify-center gap-1 text-stone-400 text-xs">
+            <span class="material-symbols-outlined" style="font-size:14px">lock</span>
+            <span data-i18n="cart_secure_checkout">Secure checkout</span>
+          </div>
+        </div>
       </div>
     </div>
+  </main>
 
-    <div id="footer"></div>
+  <div id="success-overlay"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-white/90 backdrop-blur-sm pointer-events-none opacity-0">
+    <div class="text-center px-8">
+      <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <span class="material-symbols-outlined text-orange-400"
+          style="font-size:40px;font-variation-settings:'FILL' 1">check_circle</span>
+      </div>
+      <h2 class="text-3xl font-black text-stone-800 mb-2" data-i18n="co_success_title">Order Placed!</h2>
+      <p class="text-stone-500 text-sm mb-2" data-i18n="co_success_subtitle">Your order has been confirmed.</p>
+      <p id="success-method-msg" class="text-stone-400 text-xs mb-8 max-w-xs mx-auto leading-relaxed"></p>
+      <a href="index.html"
+        class="inline-block bg-orange-400 hover:bg-orange-500 text-white font-bold uppercase tracking-widest text-xs px-8 py-3 rounded-xl transition-colors"
+        data-i18n="cart_continue_shopping">
+        Continue Shopping
+      </a>
+    </div>
+  </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+  <div id="footer"></div>
 
-    <script>
-      // ── Helpers ──────────────────────────────────────────────────────────────
-      function getCart() {
-        return JSON.parse(localStorage.getItem("tcs_cart") || "[]");
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    function getCart() { return JSON.parse(localStorage.getItem("tcs_cart") || "[]"); }
+
+    const CAT_KEYS = {
+      books: "cat_book", supplies: "cat_supply", secondhand: "nav_secondhand",
+      cs: "cat_cs", maths: "cat_maths", science: "cat_science",
+      calculator: "cat_calculator", paper: "cat_paper", notebook: "cat_notebook",
+      ruler: "cat_ruler", pen: "cat_pen", stationery: "cat_stationery"
+    };
+
+    const CAT_BADGE = {
+      calculator: "badge-calculator", cs: "badge-cs", maths: "badge-maths",
+      science: "badge-science", notebook: "badge-notebook", paper: "badge-paper",
+      pen: "badge-pen", stationery: "badge-stationery", ruler: "badge-ruler",
+      books: "badge-books"
+    };
+    function catBadgeClass(cat) { return CAT_BADGE[cat] || "badge-default"; }
+
+    let activeMethod = "bank";
+
+    function selectMethod(method) {
+      activeMethod = method;
+      document.getElementById("method-bank").classList.toggle("selected", method === "bank");
+      document.getElementById("method-arrival").classList.toggle("selected", method === "arrival");
+
+      const qrPanel = document.getElementById("qr-panel");
+      const arrivalPanel = document.getElementById("arrival-panel");
+
+      if (method === "bank") {
+        qrPanel.classList.add("open"); arrivalPanel.classList.add("hidden");
+      } else {
+        qrPanel.classList.remove("open"); arrivalPanel.classList.remove("hidden");
       }
 
-      function showToast(msg) {
-        const toast = document.getElementById("toast");
-        document.getElementById("toast-msg").textContent = msg;
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2400);
+      const icon = method === "bank" ? "qr_code_2" : "payments";
+      const labelKey = method === "bank" ? "co_pay_bank" : "co_pay_arrival";
+      document.querySelector("#s-method-badge .material-symbols-outlined").textContent = icon;
+
+      const labelEl = document.getElementById("s-method-label");
+      labelEl.setAttribute("data-i18n", labelKey);
+      if (window.i18n) labelEl.textContent = window.i18n.t(labelKey);
+    }
+
+    function changeQty(key, delta) {
+      const cart = getCart();
+      const item = cart.find(i => i.key === key);
+      if (!item) return;
+      item.qty = Math.max(1, item.qty + delta);
+      localStorage.setItem("tcs_cart", JSON.stringify(cart));
+      renderCheckout();
+    }
+
+    function renderCheckout() {
+      const cart = getCart();
+      const notice = document.getElementById("empty-notice");
+      const layout = document.getElementById("checkout-layout");
+
+      if (!cart.length) {
+        notice.classList.remove("hidden"); notice.classList.add("flex");
+        layout.classList.add("hidden");
+        return;
       }
 
-      const CAT_LABELS = {
-        books: "Books", supplies: "Supplies", secondhand: "Secondhand",
-        cs: "Computer Sciences", maths: "Maths", science: "Science",
-        calculator: "Calculator", paper: "Paper", notebook: "Notebooks",
-        ruler: "Ruler", pen: "Pen", stationery: "Stationary"
-      };
-      const CAT_BADGE = {
-        calculator: "badge-calculator", cs: "badge-cs", maths: "badge-maths",
-        science: "badge-science", notebook: "badge-notebook", paper: "badge-paper",
-        pen: "badge-pen", stationery: "badge-stationery", ruler: "badge-ruler",
-        books: "badge-books"
-      };
-      function catLabel(cat) { return CAT_LABELS[cat] || cat.toUpperCase(); }
-      function catBadgeClass(cat) { return CAT_BADGE[cat] || "badge-default"; }
+      notice.classList.add("hidden"); notice.classList.remove("flex");
+      layout.classList.remove("hidden"); layout.classList.add("grid");
 
-      // ── Payment method ───────────────────────────────────────────────────────
-      let activeMethod = "bank";
+      const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById("checkout-item-count").textContent = `(${totalQty})`;
 
-      function selectMethod(method) {
-        activeMethod = method;
-        document.getElementById("method-bank").classList.toggle("selected", method === "bank");
-        document.getElementById("method-arrival").classList.toggle("selected", method === "arrival");
-
-        const qrPanel = document.getElementById("qr-panel");
-        const arrivalPanel = document.getElementById("arrival-panel");
-
-        if (method === "bank") {
-          qrPanel.classList.add("open");
-          arrivalPanel.classList.add("hidden");
-        } else {
-          qrPanel.classList.remove("open");
-          arrivalPanel.classList.remove("hidden");
-        }
-
-        // Update sidebar badge
-        const icon = method === "bank" ? "qr_code_2" : "payments";
-        const label = method === "bank" ? "Pay through Bank" : "Pay on Arrival";
-        document.querySelector("#s-method-badge .material-symbols-outlined").textContent = icon;
-        document.getElementById("s-method-label").textContent = label;
-      }
-
-      // ── Qty changes ──────────────────────────────────────────────────────────
-      function changeQty(key, delta) {
-        const cart = getCart();
-        const item = cart.find(i => i.key === key);
-        if (!item) return;
-        item.qty = Math.max(1, item.qty + delta);
-        localStorage.setItem("tcs_cart", JSON.stringify(cart));
-        renderCheckout();
-      }
-
-      // ── Render ───────────────────────────────────────────────────────────────
-      function renderCheckout() {
-        const cart = getCart();
-        const notice    = document.getElementById("empty-notice");
-        const layout    = document.getElementById("checkout-layout");
-
-        if (!cart.length) {
-          notice.classList.remove("hidden");
-          notice.classList.add("flex");
-          layout.classList.add("hidden");
-          return;
-        }
-
-        notice.classList.add("hidden");
-        notice.classList.remove("flex");
-        layout.classList.remove("hidden");
-        layout.classList.add("grid");
-
-        const totalQty = cart.reduce((s, i) => s + i.qty, 0);
-        document.getElementById("checkout-item-count").textContent =
-          `${totalQty} item${totalQty !== 1 ? "s" : ""}`;
-
-        // Rows
-        document.getElementById("checkout-items").innerHTML = cart.map(item => `
+      document.getElementById("checkout-items").innerHTML = cart.map(item => `
           <div class="order-row grid grid-cols-12 items-center px-6 py-4 gap-2">
-            <!-- Product col -->
             <div class="col-span-6 flex items-center gap-3 min-w-0">
               <a href="product-detail.html?type=${item.type}&id=${item.id}"
                  class="flex-shrink-0 w-14 h-14 bg-stone-50 border border-stone-100 rounded-xl flex items-center justify-center overflow-hidden">
@@ -465,82 +534,68 @@
               </a>
               <div class="min-w-0">
                 <p class="text-[10px] font-bold uppercase tracking-widest mb-1">
-                  <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold ${catBadgeClass(item.category)}">
-                    ${catLabel(item.category)}
+                  <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold ${catBadgeClass(item.category)}" data-i18n="${CAT_KEYS[item.category] || 'cat_' + item.category}">
                   </span>
                 </p>
                 <p class="font-bold text-stone-800 text-sm leading-snug truncate">${item.title}</p>
-                <p class="text-[10px] text-stone-400 mt-0.5">Item type: <span class="capitalize">${item.type}</span></p>
+                <p class="text-[10px] text-stone-400 mt-0.5">Type: <span class="capitalize" data-i18n="cat_${item.type}">${item.type}</span></p>
               </div>
             </div>
-
-            <!-- Qty col -->
             <div class="col-span-3 flex items-center justify-center">
               <div class="flex items-center border border-stone-200 rounded-lg overflow-hidden">
-                <button onclick="changeQty('${item.key}', -1)"
-                  class="qty-btn w-8 h-8 flex items-center justify-center text-stone-500 font-bold text-base bg-stone-50">−</button>
+                <button onclick="changeQty('${item.key}', -1)" class="qty-btn w-8 h-8 flex items-center justify-center text-stone-500 font-bold text-base bg-stone-50">−</button>
                 <span class="w-8 text-center font-bold text-stone-800 text-sm">${item.qty}</span>
-                <button onclick="changeQty('${item.key}', 1)"
-                  class="qty-btn w-8 h-8 flex items-center justify-center text-stone-500 font-bold text-base bg-stone-50">+</button>
+                <button onclick="changeQty('${item.key}', 1)" class="qty-btn w-8 h-8 flex items-center justify-center text-stone-500 font-bold text-base bg-stone-50">+</button>
               </div>
             </div>
-
-            <!-- Total col -->
             <div class="col-span-3 text-right">
               <p class="font-black text-stone-800 text-sm">$${(item.price * item.qty).toFixed(2)}</p>
-              <p class="text-[10px] text-stone-400 mt-0.5">$${item.price.toFixed(2)} each</p>
+              <p class="text-[10px] text-stone-400 mt-0.5">$${item.price.toFixed(2)}</p>
             </div>
           </div>
         `).join("");
 
-        // Totals
-        const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-        const total    = subtotal;
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      document.getElementById("co-subtotal").textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById("co-total").textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById("s-items").textContent = totalQty;
+      document.getElementById("s-subtotal").textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById("s-total").textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById("qr-amount").textContent = `$${subtotal.toFixed(2)}`;
 
-        document.getElementById("co-subtotal").textContent = `$${subtotal.toFixed(2)}`;
-        document.getElementById("co-total").textContent    = `$${total.toFixed(2)}`;
+      const qrData = encodeURIComponent(`TCS Store | Total: $${subtotal.toFixed(2)} | ABA Payment`);
+      document.getElementById("qr-img").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}`;
 
-        document.getElementById("s-items").textContent    = `${totalQty} item${totalQty !== 1 ? "s" : ""}`;
-        document.getElementById("s-subtotal").textContent = `$${subtotal.toFixed(2)}`;
-        document.getElementById("s-total").textContent    = `$${total.toFixed(2)}`;
+      if (window.i18n && window.i18n.apply) window.i18n.apply();
+    }
 
-        // QR amount
-        document.getElementById("qr-amount").textContent = `$${total.toFixed(2)}`;
+    function confirmOrder() {
+      const cart = getCart();
+      if (!cart.length) return;
 
-        // QR image (using goqr.me API)
-        const qrData = encodeURIComponent(`TCS Store | Total: $${total.toFixed(2)} | ABA Payment`);
-        document.getElementById("qr-img").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}`;
-      }
+      const btn = document.getElementById("confirm-btn");
+      btn.disabled = true;
 
-      // ── Confirm order ────────────────────────────────────────────────────────
-      function confirmOrder() {
-        const cart = getCart();
-        if (!cart.length) return;
+      btn.innerHTML = `<span class="material-symbols-outlined animate-spin" style="font-size:18px">progress_activity</span> <span data-i18n="co_btn_processing">${window.i18n ? window.i18n.t("co_btn_processing") : "Processing..."}</span>`;
 
-        const btn = document.getElementById("confirm-btn");
-        btn.disabled = true;
-        btn.innerHTML = `<span class="material-symbols-outlined animate-spin" style="font-size:18px">progress_activity</span> Processing…`;
+      setTimeout(() => {
+        localStorage.removeItem("tcs_cart");
 
-        setTimeout(() => {
-          // Clear cart
-          localStorage.removeItem("tcs_cart");
+        const overlay = document.getElementById("success-overlay");
+        overlay.style.pointerEvents = "all";
+        overlay.style.opacity = "1";
 
-          // Show success overlay
-          const overlay = document.getElementById("success-overlay");
-          overlay.style.pointerEvents = "all";
-          overlay.style.opacity = "1";
+        const msgKey = activeMethod === "bank" ? "co_success_bank_msg" : "co_success_arrival_msg";
+        const msgEl = document.getElementById("success-method-msg");
+        msgEl.setAttribute("data-i18n", msgKey);
+        if (window.i18n) msgEl.textContent = window.i18n.t(msgKey);
 
-          const msg = activeMethod === "bank"
-            ? "Please show your ABA transfer slip when collecting your items at the store."
-            : "Pay with cash when you arrive at the TCS Campus Store to collect your order.";
-          document.getElementById("success-method-msg").textContent = msg;
+        if (window.TCSCart) window.TCSCart.updateBadge();
+      }, 1400);
+    }
 
-          if (window.TCSCart) window.TCSCart.updateBadge();
-        }, 1400);
-      }
+    renderCheckout();
+  </script>
+</body>
 
-      // ── Init ─────────────────────────────────────────────────────────────────
-      renderCheckout();
-    </script>
-  </body>
 </html>
