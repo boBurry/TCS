@@ -408,7 +408,7 @@ const USERS = [
   },
 ];
 
-// ── Helper: resolve a secondhand entry into a full display object ──────────
+// ── resolve a secondhand entry into a full display object ──────────
 function resolveSecondhand(entry) {
   if (entry.bookId) {
     const book = BOOKS.find((b) => b.id === entry.bookId);

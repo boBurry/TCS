@@ -566,7 +566,7 @@
       }
 
       function handleBackdropClick(e) {
-        // close if user clicks the dark backdrop (not the modal itself)
+        // close if user clicks the dark backdrop
         if (e.target === document.getElementById("request-modal-backdrop")) {
           closeRequestModal();
         }
@@ -606,7 +606,7 @@
           window.originalModalContent = modalContainer.innerHTML;
         }
 
-        // ── 2. Inject the Fake "Thank You" State ──
+        // ── 2. Inject Thank You State ──
         // Using your existing Tailwind color palette and Material Symbols
         modalContainer.innerHTML = `
           <button onclick="closeAndResetModal()" class="absolute top-3.5 right-3.5 text-stone-400 hover:text-stone-800 transition-colors leading-none p-0.5 bg-transparent border-none cursor-pointer">
@@ -632,7 +632,7 @@
         // Close the modal first
         closeRequestModal();
 
-        // Wait for the CSS close animation to finish (e.g., 200ms),
+        // Wait for the CSS close animation to finish
         // then restore the original form HTML so it's ready for the next time
         setTimeout(() => {
           document.getElementById("request-modal").innerHTML =

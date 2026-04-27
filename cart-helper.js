@@ -1,7 +1,5 @@
 // ── cart-helper.js ───────────────────────────────────────────────────────────
-// Include this after data.js and script.js on every page.
-// It keeps the cart badge in the header in sync and patches existing card buttons
-// so "Details" links go to product-detail.html.
+// keeps the cart badge in the header in sync and patches existing card buttons
 
 (function () {
   // ── Cart API ────────────────────────────────────────────────────────────────
@@ -37,7 +35,7 @@
     },
   };
 
-  // ── Patch "Details" buttons on index / books / supplies / secondhand pages ──
+  // ── Details buttons on index / books / supplies / secondhand pages ──
   // Called after DOM renders (use MutationObserver for dynamically injected cards).
 
   function patchCards() {

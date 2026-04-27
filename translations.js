@@ -1,7 +1,4 @@
-// ── TCS Translations ─────────────────────────────────────────────────────────
-// Book titles are intentionally NOT translated.
-// Add new keys here and reference them with data-i18n="key" in HTML.
-
+// ── TCS Translations ────────────────────────────────────────────────────────
 window.TRANSLATIONS = {
   en: {
     // ── Navigation ──────────────────────────────────────────────────────────
