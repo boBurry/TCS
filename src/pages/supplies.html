@@ -32,7 +32,7 @@
       name="twitter:image"
       content="https://techno-cs.vercel.app/assets/logo.png"
     />
-    <title>Secondhand — TCS</title>
+    <title>Supplies — TCS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -84,11 +84,6 @@
         color: #fff;
         border-color: #1c1917;
       }
-      .cond-btn.active {
-        background-color: #1c1917;
-        color: #fff;
-        border-color: #1c1917;
-      }
       .sort-btn.active {
         background-color: #1c1917;
         color: #fff;
@@ -133,10 +128,10 @@
       >
         <div>
           <h1
-            data-i18n="page_secondhand_title"
-            class="text-3xl sm:text-5xl font-black text-stone-800 leading-tight"
+            data-i18n="page_supplies_title"
+            class="text-4xl sm:text-5xl font-black text-stone-800 leading-tight"
           >
-            Secondhand
+            Supplies
           </h1>
         </div>
         <div class="flex items-center gap-3">
@@ -168,65 +163,52 @@
           <div class="flex flex-col gap-1">
             <button
               data-cat="all"
-              data-i18n="filter_all_items"
+              data-i18n="filter_all_supplies"
               class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
-              All Items
+              All Supplies
             </button>
             <button
-              data-cat="books"
-              data-i18n="filter_books"
+              data-cat="calculator"
+              data-i18n="filter_calculator"
               class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
-              Books
+              Calculator
             </button>
             <button
-              data-cat="supplies"
-              data-i18n="filter_supplies"
+              data-cat="notebook"
+              data-i18n="filter_notebook"
               class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
-              Supplies
-            </button>
-          </div>
-        </div>
-
-        <div class="border-t border-stone-200 mb-8"></div>
-
-        <div class="mb-8">
-          <p
-            data-i18n="filter_condition"
-            class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
-          >
-            Condition
-          </p>
-          <div class="flex flex-col gap-1">
-            <button
-              data-cond="all"
-              data-i18n="filter_all_conditions"
-              class="cond-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
-            >
-              All Conditions
+              Notebook
             </button>
             <button
-              data-cond="like-new"
-              data-i18n="filter_like_new"
-              class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+              data-cat="paper"
+              data-i18n="filter_paper"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
-              Like New
+              Paper
             </button>
             <button
-              data-cond="good"
-              data-i18n="filter_good"
-              class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+              data-cat="ruler"
+              data-i18n="filter_ruler"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
-              Good
+              Ruler &amp; Set
             </button>
             <button
-              data-cond="fair"
-              data-i18n="filter_fair"
-              class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+              data-cat="pen"
+              data-i18n="filter_pen"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
             >
-              Fair
+              Pen &amp; Pencil
+            </button>
+            <button
+              data-cat="stationery"
+              data-i18n="filter_stationery"
+              class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors hover:bg-stone-800 hover:text-white hover:border-stone-800"
+            >
+              Stationery
             </button>
           </div>
         </div>
@@ -293,7 +275,7 @@
           <span
             class="material-symbols-outlined text-stone-300 mb-4"
             style="font-size: 56px"
-            >autorenew</span
+            >straighten</span
           >
           <p
             data-i18n="empty_items"
@@ -330,7 +312,6 @@
         </button>
       </div>
       <div class="flex-1 overflow-y-auto px-6 py-6">
-        <!-- Category -->
         <p
           data-i18n="filter_category"
           class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
@@ -340,61 +321,52 @@
         <div class="flex flex-col gap-1 mb-8">
           <button
             data-cat="all"
-            data-i18n="filter_all_items"
+            data-i18n="filter_all_supplies"
             class="cat-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
-            All Items
+            All Supplies
           </button>
           <button
-            data-cat="books"
-            data-i18n="filter_books"
+            data-cat="calculator"
+            data-i18n="filter_calculator"
             class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
-            Books
+            Calculator
           </button>
           <button
-            data-cat="supplies"
-            data-i18n="filter_supplies"
+            data-cat="notebook"
+            data-i18n="filter_notebook"
             class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
-            Supplies
-          </button>
-        </div>
-        <div class="border-t border-stone-100 mb-8"></div>
-        <p
-          data-i18n="filter_condition"
-          class="text-xs font-black uppercase tracking-widest text-stone-400 mb-3"
-        >
-          Condition
-        </p>
-        <div class="flex flex-col gap-1 mb-8">
-          <button
-            data-cond="all"
-            data-i18n="filter_all_conditions"
-            class="cond-btn active text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
-          >
-            All Conditions
+            Notebook
           </button>
           <button
-            data-cond="like-new"
-            data-i18n="filter_like_new"
-            class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+            data-cat="paper"
+            data-i18n="filter_paper"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
-            Like New
+            Paper
           </button>
           <button
-            data-cond="good"
-            data-i18n="filter_good"
-            class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+            data-cat="ruler"
+            data-i18n="filter_ruler"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
-            Good
+            Ruler &amp; Set
           </button>
           <button
-            data-cond="fair"
-            data-i18n="filter_fair"
-            class="cond-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+            data-cat="pen"
+            data-i18n="filter_pen"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
           >
-            Fair
+            Pen &amp; Pencil
+          </button>
+          <button
+            data-cat="stationery"
+            data-i18n="filter_stationery"
+            class="cat-btn text-left text-xs font-bold uppercase tracking-widest px-3 py-2 rounded border border-stone-200 transition-colors"
+          >
+            Stationery
           </button>
         </div>
         <div class="border-t border-stone-100 mb-8"></div>
@@ -445,34 +417,23 @@
     </div>
 
     <div id="footer"></div>
-    <script src="translations.js"></script>
-    <script src="data.js"></script>
-    <script src="script.js"></script>
-    <script src="cart-helper.js"></script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/cart-helper.js"></script>
 
     <script>
-      // Data loaded from data.js
-      const ITEMS = SECONDHAND.map(resolveSecondhand).filter(Boolean);
-
-      // Condition config
-      const condConfig = {
-        "like-new": { label: "Like New", color: "bg-green-100 text-green-700" },
-        good: { label: "Good", color: "bg-blue-100 text-blue-600" },
-        fair: { label: "Fair", color: "bg-yellow-100 text-yellow-700" },
-      };
+      // SUPPLIES array is loaded from data.js
+      const ITEMS = SUPPLIES;
 
       let activeCategory = "all";
-      let activeCondition = "all";
       let activeSort = "default";
 
       function getFiltered() {
-        let list = [...ITEMS];
-        if (activeCategory === "books")
-          list = list.filter((i) => i.category === "books");
-        if (activeCategory === "supplies")
-          list = list.filter((i) => i.category === "supplies");
-        if (activeCondition !== "all")
-          list = list.filter((i) => i.condition === activeCondition);
+        let list =
+          activeCategory === "all"
+            ? [...ITEMS]
+            : ITEMS.filter((i) => i.category === activeCategory);
         switch (activeSort) {
           case "az":
             list.sort((a, b) => a.title.localeCompare(b.title));
@@ -481,14 +442,31 @@
             list.sort((a, b) => b.title.localeCompare(a.title));
             break;
           case "lowhigh":
-            list.sort((a, b) => a.salePrice - b.salePrice);
+            list.sort((a, b) => a.price - b.price);
             break;
           case "highlow":
-            list.sort((a, b) => b.salePrice - a.salePrice);
+            list.sort((a, b) => b.price - a.price);
             break;
         }
         return list;
       }
+
+      const catColors = {
+        calculator: "bg-blue-100 text-blue-600",
+        notebook: "bg-purple-100 text-purple-600",
+        paper: "bg-stone-200 text-stone-600",
+        ruler: "bg-orange-100 text-orange-600",
+        pen: "bg-green-100 text-green-600",
+        stationery: "bg-yellow-100 text-yellow-700",
+      };
+      const catLabels = {
+        calculator: "Calculator",
+        notebook: "Notebook",
+        paper: "Paper",
+        ruler: "Ruler & Set",
+        pen: "Pen & Pencil",
+        stationery: "Stationery",
+      };
 
       function renderGrid() {
         const grid = document.getElementById("items-grid");
@@ -504,36 +482,21 @@
           } else {
             empty.classList.add("hidden");
             grid.innerHTML = items
-              .map((i) => {
-                const cond = condConfig[i.condition];
-                const isBook = i.category === "books";
-                // Create the key for the translation dictionary (e.g. cond_like_new)
-                const conditionKey = "cond_" + i.condition.replace("-", "_");
-                const categoryKey = isBook ? "cat_book" : "cat_supply";
-                
-                return `
+              .map(
+                (i) => `
               <div class="item-card bg-white rounded-lg p-3 flex flex-col gap-3 border border-stone-100 cursor-pointer">
-                <div class="relative bg-stone-50 rounded overflow-hidden flex items-center justify-center" style="height:190px;">
-                  <img src="${i.cover}" alt="${i.title}"
-                    class="h-full w-full ${isBook ? "object-contain" : "object-cover"} rounded" />
-                  <span data-i18n="${conditionKey}" class="absolute top-2 left-2 text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded ${cond.color}">
-                    ${cond.label}
-                  </span>
+                <div class="bg-stone-50 rounded overflow-hidden" style="height:190px;">
+                  <img src="${i.img}" alt="${i.title}" class="h-full w-full object-cover rounded" />
                 </div>
                 <div class="flex-1 flex flex-col gap-1">
-                  <span data-i18n="${categoryKey}" class="text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded w-fit ${isBook ? "bg-orange-100 text-orange-600" : "bg-teal-100 text-teal-600"}">
-                    ${isBook ? "Book" : "Supply"}
-                  </span>
+                  <span data-i18n="cat_${i.category}" class="text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded w-fit ${catColors[i.category]}">${catLabels[i.category]}</span>
                   <p class="font-bold text-stone-800 text-sm leading-snug mt-1">${i.title}</p>
-                  <div class="flex items-center gap-2">
-                    <p class="text-orange-500 font-black text-sm">$${i.salePrice.toFixed(2)} <span class="text-stone-400 font-normal text-xs">USD</span></p>
-                    <p class="text-stone-400 line-through text-xs">$${i.originalPrice.toFixed(2)}</p>
-                  </div>
+                  <p class="text-orange-500 font-black text-sm">$${i.price.toFixed(2)} <span class="text-stone-400 font-normal text-xs">USD</span></p>
                 </div>
-                <button data-secondhand-id="${i.id}" data-i18n="btn_details" class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
+                <button data-supply-id="${i.id}" data-i18n="btn_details" class="w-full bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold uppercase tracking-widest py-2 rounded transition-colors">Details</button>
               </div>
-            `;
-              })
+            `,
+              )
               .join("");
           }
           
@@ -544,7 +507,7 @@
           
           grid.classList.remove("sorting");
           
-          // Force translation engine to catch newly drawn elements
+          // Force translation engine to update newly drawn elements
           if (window.i18n) window.i18n.apply();
         }, 120);
       }
@@ -556,11 +519,6 @@
             b.classList.toggle("active", b.dataset.cat === activeCategory),
           );
         document
-          .querySelectorAll(".cond-btn")
-          .forEach((b) =>
-            b.classList.toggle("active", b.dataset.cond === activeCondition),
-          );
-        document
           .querySelectorAll(".sort-btn")
           .forEach((b) =>
             b.classList.toggle("active", b.dataset.sort === activeSort),
@@ -570,14 +528,6 @@
       document.querySelectorAll(".cat-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           activeCategory = btn.dataset.cat;
-          syncButtons();
-          renderGrid();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      });
-      document.querySelectorAll(".cond-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          activeCondition = btn.dataset.cond;
           syncButtons();
           renderGrid();
           window.scrollTo({ top: 0, behavior: "smooth" });

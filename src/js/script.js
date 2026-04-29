@@ -26,7 +26,7 @@ function logout() {
 })();
 
 // Load header
-fetch("header.html")
+fetch("../components/header.html")
   .then((res) => res.text())
   .then((html) => {
     document.getElementById("header").innerHTML = html;
@@ -214,7 +214,7 @@ fetch("header.html")
   .catch((err) => console.error("Error loading header:", err));
 
 // Load footer
-fetch("footer.html")
+fetch("../components/footer.html")
   .then((res) => res.text())
   .then((html) => {
     document.getElementById("footer").innerHTML = html;
