@@ -655,7 +655,7 @@
               <img src="${b.cover}" alt="${b.title}" class="h-full w-full object-contain rounded shadow" />
             </div>
             <div>
-              <p class="font-bold text-stone-800 text-sm leading-snug">${b.title}</p>
+              <p class="font-bold text-stone-800 text-sm leading-snug line-clamp-1">${b.title}</p>
               <p class="text-orange-500 font-bold text-sm mt-1">$${b.price.toFixed(2)} USD</p>
             </div>
             <button data-book-id="${b.id}" data-i18n="btn_details" class="w-fit bg-stone-400 hover:bg-stone-500 text-white text-xs font-bold uppercase tracking-widest px-5 py-2 rounded transition-colors">
@@ -672,7 +672,7 @@
               <span data-i18n="label_used" class="absolute top-2 left-2 bg-orange-400 text-white text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded">Used</span>
             </div>
             <div>
-              <p class="font-bold text-stone-800 text-sm leading-snug">${r.title}</p>
+              <p class="font-bold text-stone-800 text-sm leading-snug line-clamp-1">${r.title}</p>
               <div class="flex items-center gap-2 mt-1">
                 <p class="text-orange-500 font-bold text-sm">$${r.salePrice.toFixed(2)} USD</p>
                 <p class="text-stone-400 line-through text-xs">$${r.originalPrice.toFixed(2)}</p>
