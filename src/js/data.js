@@ -6,7 +6,7 @@ const BOOKS = [
     price: 29.49,
     cover:
       "/assets/books/Calculus- Early Transcendentals — James Stewart (8th ed.).jpg",
-    popular: true,
+    popular: false,
     recommended: false,
   },
 
@@ -80,7 +80,7 @@ const BOOKS = [
     price: 9.99,
     cover:
       "/assets/books/Introduction to Information Technology — Sanjay Saxena.jpg",
-    popular: false,
+    popular: true,
     recommended: true,
   },
 
