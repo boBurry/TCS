@@ -147,23 +147,31 @@
             class="flex-1 order-1 md:order-2 flex justify-center"
           >
             <div class="relative w-64 h-52 sm:w-80 sm:h-64">
-              <img
-                src="/assets/books/Calculus- Early Transcendentals — James Stewart (8th ed.).jpg"
-                class="absolute left-0 top-4 w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-md rounded"
-                style="z-index: 1; transform: rotate(-4deg)"
-              />
-              <img
-                src="/assets/books/Introduction to Information Technology — Sanjay Saxena.jpg"
-                alt="book"
-                class="absolute left-1/2 -translate-x-1/2 top-0 w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-xl rounded"
-                style="z-index: 3"
-              />
-              <img
-                src="/assets/books/Fundamentals of Physics.jpeg"
-                alt="book"
-                class="absolute right-0 top-4 w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-md rounded"
-                style="z-index: 1; transform: rotate(4deg)"
-              />
+              <div id="heroCarousel" class="relative w-full h-full overflow-hidden rounded flex items-center justify-center">
+                <img
+                  src="/assets/books/Calculus- Early Transcendentals — James Stewart (8th ed.).jpg"
+                  class="hero-slide absolute w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-md rounded transition-opacity duration-500"
+                  data-index="0"
+                />
+                <img
+                  src="/assets/books/Introduction to Information Technology — Sanjay Saxena.jpg"
+                  alt="book"
+                  class="hero-slide absolute w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-xl rounded transition-opacity duration-500"
+                  data-index="1"
+                />
+                <img
+                  src="/assets/books/Fundamentals of Physics.jpeg"
+                  alt="book"
+                  class="hero-slide absolute w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-md rounded transition-opacity duration-500"
+                  data-index="2"
+                />
+              </div>
+              <!-- Dots -->
+              <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                <button onclick="showHeroSlide(0)" class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"></button>
+                <button onclick="showHeroSlide(1)" class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"></button>
+                <button onclick="showHeroSlide(2)" class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"></button>
+              </div>
             </div>
           </div>
         </div>
@@ -647,6 +655,28 @@
     <script src="../js/cart-helper.js"></script>
 
     <script>
+      // ── Hero image auto-rotate carousel ─────────────────────────────────
+      const heroSlides = document.querySelectorAll(".hero-slide");
+      const heroDots = document.querySelectorAll(".hero-dot");
+      let heroCurrent = 0;
+
+      function showHeroSlide(index) {
+        heroSlides.forEach((slide, i) => {
+          slide.style.opacity = i === index ? "1" : "0";
+          slide.style.zIndex = i === index ? "3" : "1";
+        });
+        heroDots.forEach((dot, i) => {
+          dot.classList.toggle("bg-orange-500", i === index);
+          dot.classList.toggle("bg-stone-400", i !== index);
+        });
+        heroCurrent = index;
+      }
+
+      if (heroSlides.length) {
+        showHeroSlide(0);
+        setInterval(() => showHeroSlide((heroCurrent + 1) % heroSlides.length), 2500);
+      }
+
       // ── Render carousels from data.js ──────────────────────────────────
       function bookCard(b) {
         return `
