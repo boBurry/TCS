@@ -234,6 +234,12 @@
 
     function addToCart() {
       if (!product) return;
+
+      if (!isLoggedIn()) {
+        window.location.href = "login.html";
+        return;
+      }
+
       const cart = getCart();
       const key = `${product._type}-${product._id}`;
       const existing = cart.find(i => i.key === key);

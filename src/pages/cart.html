@@ -366,6 +366,12 @@
 
     function quickAdd(e, type, id, title, cover, price, category) {
       e.stopPropagation();
+
+      if (!isLoggedIn()) {
+        window.location.href = "login.html";
+        return;
+      }
+
       const cart = getCart();
       const key = `${type}-${id}`;
       const existing = cart.find((i) => i.key === key);
