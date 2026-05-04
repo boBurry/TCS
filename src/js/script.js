@@ -166,8 +166,8 @@ fetch("../components/header.html")
 
         // Combine BOOKS and SUPPLIES for a global search
         const allProducts = [
-          ...BOOKS.map((b) => ({ ...b, img: b.cover, type: "books" })),
-          ...SUPPLIES.map((s) => ({ ...s, type: "supplies" })),
+          ...BOOKS.map((b) => ({ ...b, img: b.cover, type: "book" })),
+          ...SUPPLIES.map((s) => ({ ...s, type: "supply" })),
         ];
 
         // Filter based on the title
@@ -179,7 +179,7 @@ fetch("../components/header.html")
           matches.forEach((item) => {
             const resultItem = document.createElement("a");
             // Link to the correct page based on type
-            resultItem.href = `${item.type}.html?id=${item.id}`;
+            resultItem.href = `product-detail.html?type=${item.type}&id=${item.id}`;
             resultItem.className =
               "flex items-center gap-3 p-3 hover:bg-stone-50 border-b border-stone-100 last:border-0 transition-colors";
 
