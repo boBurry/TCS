@@ -211,7 +211,7 @@ TCS addresses a genuine campus pain point by combining an intuitive browsing exp
 
 | Resource | Link |
 |---|---|
-| 🌐 Deployed Website | [https://techno-cs.vercel.app/](https://techno-cs.vercel.app/) |
+| 🌐 Deployed Website | [https://techno-campus-store.vercel.app/](https://techno-campus-store.vercel.app/) |
 | 🎨 Figma Prototype | [https://www.figma.com/design/LRpIQiotIyYkrqm66CzeNd/TCS-2nd](https://www.figma.com/design/LRpIQiotIyYkrqm66CzeNd/TCS-2nd?t=rEdpChCcQJo37IeB-1) |
 | 💻 Code Repository (GitHub) | [https://github.com/boBurry/TCS](https://github.com/boBurry/TCS) |
 <!-- | 🎥 Video Presentation (YouTube) | [Insert YouTube Link] | -->
