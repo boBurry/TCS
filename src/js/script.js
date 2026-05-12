@@ -16,7 +16,7 @@ function logout() {
 (function () {
   if (!window.TRANSLATIONS) {
     const s = document.createElement("script");
-    s.src = "translations.js";
+    s.src = "../js/translations.js";
     s.onload = () => {
       i18n.apply();
       syncLangButtons();
