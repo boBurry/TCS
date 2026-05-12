@@ -284,6 +284,7 @@ window.TRANSLATIONS = {
     cat_ruler: "Ruler & Set",
     cat_pen: "Pen & Pencil",
     cat_stationery: "Stationery",
+    cat_secondhand: "Secondhand",
   },
 
   kh: {
@@ -569,6 +570,7 @@ window.TRANSLATIONS = {
     cat_ruler: "បន្ទាត់ & សំណុំ",
     cat_pen: "ប៊ិច & ខ្មៅដៃ",
     cat_stationery: "គ្រឿងសំណេរ",
+    cat_secondhand: "មួយទឹក",
   },
 };
 
