@@ -143,11 +143,12 @@
           </div>
 
           <!-- Right: stacked book/card images -->
-          <div
-            class="flex-1 order-1 md:order-2 flex justify-center"
-          >
+          <div class="flex-1 order-1 md:order-2 flex justify-center">
             <div class="relative w-64 h-52 sm:w-80 sm:h-64">
-              <div id="heroCarousel" class="relative w-full h-full overflow-hidden rounded flex items-center justify-center">
+              <div
+                id="heroCarousel"
+                class="relative w-full h-full overflow-hidden rounded flex items-center justify-center"
+              >
                 <img
                   src="/assets/books/Calculus- Early Transcendentals — James Stewart (8th ed.).jpg"
                   class="hero-slide absolute w-32 sm:w-40 h-44 sm:h-52 object-cover shadow-md rounded transition-opacity duration-500"
@@ -167,10 +168,21 @@
                 />
               </div>
               <!-- Dots -->
-              <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                <button onclick="showHeroSlide(0)" class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"></button>
-                <button onclick="showHeroSlide(1)" class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"></button>
-                <button onclick="showHeroSlide(2)" class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"></button>
+              <div
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-10"
+              >
+                <button
+                  onclick="showHeroSlide(0)"
+                  class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"
+                ></button>
+                <button
+                  onclick="showHeroSlide(1)"
+                  class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"
+                ></button>
+                <button
+                  onclick="showHeroSlide(2)"
+                  class="hero-dot w-2 h-2 rounded-full bg-stone-400 hover:bg-orange-500 transition-colors"
+                ></button>
               </div>
             </div>
           </div>
@@ -593,7 +605,93 @@
           : "Attach Image";
       }
 
-      function submitRequest() {
+      const REQUEST_ENDPOINT = "/api/request-item";
+
+      function setRequestSubmitState(isLoading) {
+        const submitBtn = document.getElementById("modal-submit-btn");
+        if (!submitBtn) return;
+
+        submitBtn.disabled = isLoading;
+        submitBtn.textContent = isLoading ? "Sending..." : "Request";
+        submitBtn.classList.toggle("opacity-70", isLoading);
+        submitBtn.classList.toggle("cursor-not-allowed", isLoading);
+      }
+
+      function showRequestError(message) {
+        let errorEl = document.getElementById("request-error");
+        if (!errorEl) {
+          errorEl = document.createElement("p");
+          errorEl.id = "request-error";
+          errorEl.className =
+            "mt-2 text-[11px] font-semibold text-red-500 text-center";
+          document
+            .getElementById("modal-submit-btn")
+            .insertAdjacentElement("afterend", errorEl);
+        }
+        errorEl.textContent = message;
+      }
+
+      function imageFileToPayload(file) {
+        if (!file) return Promise.resolve(null);
+
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onerror = () => reject(new Error("Could not read image"));
+          reader.onload = () => {
+            const img = new Image();
+            img.onerror = () => reject(new Error("Could not load image"));
+            img.onload = () => {
+              const maxSize = 1200;
+              const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
+              const canvas = document.createElement("canvas");
+              canvas.width = Math.round(img.width * scale);
+              canvas.height = Math.round(img.height * scale);
+
+              const ctx = canvas.getContext("2d");
+              ctx.fillStyle = "#ffffff";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+              const dataUrl = canvas.toDataURL("image/jpeg", 0.78);
+              resolve({
+                fileName: file.name,
+                mimeType: "image/jpeg",
+                base64: dataUrl.split(",")[1],
+              });
+            };
+            img.src = reader.result;
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function sendRequestToSheet(payload) {
+        const body = JSON.stringify(payload);
+        const hasImage = Boolean(payload.imageBase64);
+
+        const request = fetch(REQUEST_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          keepalive: !hasImage,
+          body,
+        }).then(async (response) => {
+          if (!response.ok) {
+            const message = await response.text();
+            throw new Error(message || "Request failed");
+          }
+          return response;
+        });
+        request.catch((error) => console.error("Request finished with an error", error));
+
+        // Apps Script can take a while to finish its redirect. Let the UI continue
+        // after the request has been started instead of leaving the modal stuck.
+        const uiTimeout = new Promise((resolve) =>
+          setTimeout(resolve, hasImage ? 6000 : 2500),
+        );
+        return Promise.race([request, uiTimeout]);
+      }
+
+      async function submitRequest() {
         const name = document.getElementById("req-name").value.trim();
         const qty = document.getElementById("req-qty").value.trim();
         const details = document.getElementById("req-details").value.trim();
@@ -607,11 +705,34 @@
 
         // Reset border on valid input
         document.getElementById("req-name").style.borderColor = "";
+        document.getElementById("request-error")?.remove();
 
-        // ── 1. Store the original modal content so we can restore it later ──
+        // Store the original modal before changing the button into loading state.
         const modalContainer = document.getElementById("request-modal");
         if (!window.originalModalContent) {
           window.originalModalContent = modalContainer.innerHTML;
+        }
+
+        setRequestSubmitState(true);
+
+        try {
+          const user = JSON.parse(localStorage.getItem("tcs_user") || "null");
+          const image = await imageFileToPayload(file);
+          await sendRequestToSheet({
+            itemName: name,
+            quantity: qty || "1",
+            details,
+            imageFileName: image ? image.fileName : "",
+            imageMimeType: image ? image.mimeType : "",
+            imageBase64: image ? image.base64 : "",
+            pageUrl: window.location.href,
+            user,
+          });
+        } catch (error) {
+          console.error("Could not submit item request", error);
+          setRequestSubmitState(false);
+          showRequestError("Could not send request. Please try again.");
+          return;
         }
 
         // ── 2. Inject Thank You State ──
@@ -674,7 +795,10 @@
 
       if (heroSlides.length) {
         showHeroSlide(0);
-        setInterval(() => showHeroSlide((heroCurrent + 1) % heroSlides.length), 2500);
+        setInterval(
+          () => showHeroSlide((heroCurrent + 1) % heroSlides.length),
+          2500,
+        );
       }
 
       // ── Render carousels from data.js ──────────────────────────────────
